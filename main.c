@@ -36,6 +36,8 @@ extern app_subsys redudp_subsys;
 extern app_subsys dnstc_subsys;
 extern app_subsys dnsu2t_subsys;
 
+extern app_subsys tcpdns_subsys;
+
 app_subsys *subsystems[] = {
 	&redsocks_subsys,
 #ifdef DBG_BUILD
@@ -45,11 +47,18 @@ app_subsys *subsystems[] = {
 	&redudp_subsys,
 	&dnstc_subsys,
 	&dnsu2t_subsys,
+
+	&tcpdns_subsys,
 };
 
 static const char *confname = "redsocks.conf";
 static const char *pidfile = NULL;
+static struct event_base * g_event_base = NULL;
 
+struct event_base * get_event_base()
+{
+    return g_event_base;
+}
 static void terminate(int sig, short what, void *_arg)
 {
 	if (event_loopbreak() != 0)

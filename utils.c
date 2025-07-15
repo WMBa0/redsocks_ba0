@@ -27,6 +27,8 @@
 #include "utils.h"
 #include "redsocks.h" // for redsocks_close
 #include "libc-compat.h"
+#define addr_size(addr) (((struct sockaddr *)addr)->sa_family == AF_INET ? sizeof(struct sockaddr_in): \
+                         ((struct sockaddr *)addr)->sa_family == AF_INET6 ? sizeof(struct sockaddr_in6): sizeof(struct sockaddr_storage))
 
 int red_recv_udp_pkt(int fd, char *buf, size_t buflen, struct sockaddr_in *inaddr, struct sockaddr_in *toaddr)
 {
@@ -182,6 +184,106 @@ fail:
 
 }
 
+struct bufferevent* red_prepare_relay(const char *ifname,
+                                int sa_family,
+                                bufferevent_data_cb readcb,
+                                bufferevent_data_cb writecb,
+                                bufferevent_event_cb errorcb,
+                                void *cbarg)
+{
+    struct bufferevent *retval = NULL;
+    int relay_fd = -1;
+    int error;
+
+    relay_fd = socket(sa_family, SOCK_STREAM, IPPROTO_TCP);
+    if (relay_fd == -1) {
+        log_errno(LOG_ERR, "socket");
+        goto fail;
+    }
+    if (ifname && strlen(ifname)) {
+#ifdef USE_PF // BSD
+        error = setsockopt(relay_fd, SOL_SOCKET, IP_RECVIF, ifname, strlen(ifname));
+#else // Linux
+        error = setsockopt(relay_fd, SOL_SOCKET, SO_BINDTODEVICE, ifname, strlen(ifname));
+#endif
+        if (error) {
+            log_errno(LOG_ERR, "setsockopt");
+            goto fail;
+        }
+    }
+    error = evutil_make_socket_nonblocking(relay_fd);
+    if (error) {
+        log_errno(LOG_ERR, "evutil_make_socket_nonblocking");
+        goto fail;
+    }
+
+    retval = bufferevent_socket_new(get_event_base(), relay_fd, 0);
+    if (!retval) {
+        log_errno(LOG_ERR, "bufferevent_socket_new");
+        goto fail;
+    }
+
+    bufferevent_setcb(retval, readcb, writecb, errorcb, cbarg);
+    if (writecb) {
+        error = bufferevent_enable(retval, EV_WRITE); // we wait for connection...
+        if (error) {
+            log_errno(LOG_ERR, "bufferevent_enable");
+            goto fail;
+        }
+    }
+
+    if (apply_tcp_keepalive(relay_fd))
+        goto fail;
+
+    return retval;
+
+fail:
+    if (retval){
+        bufferevent_disable(retval, EV_READ|EV_WRITE);
+        bufferevent_free(retval);
+    }
+    if (relay_fd != -1)
+        redsocks_close(relay_fd);
+    return NULL;
+}
+
+struct bufferevent* red_connect_relay2(const char *ifname,
+                                    struct sockaddr_storage *addr,
+                                    bufferevent_data_cb readcb,
+                                    bufferevent_data_cb writecb,
+                                    bufferevent_event_cb errorcb,
+                                    void *cbarg,
+                                    const struct timeval *timeout_write)
+{
+    struct bufferevent *retval = NULL;
+    int relay_fd = -1;
+    int error;
+
+    retval = red_prepare_relay(ifname, addr->ss_family, readcb, writecb, errorcb, cbarg);
+    if (retval) {
+        relay_fd = bufferevent_getfd(retval);
+        if (timeout_write)
+            bufferevent_set_timeouts(retval, NULL, timeout_write);
+
+        //  error = bufferevent_socket_connect(retval, addr, sizeof(*addr));
+        //  if (error) {
+        error = connect(relay_fd, (struct sockaddr *)addr, addr_size(addr));
+        if (error && errno != EINPROGRESS) {
+            log_errno(LOG_NOTICE, "connect");
+            goto fail;
+        }
+    }
+    return retval;
+
+fail:
+    if (retval) {
+        bufferevent_disable(retval, EV_READ|EV_WRITE);
+        bufferevent_free(retval);
+    }
+    if (relay_fd != -1)
+        redsocks_close(relay_fd);
+    return NULL;
+}
 
 struct bufferevent* red_connect_relay(struct sockaddr_in *addr, evbuffercb writecb, everrorcb errorcb, void *cbarg)
 {

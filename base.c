@@ -74,6 +74,34 @@ typedef struct base_instance_t {
 	uint32_t max_accept_backoff_ms;
 } base_instance;
 
+typedef struct base_instance_t1 {
+	int configured;
+	char *chroot;
+	char *user;
+	char *group;
+	char *redirector_name;
+	redirector_subsys *redirector;
+	char *log_name;
+	bool log_debug;
+	bool log_info;
+	bool daemon;
+#ifdef SO_REUSEPORT
+	bool reuseport;
+#endif
+#if defined(TCP_KEEPIDLE) && defined(TCP_KEEPCNT) && defined(TCP_KEEPINTVL)
+	uint16_t tcp_keepalive_time;
+	uint16_t tcp_keepalive_probes;
+	uint16_t tcp_keepalive_intvl;
+#endif
+} base_instance1;
+
+static base_instance1 instance1 = {
+	.configured = 0,
+	.log_debug = false,
+	.log_info = false,
+};
+
+
 static base_instance instance;
 
 #if defined __FreeBSD__ || defined USE_PF
@@ -265,6 +293,23 @@ int apply_tcp_keepalive(int fd)
 		}
 	}
 	return 0;
+}
+
+
+int apply_reuseport(int fd)
+{
+#ifdef SO_REUSEPORT
+    if (!instance1.reuseport)
+        return 0;
+
+    int opt = 1;
+    int rc = setsockopt(fd, SOL_SOCKET, SO_REUSEPORT, &opt, sizeof(opt));
+    if (rc == -1)
+        log_errno(LOG_ERR, "setsockopt");
+    return rc;
+#else
+    return -1;
+#endif
 }
 
 uint32_t max_accept_backoff_ms()

@@ -79,3 +79,11 @@ char *red_inet_ntop(const struct sockaddr_in* sa, char* buffer, size_t buffer_si
 /* vim:set tabstop=4 softtabstop=4 shiftwidth=4: */
 /* vim:set foldmethod=marker foldlevel=32 foldmarker={,}: */
 #endif /* UTILS_H_SAT_FEB__2_02_24_05_2008 */
+
+
+struct bufferevent* red_prepare_relay(const char *ifname,
+                                int sa_family,
+                                bufferevent_data_cb readcb,
+                                bufferevent_data_cb writecb,
+                                bufferevent_event_cb errorcb,
+                                void *cbarg);
