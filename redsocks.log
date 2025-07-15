@@ -872,3 +872,104 @@
 1752581127.360171 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
 1752581127.360177 notice redsocks.c:341 route_by_domain(...) [*]  51.11.192.50 没有映射表
 1752581127.361069 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581127.630630 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581127.630709 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581128.668047 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581128.740605 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581132.000613 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581132.000684 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:40454 -> 51.11.192.50:443
+1752581132.000691 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581132.000696 notice redsocks.c:341 route_by_domain(...) [*]  51.11.192.50 没有映射表
+1752581132.001349 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581132.241831 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581132.241897 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581133.360701 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581134.360099 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581134.360164 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:39808 -> 20.189.173.7:443
+1752581134.360171 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581134.360176 notice redsocks.c:341 route_by_domain(...) [*]  20.189.173.7 没有映射表
+1752581134.361025 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581134.709605 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581134.709707 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581136.040323 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581140.359931 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581140.359981 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:39818 -> 20.189.173.7:443
+1752581140.359987 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581140.359992 notice redsocks.c:341 route_by_domain(...) [*]  20.189.173.7 没有映射表
+1752581140.360786 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581140.756226 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581140.756271 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581140.869139 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581140.869247 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:58468 -> 51.11.192.50:443
+1752581140.869261 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581140.869268 notice redsocks.c:341 route_by_domain(...) [*]  51.11.192.50 没有映射表
+1752581140.869995 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581141.144124 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581141.144253 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581141.400309 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581141.400384 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:42806 -> 20.205.243.166:443
+1752581141.400393 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581141.400400 notice redsocks.c:341 route_by_domain(...) [*]  20.205.243.166 没有映射表
+1752581141.401213 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581141.552773 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581141.552867 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581141.790369 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581141.806593 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581142.045456 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581145.357323 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581145.357365 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:37826 -> 13.89.179.8:443
+1752581145.357371 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581145.357376 notice redsocks.c:341 route_by_domain(...) [*]  13.89.179.8 没有映射表
+1752581145.357881 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581145.648261 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581145.648304 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581147.316242 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581147.316298 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:37162 -> 20.42.65.90:443
+1752581147.316305 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581147.316322 notice redsocks.c:341 route_by_domain(...) [*]  20.42.65.90 没有映射表
+1752581147.316912 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581147.422754 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581147.688353 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581147.688399 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581149.110849 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581150.362275 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581150.362344 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:37828 -> 13.89.179.8:443
+1752581150.362353 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581150.362361 notice redsocks.c:341 route_by_domain(...) [*]  13.89.179.8 没有映射表
+1752581150.363112 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581150.748724 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581150.748794 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581152.127052 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581157.088184 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581157.088255 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:40654 -> 20.205.243.166:443
+1752581157.088263 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581157.088267 notice redsocks.c:341 route_by_domain(...) [*]  20.205.243.166 没有映射表
+1752581157.088948 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581157.152290 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581157.152340 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581157.198407 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581157.198464 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:41162 -> 20.189.173.23:443
+1752581157.198479 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581157.198484 notice redsocks.c:341 route_by_domain(...) [*]  20.189.173.23 没有映射表
+1752581157.199233 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581157.528281 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581157.528326 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581157.999707 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581159.235393 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581161.360869 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581161.360937 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:41172 -> 20.189.173.23:443
+1752581161.360946 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581161.360953 notice redsocks.c:341 route_by_domain(...) [*]  20.189.173.23 没有映射表
+1752581161.361704 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581161.633915 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581161.633978 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581162.217644 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752581170.651904 notice redsocks.c:1767 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752581170.651982 notice redsocks.c:1871 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:58176 -> 20.189.173.23:443
+1752581170.651990 notice redsocks.c:1473 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752581170.651994 notice redsocks.c:341 route_by_domain(...) [*]  20.189.173.23 没有映射表
+1752581170.652684 notice redsocks.c:1430 redsocks_relay_connected(...) [*] redsocks_relay_connected 中继连接建立回调
+1752581170.884143 notice redsocks.c:686 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752581170.884208 notice redsocks.c:703 redsocks_start_relay(...) [*] 中继通道已建立
+1752581172.837397 notice main.c:197 main(...) redsocks goes down 结束
+1752581172.837475 notice redsocks.c:1108 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
