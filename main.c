@@ -67,13 +67,18 @@ int main(int argc, char **argv)
 	int i;
 
 	evutil_secure_rng_init();
-	while ((opt = getopt(argc, argv, "h?vtc:p:")) != -1) {
-		switch (opt) {
+	while ((opt = getopt(argc, argv, "h?vtc:p:")) != -1)
+	{
+		switch (opt)
+		{
 		case 't':
 			conftest = true;
 			break;
 		case 'c':
 			confname = optarg;
+			//printf("指定conf配置文件  %s",confname);
+			log_error(LOG_NOTICE, "指定conf配置文件  %s", confname);
+
 			break;
 		case 'p':
 			pidfile = optarg;
@@ -82,10 +87,12 @@ int main(int argc, char **argv)
 			puts(redsocks_version);
 			printf("Built with libevent-%s\n", LIBEVENT_VERSION);
 			printf("Runs  with libevent-%s\n", event_get_version());
-			if (LIBEVENT_VERSION_NUMBER != event_get_version_number()) {
+			if (LIBEVENT_VERSION_NUMBER != event_get_version_number())
+			{
 				printf("Warning: libevent version number mismatch.\n"
-				       "  Headers: %8x\n"
-				       "  Runtime: %8x\n", LIBEVENT_VERSION_NUMBER, event_get_version_number());
+					   "  Headers: %8x\n"
+					   "  Runtime: %8x\n",
+					   LIBEVENT_VERSION_NUMBER, event_get_version_number());
 			}
 			return EXIT_SUCCESS;
 		default:
@@ -100,26 +107,29 @@ int main(int argc, char **argv)
 		}
 	}
 
-	if (event_get_struct_event_size() != sizeof(struct event)) {
+	if (event_get_struct_event_size() != sizeof(struct event))
+	{
 		puts("libevent event_get_struct_event_size() != sizeof(struct event)! Check `redsocks -v` and recompile redsocks");
 		return EXIT_FAILURE;
 	}
 
 	FILE *f = fopen(confname, "r");
-	if (!f) {
+	if (!f)
+	{
 		perror("Unable to open config file");
 		return EXIT_FAILURE;
 	}
 
-	parser_context* parser = parser_start(f);
-	if (!parser) {
+	parser_context *parser = parser_start(f);
+	if (!parser)
+	{
 		perror("Not enough memory for parser");
 		return EXIT_FAILURE;
 	}
 
 	FOREACH(ss, subsystems)
-		if ((*ss)->conf_section)
-			parser_add_section(parser, (*ss)->conf_section);
+	if ((*ss)->conf_section)
+		parser_add_section(parser, (*ss)->conf_section);
 	error = parser_run(parser);
 	parser_stop(parser);
 	fclose(f);
@@ -130,20 +140,24 @@ int main(int argc, char **argv)
 	if (conftest)
 		return EXIT_SUCCESS;
 
-	struct event_base* evbase = event_init();
+	struct event_base *evbase = event_init();
 	memset(terminators, 0, sizeof(terminators));
 
-	FOREACH(ss, subsystems) {
-		if ((*ss)->init) {
+	FOREACH(ss, subsystems)
+	{
+		if ((*ss)->init)
+		{
 			error = (*ss)->init(evbase);
 			if (error)
 				goto shutdown;
 		}
 	}
 
-	if (pidfile) {
+	if (pidfile)
+	{
 		f = fopen(pidfile, "w");
-		if (!f) {
+		if (!f)
+		{
 			perror("Unable to open pidfile for write");
 			return EXIT_FAILURE;
 		}
@@ -152,27 +166,32 @@ int main(int argc, char **argv)
 	}
 
 	assert(SIZEOF_ARRAY(exit_signals) == SIZEOF_ARRAY(terminators));
-	for (i = 0; i < SIZEOF_ARRAY(exit_signals); i++) {
+	for (i = 0; i < SIZEOF_ARRAY(exit_signals); i++)
+	{
 		signal_set(&terminators[i], exit_signals[i], terminate, NULL);
-		if (signal_add(&terminators[i], NULL) != 0) {
+		if (signal_add(&terminators[i], NULL) != 0)
+		{
 			log_errno(LOG_ERR, "signal_add");
 			goto shutdown;
 		}
 	}
 
-	if (LIBEVENT_VERSION_NUMBER != event_get_version_number()) {
+	if (LIBEVENT_VERSION_NUMBER != event_get_version_number())
+	{
 		log_error(LOG_WARNING, "libevent version mismatch! headers %8x, runtime %8x\n", LIBEVENT_VERSION_NUMBER, event_get_version_number());
 	}
-
-	log_error(LOG_NOTICE, "redsocks started, conn_max=%u", redsocks_conn_max());
+	
+	log_error(LOG_NOTICE, "启动 & 最大连接数：redsocks started, conn_max=%u", redsocks_conn_max());
 
 	event_dispatch();
 
-	log_error(LOG_NOTICE, "redsocks goes down");
+	log_error(LOG_NOTICE, "redsocks goes down 结束");
 
 shutdown:
-	for (i = 0; i < SIZEOF_ARRAY(exit_signals); i++) {
-		if (signal_initialized(&terminators[i])) {
+	for (i = 0; i < SIZEOF_ARRAY(exit_signals); i++)
+	{
+		if (signal_initialized(&terminators[i]))
+		{
 			if (signal_del(&terminators[i]) != 0)
 				log_errno(LOG_WARNING, "signal_del");
 			memset(&terminators[i], 0, sizeof(terminators[i]));

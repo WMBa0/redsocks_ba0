@@ -23,6 +23,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <assert.h>
+#include <netdb.h>
 
 #include "list.h"
 #include "log.h"
@@ -33,14 +34,15 @@
 #include "utils.h"
 
 #define dnstc_log_error(prio, msg...) \
-	redsocks_log_write_plain(__FILE__, __LINE__, __func__, 0, &clientaddr, &self->config.bindaddr, prio, ## msg)
+	redsocks_log_write_plain(__FILE__, __LINE__, __func__, 0, &clientaddr, &self->config.bindaddr, prio, ##msg)
 #define dnstc_log_errno(prio, msg...) \
-	redsocks_log_write_plain(__FILE__, __LINE__, __func__, 1, &clientaddr, &self->config.bindaddr, prio, ## msg)
+	redsocks_log_write_plain(__FILE__, __LINE__, __func__, 1, &clientaddr, &self->config.bindaddr, prio, ##msg)
 
 static void dnstc_fini_instance(dnstc_instance *instance);
 static int dnstc_fini();
 
-typedef struct dns_header_t {
+typedef struct dns_header_t
+{
 	uint16_t id;
 	uint8_t qr_opcode_aa_tc_rd;
 	uint8_t ra_z_rcode;
@@ -52,49 +54,92 @@ typedef struct dns_header_t {
 
 #define DNS_QR 0x80
 #define DNS_TC 0x02
-#define DNS_Z  0x70
+#define DNS_Z 0x70
 
 /***********************************************************************
  * Logic
+ */
+/***********************************************************************
+ * 核心逻辑 - 处理DNS请求
  */
 static void dnstc_pkt_from_client(int fd, short what, void *_arg)
 {
 	dnstc_instance *self = _arg;
 	struct sockaddr_in clientaddr;
-	union {
-		char raw[0xFFFF]; // UDP packet can't be larger then that
+	union
+	{
+		char raw[0xFFFF]; // UDP包最大不超过65535字节
 		dns_header h;
 	} buf;
 	ssize_t pktlen, outgoing;
 
 	assert(fd == event_get_fd(&self->listener));
+	// 接收UDP数据包
 	pktlen = red_recv_udp_pkt(fd, buf.raw, sizeof(buf), &clientaddr, NULL);
 	if (pktlen == -1)
 		return;
 
-	if (pktlen <= sizeof(dns_header)) {
+	// 检查报文长度是否合法
+	if (pktlen <= sizeof(dns_header))
+	{
 		dnstc_log_error(LOG_INFO, "incomplete DNS request");
 		return;
 	}
 
+	// 检查是否为合法的DNS查询请求
 	if (1
-		&& (buf.h.qr_opcode_aa_tc_rd & DNS_QR) == 0 /* query */
-		&& (buf.h.ra_z_rcode & DNS_Z) == 0 /* Z is Zero */
-		&& buf.h.qdcount /* some questions */
-		&& !buf.h.ancount && !buf.h.nscount /* no answers */
-	) {
+	     && (buf.h.qr_opcode_aa_tc_rd & DNS_QR) == 0 /* 查询报文 */
+		 && (buf.h.ra_z_rcode & DNS_Z) == 0			  /* Z位必须为0 */
+		 && buf.h.qdcount							  /* 至少一个问题 */
+		 && !buf.h.ancount && !buf.h.nscount			  /* 没有回答 */
+	)
+	{
+        // 解析DNS查询中的域名
+        // char domain[256] = {0};
+        // const char *ptr = buf.raw + sizeof(dns_header);
+        // char *dst = domain;
+        // while (*ptr) {
+        //     uint8_t len = *ptr++;
+        //     if (dst + len + 1 > domain + sizeof(domain))
+        //         break;
+        //     memcpy(dst, ptr, len);
+        //     dst += len;
+        //     *dst++ = '.';
+        //     ptr += len;
+        // }
+        // if (dst > domain)
+        //     *(dst-1) = '\0'; // 去掉最后的点
+		
+        // 解析域名获取IP (不能这样写)
+        // struct hostent *host = gethostbyname(domain);
+        // char ip_str[INET_ADDRSTRLEN] = "unknown";
+        // if (host && host->h_addr_list[0]) {
+        //     inet_ntop(AF_INET, host->h_addr_list[0], ip_str, sizeof(ip_str));
+        // }
+
+
+        // 打印域名和IP对应关系
+        // log_error(LOG_NOTICE, "DNS query: %s -> %s", domain, ip_str);
+		//log_error(LOG_NOTICE, "DNS query: %s ", domain);
+
+
+		// 设置响应标志和截断标志
 		buf.h.qr_opcode_aa_tc_rd |= DNS_QR;
 		buf.h.qr_opcode_aa_tc_rd |= DNS_TC;
+		
+		// 发送截断响应
 		outgoing = sendto(fd, buf.raw, pktlen, 0,
-		                  (struct sockaddr*)&clientaddr, sizeof(clientaddr));
+						  (struct sockaddr *)&clientaddr, sizeof(clientaddr));
 		if (outgoing != pktlen)
 			dnstc_log_errno(LOG_WARNING, "sendto: I was sending %zd bytes, but only %zd were sent.",
-			                pktlen, outgoing);
+							pktlen, outgoing);
 		else
 			dnstc_log_error(LOG_INFO, "sent truncated DNS reply");
 	}
-	else {
-		dnstc_log_error(LOG_INFO, "malformed DNS request");
+	else
+	{
+		//dnstc_log_error(LOG_INFO, "malformed DNS request");
+		log_error(LOG_NOTICE,"DNS 错误");
 	}
 }
 
@@ -102,18 +147,18 @@ static void dnstc_pkt_from_client(int fd, short what, void *_arg)
  * Init / shutdown
  */
 static parser_entry dnstc_entries[] =
-{
-	{ .key = "local_ip",   .type = pt_in_addr },
-	{ .key = "local_port", .type = pt_uint16 },
-	{ }
-};
+	{
+		{.key = "local_ip", .type = pt_in_addr},
+		{.key = "local_port", .type = pt_uint16},
+		{}};
 
 static list_head instances = LIST_HEAD_INIT(instances);
 
 static int dnstc_onenter(parser_section *section)
 {
 	dnstc_instance *instance = calloc(1, sizeof(*instance));
-	if (!instance) {
+	if (!instance)
+	{
 		parser_error(section->context, "Not enough memory");
 		return -1;
 	}
@@ -124,9 +169,8 @@ static int dnstc_onenter(parser_section *section)
 
 	for (parser_entry *entry = &section->entries[0]; entry->key; entry++)
 		entry->addr =
-			(strcmp(entry->key, "local_ip") == 0)   ? (void*)&instance->config.bindaddr.sin_addr :
-			(strcmp(entry->key, "local_port") == 0) ? (void*)&instance->config.bindaddr.sin_port :
-			NULL;
+			(strcmp(entry->key, "local_ip") == 0) ? (void *)&instance->config.bindaddr.sin_addr : (strcmp(entry->key, "local_port") == 0) ? (void *)&instance->config.bindaddr.sin_port
+																																		  : NULL;
 	section->data = instance;
 	return 0;
 }
@@ -156,26 +200,30 @@ static int dnstc_init_instance(dnstc_instance *instance)
 	int fd = -1;
 
 	fd = socket(AF_INET, SOCK_DGRAM, 0);
-	if (fd == -1) {
+	if (fd == -1)
+	{
 		log_errno(LOG_ERR, "socket");
 		goto fail;
 	}
 
-	error = bind(fd, (struct sockaddr*)&instance->config.bindaddr, sizeof(instance->config.bindaddr));
-	if (error) {
+	error = bind(fd, (struct sockaddr *)&instance->config.bindaddr, sizeof(instance->config.bindaddr));
+	if (error)
+	{
 		log_errno(LOG_ERR, "bind");
 		goto fail;
 	}
 
 	error = fcntl_nonblock(fd);
-	if (error) {
+	if (error)
+	{
 		log_errno(LOG_ERR, "fcntl");
 		goto fail;
 	}
 
 	event_set(&instance->listener, fd, EV_READ | EV_PERSIST, dnstc_pkt_from_client, instance);
 	error = event_add(&instance->listener, NULL);
-	if (error) {
+	if (error)
+	{
 		log_errno(LOG_ERR, "event_add");
 		goto fail;
 	}
@@ -185,7 +233,8 @@ static int dnstc_init_instance(dnstc_instance *instance)
 fail:
 	dnstc_fini_instance(instance);
 
-	if (fd != -1) {
+	if (fd != -1)
+	{
 		if (close(fd) != 0)
 			log_errno(LOG_WARNING, "close");
 	}
@@ -198,7 +247,8 @@ fail:
  */
 static void dnstc_fini_instance(dnstc_instance *instance)
 {
-	if (event_initialized(&instance->listener)) {
+	if (event_initialized(&instance->listener))
+	{
 		if (event_del(&instance->listener) != 0)
 			log_errno(LOG_WARNING, "event_del");
 		if (close(event_get_fd(&instance->listener)) != 0)
@@ -218,7 +268,8 @@ static int dnstc_init()
 
 	// TODO: init debug_dumper
 
-	list_for_each_entry_safe(instance, tmp, &instances, list) {
+	list_for_each_entry_safe(instance, tmp, &instances, list)
+	{
 		if (dnstc_init_instance(instance) != 0)
 			goto fail;
 	}
@@ -241,18 +292,17 @@ static int dnstc_fini()
 }
 
 static parser_section dnstc_conf_section =
-{
-	.name    = "dnstc",
-	.entries = dnstc_entries,
-	.onenter = dnstc_onenter,
-	.onexit  = dnstc_onexit
-};
+	{
+		.name = "dnstc",
+		.entries = dnstc_entries,
+		.onenter = dnstc_onenter,
+		.onexit = dnstc_onexit};
 
 app_subsys dnstc_subsys =
-{
-	.init = dnstc_init,
-	.fini = dnstc_fini,
-	.conf_section = &dnstc_conf_section,
+	{
+		.init = dnstc_init,
+		.fini = dnstc_fini,
+		.conf_section = &dnstc_conf_section,
 };
 
 /* vim:set tabstop=4 softtabstop=4 shiftwidth=4: */

@@ -15,6 +15,7 @@ ifeq ($(DBG_BUILD),1)
 LIBS += -levent_extra
 endif
 CFLAGS += -g -O2
+
 # _GNU_SOURCE is used to get splice(2), it also implies _BSD_SOURCE
 override CFLAGS += -std=c99 -D_XOPEN_SOURCE=600 -D_DEFAULT_SOURCE -D_GNU_SOURCE -Wall
 
