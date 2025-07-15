@@ -141,12 +141,13 @@ static void tcpdns_drop_request(dns_request *req)
     int fd;
     log_error(LOG_DEBUG, "释放请求 %p (状态=%d, resolver=%p)",
               req, req->state, req->resolver);
-     if (req->resolver) {
+    if (req->resolver)
+    {
         bufferevent_free(req->resolver); // 确保释放bufferevent
-        req->resolver = NULL;           // 避免野指针
+        req->resolver = NULL;            // 避免野指针
     }
-    list_del(&req->list);               // 从链表中移除
-    free(req);                          // 释放内存
+    list_del(&req->list); // 从链表中移除
+    free(req);            // 释放内存
 }
 
 /* 更新DNS服务器延迟
@@ -175,7 +176,7 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
     assert(from == req->resolver);
     size_t input_size = evbuffer_get_length(bufferevent_get_input(from));
 
-    printf("响应大小: %zu", input_size);
+    printf("响应大小: %zu \n", input_size);
 
     if (input_size == 0 || input_size > sizeof(buff))
         // EOF或响应过大，丢弃
@@ -188,6 +189,13 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
         if (read_size > (2 + sizeof(dns_header)))
         {
             dns_header *dh = (dns_header *)&buff.raw[2];
+
+            // print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
+            
+            // 打印IP和域名映射关系
+
+            // parse_dns_response(&buff.raw[2], read_size);
+
             switch (dh->ra_z_rcode & DNS_RC_MASK)
             {
             case DNS_RC_NOERROR:
@@ -196,6 +204,7 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
             {
                 // 将响应发送回客户端(UDP)
                 int fd = event_get_fd(req->instance->listener);
+
                 if (sendto(fd, &buff.raw[2], read_size - 2, 0,
                            (struct sockaddr *)&req->client_addr,
                            sizeof(req->client_addr)) != read_size - 2)
@@ -233,10 +242,12 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
     }
     if (buffev != req->resolver)
     {
-        log_error(LOG_ERR, "请求 %p 的resolver不匹配 (预期=%p, 实际=%p)",
-                  req, req->resolver, buffev);
-        tcpdns_drop_request(req);
-        return;
+        // log_error(LOG_ERR, "请求 %p 的resolver不匹配 (预期=%p, 实际=%p)",
+        //           req, req->resolver, buffev);
+        // tcpdns_drop_request(req);
+        // return;
+        req->resolver = buffev;
+        // buffev =
     }
 
     // dns_request *req = _arg;
@@ -417,7 +428,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
     }
 
     // 打印接收到的原始数据包(十六进制)
-    print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
+    //print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
     char buf[255];
     printf("新建请求 %p, 客户端: %s\n", req,
            red_inet_ntop(&req->client_addr, buf, sizeof(buf)));

@@ -188,10 +188,11 @@ void parse_dns_response(unsigned char *buffer, int length) {
             
             // 如果有 CNAME 记录，显示原始域名和 CNAME
             if (strlen(last_cname) > 0) {
-                printf("DNS解析：%s (via %s) -> %d.%d.%d.%d\n", 
+                printf("[*] %d DNS解析：%s (via %s) -> %d.%d.%d.%d\n", i,
                        original_name, last_cname, ip[0], ip[1], ip[2], ip[3]);
             } else {
-                printf("DNS解析：%s -> %d.%d.%d.%d\n", original_name, ip[0], ip[1], ip[2], ip[3]);
+                printf("[*] %d DNS解析：%s -> %d.%d.%d.%d\n", i,
+                original_name, ip[0], ip[1], ip[2], ip[3]);
             }
         } else {
             offset += rr.rdlength;
