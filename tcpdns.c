@@ -191,10 +191,14 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
             dns_header *dh = (dns_header *)&buff.raw[2];
 
             print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
-            
+
             // 打印IP和域名映射关系
 
-            //parse_dns_response(&buff.raw[2], read_size);
+            // parse_dns_response(&buff.raw[2], read_size);
+            //解析DNS域名：
+           
+
+
 
             switch (dh->ra_z_rcode & DNS_RC_MASK)
             {

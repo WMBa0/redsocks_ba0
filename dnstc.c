@@ -118,11 +118,6 @@ static void dnstc_pkt_from_client(int fd, short what, void *_arg)
         // }
 
 
-        // 打印域名和IP对应关系
-        // log_error(LOG_NOTICE, "DNS query: %s -> %s", domain, ip_str);
-		//log_error(LOG_NOTICE, "DNS query: %s ", domain);
-
-
 		// 设置响应标志和截断标志
 		buf.h.qr_opcode_aa_tc_rd |= DNS_QR;
 		buf.h.qr_opcode_aa_tc_rd |= DNS_TC;

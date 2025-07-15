@@ -23,6 +23,9 @@ void _log_write(const char *file, int line, const char *func, int do_errno, int 
 #endif
 ;
 
+
+
+
 /* vim:set tabstop=4 softtabstop=4 shiftwidth=4: */
 /* vim:set foldmethod=marker foldlevel=32 foldmarker={,}: */
 #endif /* LOG_H_WED_JAN_24_18_21_27_2007 */

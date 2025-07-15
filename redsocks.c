@@ -41,6 +41,8 @@
 #include "redsocks.h"
 #include "utils.h"
 #include "libevent-compat.h"
+#include "debug.h"
+
 
 // 定义中继缓冲区大小
 #define REDSOCKS_RELAY_HALFBUFF 4096
@@ -209,7 +211,7 @@ void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
                 entry->domain[name_len] = '\0';
                 HASH_ADD_STR(domain_table, ip, entry);
 
-                log_error(LOG_NOTICE, "记录 HTTPS SNI: %s -> %s", domain, ip_str);
+                LOG_DEBUG_C( "记录 HTTPS SNI: %s -> %s \n", domain, ip_str);
             }
             else if (strcmp(entry->domain, domain) != 0)
             {
@@ -267,7 +269,7 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
 // 识别 buffev 成员
 void parse_sni_from_bufferevent(struct bufferevent *buffev, redsocks_client *client)
 {
-    log_error(LOG_NOTICE, "[*] parse_sni_from_bufferevent 触发");
+
 
     if (!buffev || !client)
     {
@@ -343,6 +345,7 @@ void route_by_domain(redsocks_client *client)
 // 检查系统是否支持splice
 static bool is_splice_good()
 {
+    //LOG_DEBUG_C("支持 splice模式 \n");
     struct utsname u;
     if (uname(&u) != 0)
     {
@@ -391,10 +394,10 @@ static int redsocks_onenter(parser_section *section)
     instance->config.relayaddr.sin_family = AF_INET;
     instance->config.relayaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     instance->config.listenq = SOMAXCONN; // 默认监听队列长度
-    // instance->config.use_splice = is_splice_good(); // 是否使用splice
-    instance->config.use_splice = false;           // 是否使用splice
-    instance->config.disclose_src = DISCLOSE_NONE; // 默认不披露源地址
-    instance->config.on_proxy_fail = ONFAIL_CLOSE; // 代理失败时关闭连接
+    instance->config.use_splice = is_splice_good(); // 是否使用splice
+
+    instance->config.disclose_src = DISCLOSE_NONE;  // 默认不披露源地址
+    instance->config.on_proxy_fail = ONFAIL_CLOSE;  // 代理失败时关闭连接
 
     // 设置配置项地址
     for (parser_entry *entry = &section->entries[0]; entry->key; entry++)
@@ -604,8 +607,8 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 // 中继写入回调包装
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
-
+    //log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
+    LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
     redsocks_touch_client(client);
@@ -618,8 +621,7 @@ static void redsocks_relay_clientreadcb(struct bufferevent *from, void *_client)
 {
     redsocks_client *client = _client;
     redsocks_touch_client(client);
-    log_error(LOG_NOTICE, "[*] redsocks_relay_clientreadcb 客户端读取回调");
-
+    LOG_DEBUG_C("[*] relay 客户端读取回调 \n");
     // 继续正常的数据转发
     redsocks_relay_readcb(client, client->client, client->relay);
 }
@@ -627,7 +629,7 @@ static void redsocks_relay_clientreadcb(struct bufferevent *from, void *_client)
 // 客户端写入回调
 static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_clientwritecb 客户端写入回调");
+    LOG_DEBUG_C("[*] relay 客户端写入回调 \n");
 
     redsocks_client *client = _client;
     redsocks_touch_client(client);
@@ -638,7 +640,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
     if (client->destaddr.sin_port == htons(443))
     {
 
-        log_error(LOG_NOTICE, "[*] 443 请求：%s", destIP);
+        LOG_DEBUG_C("[*] HTTPS 443 请求：%s\n", destIP);
 
         // HTTPS流量：解析SNI
         struct evbuffer *input = bufferevent_get_input(to);
@@ -650,32 +652,15 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         }
         else
         {
-            log_error(LOG_NOTICE, "[*] HTTPS 数据为空");
+            LOG_DEBUG_C("[*] HTTPS 数据为空\n");
         }
 
-        // struct evbuffer *input = bufferevent_get_input(to);
-        // size_t len = evbuffer_get_length(input);
 
-        // if (len > 0)
-        // {
-        //     // // 获取数据指针（不消费缓冲区）
-        //     // unsigned char *data = evbuffer_pullup(input, len);
-        //     // log_error(LOG_NOTICE, "Current input buffer (%zu bytes):\n", len);
-        //     // for (size_t i = 0; i < len; i++)
-        //     // {
-        //     //     printf("%02x ", data[i]);
-        //     // }
-        //     // printf("\n");
-        // }
-        // else
-        // {
-        //     // log_error(LOG_NOTICE, "[*] HTTPS 数据为空");
-        // }
     }
     else if (client->destaddr.sin_port == htons(80))
     {
-
-        log_error(LOG_NOTICE, "[*] 80 请求：%s", destIP);
+        
+        LOG_DEBUG_C("[*] 80 请求：%s \n", destIP);
         // HTTP流量：解析Host头
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
@@ -686,7 +671,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         }
         else
         {
-            log_error(LOG_NOTICE, "[*] HTTP 数据为空");
+             LOG_DEBUG_C("[*] HTTP 数据为空\n");
         }
     }
 
@@ -788,6 +773,7 @@ typedef struct redsplice_write_ctx_t
 // splice写入回调
 static void redsplice_write_cb(redsocks_pump *pump, redsplice_write_ctx *c, int out)
 {
+    LOG_DEBUG_C("splice写入回调 \n");
     bool has_data = false; // 有待写入的数据
     bool can_write = true; // 套接字似乎可写
 
@@ -925,8 +911,11 @@ typedef struct redsplice_read_ctx_t
 // splice读取回调
 static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in)
 {
+    LOG_DEBUG_C(" splice读取回调 \n");
     const size_t pipesize = 1048576; // 来自fs.pipe-max-size的默认值
     const ssize_t got = splice(in, NULL, c->dst->write, NULL, pipesize, SPLICE_F_MOVE | SPLICE_F_NONBLOCK);
+
+    
     if (got == -1)
     {
         if (would_block(errno))
@@ -974,6 +963,7 @@ static void redsocks_touch_pump(redsocks_pump *pump)
 // 中继读取回调
 static void redsplice_relay_read(int fd, short what, void *_pump)
 {
+    LOG_DEBUG_C(" 中继读取回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->relay_read) && (what & EV_READ));
     redsocks_touch_pump(pump);
@@ -989,7 +979,7 @@ static void redsplice_relay_read(int fd, short what, void *_pump)
 // 客户端读取回调
 static void redsplice_client_read(int fd, short what, void *_pump)
 {
-    log_error(LOG_NOTICE, "[*] redsplice_client_read 客户端读取回调");
+    LOG_DEBUG_C(" [*] splice客户端读取回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->client_read) && (what & EV_READ));
     redsocks_touch_pump(pump);
@@ -1005,6 +995,7 @@ static void redsplice_client_read(int fd, short what, void *_pump)
 // 中继写入回调
 static void redsplice_relay_write(int fd, short what, void *_pump)
 {
+    LOG_DEBUG_C(" 中继写入回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->relay_write) && (what & EV_WRITE));
     redsocks_touch_pump(pump);
@@ -1025,6 +1016,7 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
 // 客户端写入回调
 static void redsplice_client_write(int fd, short what, void *_pump)
 {
+    LOG_DEBUG_C(" 客户端写入回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->client_write) && (what & EV_WRITE));
     redsocks_touch_pump(pump);
@@ -1045,7 +1037,7 @@ static void redsplice_client_write(int fd, short what, void *_pump)
 // 启动splice泵
 static int redsocks_start_splicepump(redsocks_client *client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_start_splicepump 启动splice泵");
+    
     // 禁用缓冲区事件的读写
     int error = bufferevent_disable(client->client, EV_READ | EV_WRITE);
     if (!error)
@@ -1442,27 +1434,22 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
 
     redsocks_touch_client(client);
 
-    // 直接打印日志并允许连接
-    // log_error(LOG_NOTICE, "Captured traffic: %s:%d -> %s:%d",
-    //     inet_ntoa(client->clientaddr.sin_addr), ntohs(client->clientaddr.sin_port),
-    //     inet_ntoa(client->destaddr.sin_addr), ntohs(client->destaddr.sin_port));
-
     char destaddr_str[RED_INET_ADDRSTRLEN];
     char *destIP = red_inet_ntop(&(client)->destaddr, destaddr_str, sizeof(destaddr_str));
     // 检查目标端口并解析内容
     if (client->destaddr.sin_port == htons(443))
     {
 
-        log_error(LOG_NOTICE, "[*] HTTPS 请求：%s", destIP);
+       LOG_DEBUG_C("[*] HTTPS 请求：%s \n", destIP);
     }
     else if (client->destaddr.sin_port == htons(80))
     {
 
-        log_error(LOG_NOTICE, "[*] HTTP  请求：%s", destIP);
+        LOG_DEBUG_C("[*] HTTP  请求：%s \n", destIP);
     }
 
     // 在连接建立后根据域名选择代理
-    route_by_domain(client);
+    //route_by_domain(client);
 
     if (!red_is_socket_connected_ok(buffev))
     {
