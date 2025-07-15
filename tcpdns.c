@@ -190,11 +190,11 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
         {
             dns_header *dh = (dns_header *)&buff.raw[2];
 
-            // print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
+            print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
             
             // 打印IP和域名映射关系
 
-            // parse_dns_response(&buff.raw[2], read_size);
+            //parse_dns_response(&buff.raw[2], read_size);
 
             switch (dh->ra_z_rcode & DNS_RC_MASK)
             {
@@ -428,7 +428,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
     }
 
     // 打印接收到的原始数据包(十六进制)
-    //print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
+    print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
     char buf[255];
     printf("新建请求 %p, 客户端: %s\n", req,
            red_inet_ntop(&req->client_addr, buf, sizeof(buf)));
