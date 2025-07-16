@@ -14,3 +14,18 @@
 1752638905.520729 notice redsocks.c:705 redsocks_start_relay(...) [*] 中继通道已建立
 1752638907.554761 notice main.c:197 main(...) redsocks goes down 结束
 1752638907.554837 notice redsocks.c:1193 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752639876.084098 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=1024
+1752639965.119883 notice redsocks.c:1921 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752639965.119957 notice redsocks.c:2025 redsocks_accept_client(...) [*] 请求连接： 192.168.177.128:59574 -> 13.107.5.93:443
+1752639965.119965 notice redsocks.c:1627 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752639965.191181 notice redsocks.c:689 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752639965.191261 notice redsocks.c:706 redsocks_start_relay(...) [*] 中继通道已建立
+1752639965.487675 err redsocks.c:1070 redsplice_client_read(...) [192.168.177.128:59574->13.107.5.93:443]: tee: Invalid argument
+1752639965.487697 notice redsocks.c:1262 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752639965.487787 notice redsocks.c:1262 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752639965.487794 warning redsocks.c:1304 redsocks_drop_client(...) close: Bad file descriptor
+1752639965.487798 warning redsocks.c:1306 redsocks_drop_client(...) close: Bad file descriptor
+1752639965.487802 warning redsocks.c:1308 redsocks_drop_client(...) close: Bad file descriptor
+1752639965.487805 warning redsocks.c:1310 redsocks_drop_client(...) close: Bad file descriptor
+1752639965.487808 warning redsocks.c:1324 redsocks_drop_client(...) close: Bad file descriptor
+1752639965.487811 warning redsocks.c:1338 redsocks_drop_client(...) close: Bad file descriptor

@@ -1068,54 +1068,24 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
     redsplice_write_cb(pump, &c, fd);
 }
 
-/* 
- * splice模式下的客户端写入回调函数
- * 功能：处理从代理服务器到客户端方向的数据传输（reply管道数据）
- */
-static void redsplice_client_write(int fd, short what, void *_pump) 
+// 客户端写入回调
+static void redsplice_client_write(int fd, short what, void *_pump)
 {
-    // 调试日志：记录客户端写入事件触发
     LOG_DEBUG_C("[*]  客户端写入回调\n");
-
-    // 1. 获取泵(pump)控制结构体
     redsocks_pump *pump = _pump;
-
-    // 2. 安全性断言检查：
-    //    - 确保触发事件的fd确实是客户端写入事件的fd
-    //    - 确保事件类型包含EV_WRITE可写标志
     assert(fd == event_get_fd(&pump->client_write) && (what & EV_WRITE));
-
-    // 3. 更新泵的最后活动时间戳
-    //    （用于连接超时管理）
     redsocks_touch_pump(pump);
-
-    // 4. 构建写入上下文结构体
     redsplice_write_ctx c = {
-        // 数据源缓冲区数组：
-        // [0] 客户端的输出缓冲区（待发送数据）
-        // [1] 中继端的输入缓冲区（已接收数据）
         .ebsrc = {
-            pump->c.client ? pump->c.client->output : NULL,  // 客户端输出缓冲区
-            pump->c.relay ? pump->c.relay->input : NULL,     // 中继端输入缓冲区
+            pump->c.client ? pump->c.client->output : NULL,
+            pump->c.relay ? pump->c.relay->input : NULL,
         },
-
-        // 指向回复管道（relay->client方向的数据管道）
         .pisrc = &pump->reply,
-
-        // 关联的事件对象：
-        .evsrc = &pump->relay_read,    // 中继读取事件（用于反压控制）
-        .evdst = &pump->client_write,  // 客户端写入事件（当前事件）
-
-        // 关闭状态标记：
-        .shut_src = &pump->c.relay_evshut,  // 中继端关闭状态
-        .shut_dst = &pump->c.client_evshut, // 客户端关闭状态
+        .evsrc = &pump->relay_read,
+        .evdst = &pump->client_write,
+        .shut_src = &pump->c.relay_evshut,
+        .shut_dst = &pump->c.client_evshut,
     };
-
-    // 5. 调用核心写入处理函数
-    //    参数说明：
-    //    - pump : 泵控制结构体
-    //    - &c   : 写入上下文
-    //    - fd   : 目标文件描述符（客户端socket）
     redsplice_write_cb(pump, &c, fd);
 }
 
