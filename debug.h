@@ -26,7 +26,7 @@ typedef enum {
 } LogLevel;
 
 // 全局日志级别
-LogLevel current_log_level = LOG_LEVEL_DEBUG;
+LogLevel current_log_level = 0;
 
 // 获取带毫秒的时间戳字符串
 static inline char* get_timestamp() {

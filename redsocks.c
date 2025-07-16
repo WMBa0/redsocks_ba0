@@ -33,7 +33,6 @@
 #include <uthash.h> // 哈希表库
 #include <pthread.h>
 
-
 // 包含项目自定义头文件
 #include "list.h"
 #include "parser.h"
@@ -44,7 +43,6 @@
 #include "utils.h"
 #include "libevent-compat.h"
 #include "debug.h"
-
 
 // 定义中继缓冲区大小
 #define REDSOCKS_RELAY_HALFBUFF 4096
@@ -154,7 +152,7 @@ void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
     // 扩展开始位置 (如果有)
     if (offset + 2 > len)
         return;
-    //uint16_t extensions_len = (data[offset] << 8) | data[offset + 1];
+    // uint16_t extensions_len = (data[offset] << 8) | data[offset + 1];
     offset += 2;
 
     // 遍历扩展
@@ -213,14 +211,14 @@ void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
                 entry->domain[name_len] = '\0';
                 HASH_ADD_STR(domain_table, ip, entry);
 
-                log_error(LOG_NOTICE, "记录 HTTPS SNI: %s -> %s", domain, ip_str);
+                printf("记录 HTTPS SNI: %s -> %s\n", domain, ip_str);
             }
             else if (strcmp(entry->domain, domain) != 0)
             {
                 // IP已存在但域名不同，更新域名
                 strncpy(entry->domain, domain, name_len);
                 entry->domain[name_len] = '\0';
-                log_error(LOG_NOTICE, "更新 HTTPS SNI Updated: %s -> %s", domain, ip_str);
+                printf("更新 HTTPS SNI Updated: %s -> %s\n", domain, ip_str);
             }
 
             break;
@@ -330,17 +328,19 @@ void route_by_domain(redsocks_client *client)
         if (strstr(entry->domain, "www.baidu.com"))
         {
             // 使用代理A
-            //client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("1.2.3.4");
+            // client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("1.2.3.4");
             log_error(LOG_NOTICE, "[*] www.baidu.com 域名 代理处理");
         }
         else if (strstr(entry->domain, "github.com"))
         {
             // 使用代理B
-            //client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("5.6.7.8");
+            // client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("5.6.7.8");
             log_error(LOG_NOTICE, "[*] github.com 域名 代理处理");
         }
-    }else{
-        log_error(LOG_NOTICE,"[*]  %s 没有映射表",ip_str);
+    }
+    else
+    {
+        log_error(LOG_NOTICE, "[*]  %s 没有映射表", ip_str);
     }
 }
 
@@ -395,11 +395,11 @@ static int redsocks_onenter(parser_section *section)
     instance->config.bindaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     instance->config.relayaddr.sin_family = AF_INET;
     instance->config.relayaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    instance->config.listenq = SOMAXCONN; // 默认监听队列长度
+    instance->config.listenq = SOMAXCONN;           // 默认监听队列长度
     instance->config.use_splice = is_splice_good(); // 是否使用splice
 
-    instance->config.disclose_src = DISCLOSE_NONE;  // 默认不披露源地址
-    instance->config.on_proxy_fail = ONFAIL_CLOSE;  // 代理失败时关闭连接
+    instance->config.disclose_src = DISCLOSE_NONE; // 默认不披露源地址
+    instance->config.on_proxy_fail = ONFAIL_CLOSE; // 代理失败时关闭连接
 
     // 设置配置项地址
     for (parser_entry *entry = &section->entries[0]; entry->key; entry++)
@@ -609,7 +609,7 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 // 中继写入回调包装
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
     LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
@@ -654,14 +654,12 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         }
         else
         {
-            LOG_DEBUG_C("[*] HTTPS 数据为空\n");
+            //  LOG_DEBUG_C("[*] HTTPS 数据为空\n");
         }
-
-
     }
     else if (client->destaddr.sin_port == htons(80))
     {
-        
+
         LOG_DEBUG_C("[*] 80 请求：%s \n", destIP);
         // HTTP流量：解析Host头
         struct evbuffer *input = bufferevent_get_input(to);
@@ -673,7 +671,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         }
         else
         {
-             LOG_DEBUG_C("[*] HTTP 数据为空\n");
+            LOG_DEBUG_C("[*] HTTP 数据为空\n");
         }
     }
 
@@ -824,6 +822,7 @@ static void redsplice_write_cb(redsocks_pump *pump, redsplice_write_ctx *c, int 
         const size_t avail = c->pisrc->size;
         if (avail)
         {
+            //
             const ssize_t sent = splice(c->pisrc->read, NULL, out, NULL, avail, SPLICE_F_MOVE | SPLICE_F_NONBLOCK);
             if (sent == -1)
             {
@@ -909,28 +908,44 @@ typedef struct redsplice_read_ctx_t
     struct event *evdst;
     evshut_t *shut_src;
 } redsplice_read_ctx;
-
-// 线程安全的监控管道
-static __thread struct {
-    int read_fd;
-    int write_fd;
-    int initialized;
-} monitor_pipe;
-
-static void init_monitor_pipe() {
-    if (!monitor_pipe.initialized) {
-        pipe2(&monitor_pipe.read_fd, O_NONBLOCK);
-        monitor_pipe.initialized = 1;
+// 打印前 16 个字节（但不消耗数据）
+void peek_first_16_bytes(int in)
+{
+    int pipefd[2];
+    if (pipe(pipefd) < 0)
+    {
+        perror("pipe failed");
+        return;
     }
-}
 
-static void* monitor_thread(void *arg) {
-    char buf[1024];
-    ssize_t n = read(monitor_pipe.read_fd, buf, sizeof(buf));
-    if (n > 0) {
-        LOG_DEBUG_C("Captured %zd bytes: %.64s...", n, buf);
+    // 使用 tee 复制数据到临时管道（不消耗 in 的数据）
+    ssize_t got = tee(in, pipefd[1], 16, SPLICE_F_NONBLOCK);
+    if (got <= 0)
+    {
+        close(pipefd[0]);
+        close(pipefd[1]);
+        if (got == 0)
+            printf("No data available (EOF)\n");
+        else
+            perror("tee failed");
+        return;
     }
-    return NULL;
+
+    // 读取临时管道的前 16 字节并打印
+    char buf[16];
+    ssize_t bytes_read = read(pipefd[0], buf, sizeof(buf));
+    close(pipefd[0]);
+    close(pipefd[1]);
+
+    if (bytes_read > 0)
+    {
+        printf("First %zd bytes: ", bytes_read);
+        for (ssize_t i = 0; i < bytes_read; i++)
+        {
+            printf("%02x ", (unsigned char)buf[i]); // 16进制打印
+        }
+        printf("\n");
+    }
 }
 
 // splice读取回调
@@ -941,57 +956,90 @@ static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in
 
     /* 2. 设置管道传输参数 */
     const size_t pipesize = 1048576; // 默认管道容量（1MB，来自系统配置fs.pipe-max-size）
-    
+
+    redsocks_client client = pump->c;
+    char destaddr_str[RED_INET_ADDRSTRLEN];
+    char *destIP = red_inet_ntop(&client.destaddr, destaddr_str, sizeof(destaddr_str));
+    // 检查目标端口并解析内容
+    if (client.destaddr.sin_port == htons(443))
+    {
+        char buf[255];
+        ssize_t bytes_read = recv(in, buf, sizeof(buf), MSG_PEEK | MSG_DONTWAIT);
+        printf("[*] HTTPS 443 请求：%s\n", destIP);
+
+        // HTTPS流量：解析SNI
+        
+        if (bytes_read)
+        {
+            parse_sni(buf, bytes_read, &client);
+        }
+        else
+        {
+            //  LOG_DEBUG_C("[*] HTTPS 数据为空\n");
+        }
+    }
+    else if (client.destaddr.sin_port == htons(80))
+    {
+
+        printf("[*] 80 请求：%s \n", destIP);
+        // HTTP流量：解析Host头
+        // struct evbuffer *input = bufferevent_get_input(to);
+        // size_t len = evbuffer_get_length(input);
+        // unsigned char *data = evbuffer_pullup(input, len);
+        // if (data)
+        // {
+        //     parse_host_header((const char *)data, len, client);
+        // }
+        // else
+        // {
+        //     LOG_DEBUG_C("[*] HTTP 数据为空\n");
+        // }
+    }
+
     /* 3. 执行零拷贝数据转移 */
     const ssize_t got = splice(
-        in, NULL,              // 输入：源文件描述符（客户端或代理Socket）
-        c->dst->write, NULL,   // 输出：目标管道写端
-        pipesize,              // 最大传输量
-        SPLICE_F_MOVE |        // 允许内核移动内存页
-        SPLICE_F_NONBLOCK      // 非阻塞模式
+        in, NULL,             // 输入：源文件描述符（客户端或代理Socket）
+        c->dst->write, NULL,  // 输出：目标管道写端
+        pipesize,             // 最大传输量
+        SPLICE_F_MOVE |       // 允许内核移动内存页
+            SPLICE_F_NONBLOCK // 非阻塞模式
     );
-     
-    // init_monitor_pipe();
-    
-    // // 1. 原子化传输
-    // ssize_t got = tee(in, monitor_pipe.write_fd, pipesize, SPLICE_F_NONBLOCK);
-    // if (got > 0) {
-    //     splice(in, NULL, c->dst->write, NULL, got, SPLICE_F_MOVE);
-        
-    //     // 2. 异步分析（避免阻塞）
-    //     pthread_t tid;
-    //     pthread_create(&tid, NULL, monitor_thread, NULL);
-    // }
-
     /* 4. 错误处理 */
-    if (got == -1) {
-        if (would_block(errno)) {
+    if (got == -1)
+    {
+        if (would_block(errno))
+        {
             // 情况4.1：管道已满（背压控制）
             if (!event_pending(c->evsrc, EV_READ, NULL))
-                redsocks_log_error(&pump->c, LOG_DEBUG, "backpressure: event_del(%s_read)", 
-                                 pipename(pump, event_get_fd(c->evsrc)));
+                redsocks_log_error(&pump->c, LOG_DEBUG, "backpressure: event_del(%s_read)",
+                                   pipename(pump, event_get_fd(c->evsrc)));
             redsocks_event_del(&pump->c, c->evsrc); // 暂停读取事件
-        } else {
+        }
+        else
+        {
             // 情况4.2：严重错误（如连接断开）
-            redsocks_log_errno(&pump->c, pipeprio(pump, in), "splice(from %s)", 
-                             pipename(pump, in));
+            redsocks_log_errno(&pump->c, pipeprio(pump, in), "splice(from %s)",
+                               pipename(pump, in));
             redsocks_drop_client(&pump->c); // 终止连接
         }
         return;
     }
 
     /* 5. EOF处理 */
-    if (got == 0) {
-        if (shutdown(in, SHUT_RD) != 0 && errno != ENOTCONN) {
-            redsocks_log_errno(&pump->c, LOG_DEBUG, "shutdown(%s, SHUT_RD) after EOF", 
-                             pipename(pump, in));
+    if (got == 0)
+    {
+        if (shutdown(in, SHUT_RD) != 0 && errno != ENOTCONN)
+        {
+            redsocks_log_errno(&pump->c, LOG_DEBUG, "shutdown(%s, SHUT_RD) after EOF",
+                               pipename(pump, in));
         }
-        *c->shut_src |= EV_READ;       // 标记连接半关闭
+        *c->shut_src |= EV_READ;                // 标记连接半关闭
         redsocks_event_del(&pump->c, c->evsrc); // 移除读取监听
-    } 
+    }
     /* 6. 正常数据传输 */
-    else {
-        c->dst->size += got;           // 更新管道数据量统计
+    else
+    {
+        c->dst->size += got;                 // 更新管道数据量统计
         event_active(c->evdst, EV_WRITE, 0); // 触发写入事件
     }
 }
@@ -1025,24 +1073,24 @@ static void redsplice_client_read(int fd, short what, void *_pump)
 {
     /* 1. 调试日志输出 */
     LOG_DEBUG_C(" [*] 客户端读取回调 \n");
-    
+
     /* 2. 获取泵上下文 */
     redsocks_pump *pump = _pump;
-    
+
     /* 3. 断言校验（防御性编程） */
     assert(fd == event_get_fd(&pump->client_read) && (what & EV_READ));
-    
+
     /* 4. 更新活动时间戳 */
     redsocks_touch_pump(pump);
-    
+
     /* 5. 构造读取上下文结构体 */
     redsplice_read_ctx c = {
-        .dst = &pump->request,          // 目标管道：request（客户端→代理方向）
-        .evsrc = &pump->client_read,    // 事件源：客户端读取事件
-        .evdst = &pump->relay_write,    // 事件目标：代理写入事件（用于反压控制）
+        .dst = &pump->request,              // 目标管道：request（客户端→代理方向）
+        .evsrc = &pump->client_read,        // 事件源：客户端读取事件
+        .evdst = &pump->relay_write,        // 事件目标：代理写入事件（用于反压控制）
         .shut_src = &pump->c.client_evshut, // 客户端关闭状态标记
     };
-    
+
     /* 6. 调用核心读取处理函数 */
     redsplice_read_cb(pump, &c, fd);
 }
@@ -1101,58 +1149,61 @@ static int redsocks_start_splicepump(redsocks_client *client)
     int error = bufferevent_disable(client->client, EV_READ | EV_WRITE);
     if (!error)
         error = bufferevent_disable(client->relay, EV_READ | EV_WRITE); // 禁用代理端Socket
-    if (error) {
+    if (error)
+    {
         redsocks_log_errno(client, LOG_ERR, "bufferevent_disable");
         return error;
     }
 
     /* === 阶段2：准备内核资源 === */
     // 解冻缓冲区以获取底层Socket控制权
-    // 参数说明： 
+    // 参数说明：
     // 0 = 解冻输入方向（读取），1 = 解冻输出方向（写入）
-    evbuffer_unfreeze(client->client->input,  0); // 客户端接收缓冲区
+    evbuffer_unfreeze(client->client->input, 0);  // 客户端接收缓冲区
     evbuffer_unfreeze(client->client->output, 1); // 客户端发送缓冲区
-    evbuffer_unfreeze(client->relay->input,   0); // 代理接收缓冲区
-    evbuffer_unfreeze(client->relay->output,  1); // 代理发送缓冲区
+    evbuffer_unfreeze(client->relay->input, 0);   // 代理接收缓冲区
+    evbuffer_unfreeze(client->relay->output, 1);  // 代理发送缓冲区
 
     /* === 阶段3：初始化splice泵 === */
     // 获取splice泵上下文（包含两个管道和事件处理器）
     redsocks_pump *pump = red_pump(client);
-    
+
     // 创建非阻塞管道（request方向：client → relay）
     if (!error)
-        error = pipe2(&pump->request.read, O_NONBLOCK); 
+        error = pipe2(&pump->request.read, O_NONBLOCK);
     // 创建非阻塞管道（reply方向：relay → client）
     if (!error)
         error = pipe2(&pump->reply.read, O_NONBLOCK);
-    if (error) {
+    if (error)
+    {
         redsocks_log_errno(client, LOG_ERR, "pipe2");
         goto fail;
     }
 
     /* === 阶段4：设置事件处理器 === */
-    struct event_base *base = NULL; // 使用默认事件基
-    const int relay_fd = bufferevent_getfd(client->relay);  // 获取代理Socket真实fd
+    struct event_base *base = NULL;                          // 使用默认事件基
+    const int relay_fd = bufferevent_getfd(client->relay);   // 获取代理Socket真实fd
     const int client_fd = bufferevent_getfd(client->client); // 获取客户端Socket真实fd
 
     // 注册四个核心事件：
     // 1. 客户端数据可读事件
     if (!error)
-        error = event_assign(&pump->client_read, base, client_fd, 
-                           EV_READ | EV_PERSIST, redsplice_client_read, pump);
+        error = event_assign(&pump->client_read, base, client_fd,
+                             EV_READ | EV_PERSIST, redsplice_client_read, pump);
     // 2. 客户端可写事件（用于反压控制）
     if (!error)
-        error = event_assign(&pump->client_write, base, client_fd, 
-                           EV_WRITE | EV_PERSIST, redsplice_client_write, pump);
+        error = event_assign(&pump->client_write, base, client_fd,
+                             EV_WRITE | EV_PERSIST, redsplice_client_write, pump);
     // 3. 代理端数据可读事件
     if (!error)
-        error = event_assign(&pump->relay_read, base, relay_fd, 
-                           EV_READ | EV_PERSIST, redsplice_relay_read, pump);
+        error = event_assign(&pump->relay_read, base, relay_fd,
+                             EV_READ | EV_PERSIST, redsplice_relay_read, pump);
     // 4. 代理端可写事件（用于反压控制）
     if (!error)
-        error = event_assign(&pump->relay_write, base, relay_fd, 
-                           EV_WRITE | EV_PERSIST, redsplice_relay_write, pump);
-    if (error) {
+        error = event_assign(&pump->relay_write, base, relay_fd,
+                             EV_WRITE | EV_PERSIST, redsplice_relay_write, pump);
+    if (error)
+    {
         redsocks_log_errno(client, LOG_ERR, "event_assign");
         goto fail;
     }
@@ -1166,7 +1217,7 @@ static int redsocks_start_splicepump(redsocks_client *client)
     // 立即触发写事件（处理可能的残留数据）
     event_active(&pump->client_write, EV_WRITE, 0);
     event_active(&pump->relay_write, EV_WRITE, 0);
-    
+
     // 注册读事件监听（开始接收新数据）
     redsocks_event_add(&pump->c, &pump->client_read);
     redsocks_event_add(&pump->c, &pump->relay_read);
@@ -1175,8 +1226,10 @@ static int redsocks_start_splicepump(redsocks_client *client)
 
 fail:
     // 错误处理：关闭已创建的管道
-    if (pump->request.read != -1) close(pump->request.read);
-    if (pump->reply.read != -1)  close(pump->reply.read);
+    if (pump->request.read != -1)
+        close(pump->request.read);
+    if (pump->reply.read != -1)
+        close(pump->reply.read);
     return -1;
 }
 
@@ -1512,21 +1565,19 @@ int redsocks_write_helper(
 // 中继连接建立回调 (太早了 没有数据)
 static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
 {
-   // log_error(LOG_NOTICE, "[*] redsocks_relay_connected 中继连接建立回调");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_connected 中继连接建立回调");
     redsocks_client *client = _arg;
 
     assert(buffev == client->relay);
 
     redsocks_touch_client(client);
 
-  
-
     char destaddr_str[RED_INET_ADDRSTRLEN];
     char *destIP = red_inet_ntop(&(client)->destaddr, destaddr_str, sizeof(destaddr_str));
     // 检查目标端口并解析内容
     if (client->destaddr.sin_port == htons(443))
     {
-       LOG_DEBUG_C("[*] HTTPS 请求：%s \n", destIP);
+        LOG_DEBUG_C("[*] HTTPS 请求：%s \n", destIP);
     }
     else if (client->destaddr.sin_port == htons(80))
     {
@@ -1534,7 +1585,7 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
     }
 
     // 在连接建立后根据域名选择代理
-    //route_by_domain(client);
+    // route_by_domain(client);
 
     if (!red_is_socket_connected_ok(buffev))
     {
@@ -1550,7 +1601,6 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
 fail:
     redsocks_drop_client(client);
 }
-
 
 // 连接代理服务器
 void redsocks_connect_relay(redsocks_client *client)
@@ -1572,11 +1622,10 @@ void redsocks_connect_relay(redsocks_client *client)
     ip_domain_map *entry = NULL;
     HASH_FIND_STR(domain_table, ip_str, entry);
 
+    // route_by_domain(client);
+    // ip_domain_map *entry;
+    // HASH_FIND_STR(domain_table, ip_str, entry);
 
-    //route_by_domain(client);
-    //ip_domain_map *entry;
-    //HASH_FIND_STR(domain_table, ip_str, entry);
-    
     // 2. 保存原始代理配置（用于回退）
     struct sockaddr_in original_relay = client->instance->config.relayaddr;
 
@@ -1589,27 +1638,27 @@ void redsocks_connect_relay(redsocks_client *client)
             strstr(entry->domain, "qq.com") ||
             strstr(entry->domain, "taobao.com"))
         {
-            //国内代理服务器地址：
-            char *proxy_ip="192.168.3.142";
-            uint16_t proxy_port = 8000;  
-            //client->instance->config.relayaddr.sin_port = htons(proxy_port);              // 设置端口（需转换为网络字节序）
+            // 国内代理服务器地址：
+            char *proxy_ip = "192.168.3.142";
+            uint16_t proxy_port = 8000;
+            // client->instance->config.relayaddr.sin_port = htons(proxy_port);              // 设置端口（需转换为网络字节序）
 
             // 国内网站使用国内代理
-           // inet_pton(AF_INET,proxy_ip, &client->instance->config.relayaddr.sin_addr);
-            printf("[*] %s -> %s 使用国内代理 %s:%d\n", entry->domain, entry->ip,proxy_ip,proxy_port);
-
-        }else {
-            // 其他网站使用国外代理
-            //char *proxy_ip="1.2.3.4";
-            //inet_pton(AF_INET, proxy_ip, &client->instance->config.relayaddr.sin_addr);
-            printf("[*] %s -> %s 使用国外代理\n",entry->domain, entry->ip);
+            // inet_pton(AF_INET,proxy_ip, &client->instance->config.relayaddr.sin_addr);
+            printf("[*] %s -> %s 使用国内代理 %s:%d\n", entry->domain, entry->ip, proxy_ip, proxy_port);
         }
-    }else{
-        printf("[*] 没有找到域名映射 使用默认代理 %s\n",dest_rlay_IP);
+        else
+        {
+            // 其他网站使用国外代理
+            // char *proxy_ip="1.2.3.4";
+            // inet_pton(AF_INET, proxy_ip, &client->instance->config.relayaddr.sin_addr);
+            printf("[*] %s -> %s 使用国外代理\n", entry->domain, entry->ip);
+        }
     }
-
-
-  
+    else
+    {
+        printf("[*] 没有找到域名映射 使用默认代理 %s\n", dest_rlay_IP);
+    }
 
     // 5. 连接代理服务器
     client->relay = red_connect_relay(&client->instance->config.relayaddr,
@@ -1620,7 +1669,7 @@ void redsocks_connect_relay(redsocks_client *client)
     // 6. 如果连接失败，尝试回退到原始代理
     if (!client->relay)
     {
-        redsocks_log_errno(client, LOG_WARNING, "代理连接失败，尝试回退到默认代理");
+        printf("[*] 代理连接失败，尝试回退到默认代理");
 
         // 恢复原始代理配置
         client->instance->config.relayaddr = original_relay;
@@ -1631,7 +1680,7 @@ void redsocks_connect_relay(redsocks_client *client)
                                           client);
         if (!client->relay)
         {
-            redsocks_log_errno(client, LOG_ERR, "回退代理连接也失败");
+            printf("[*] 回退代理连接也失败");
             redsocks_drop_client(client);
         }
     }
