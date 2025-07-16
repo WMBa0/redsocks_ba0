@@ -31,6 +31,8 @@
 #include <fcntl.h>
 #include <event.h>
 #include <uthash.h> // 哈希表库
+#include <pthread.h>
+
 
 // 包含项目自定义头文件
 #include "list.h"
@@ -345,7 +347,7 @@ void route_by_domain(redsocks_client *client)
 // 检查系统是否支持splice
 static bool is_splice_good()
 {
-    //LOG_DEBUG_C("支持 splice模式 \n");
+    LOG_DEBUG_C("支持 splice模式 \n");
     struct utsname u;
     if (uname(&u) != 0)
     {
@@ -908,46 +910,90 @@ typedef struct redsplice_read_ctx_t
     evshut_t *shut_src;
 } redsplice_read_ctx;
 
+// 线程安全的监控管道
+static __thread struct {
+    int read_fd;
+    int write_fd;
+    int initialized;
+} monitor_pipe;
+
+static void init_monitor_pipe() {
+    if (!monitor_pipe.initialized) {
+        pipe2(&monitor_pipe.read_fd, O_NONBLOCK);
+        monitor_pipe.initialized = 1;
+    }
+}
+
+static void* monitor_thread(void *arg) {
+    char buf[1024];
+    ssize_t n = read(monitor_pipe.read_fd, buf, sizeof(buf));
+    if (n > 0) {
+        LOG_DEBUG_C("Captured %zd bytes: %.64s...", n, buf);
+    }
+    return NULL;
+}
+
 // splice读取回调
 static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in)
 {
-    LOG_DEBUG_C("[*] splice读取回调 \n");
-    const size_t pipesize = 1048576; // 来自fs.pipe-max-size的默认值
-    const ssize_t got = splice(in, NULL, c->dst->write, NULL, pipesize, SPLICE_F_MOVE | SPLICE_F_NONBLOCK);
-    if (got == -1)
-    {
-        if (would_block(errno))
-        {
-            // 有数据但管道已满
+    /* 1. 调试日志 */
+    LOG_DEBUG_C("[*] 客户端读取回调（发送splice） \n");
+
+    /* 2. 设置管道传输参数 */
+    const size_t pipesize = 1048576; // 默认管道容量（1MB，来自系统配置fs.pipe-max-size）
+    
+    /* 3. 执行零拷贝数据转移 */
+    const ssize_t got = splice(
+        in, NULL,              // 输入：源文件描述符（客户端或代理Socket）
+        c->dst->write, NULL,   // 输出：目标管道写端
+        pipesize,              // 最大传输量
+        SPLICE_F_MOVE |        // 允许内核移动内存页
+        SPLICE_F_NONBLOCK      // 非阻塞模式
+    );
+     
+    // init_monitor_pipe();
+    
+    // // 1. 原子化传输
+    // ssize_t got = tee(in, monitor_pipe.write_fd, pipesize, SPLICE_F_NONBLOCK);
+    // if (got > 0) {
+    //     splice(in, NULL, c->dst->write, NULL, got, SPLICE_F_MOVE);
+        
+    //     // 2. 异步分析（避免阻塞）
+    //     pthread_t tid;
+    //     pthread_create(&tid, NULL, monitor_thread, NULL);
+    // }
+
+    /* 4. 错误处理 */
+    if (got == -1) {
+        if (would_block(errno)) {
+            // 情况4.1：管道已满（背压控制）
             if (!event_pending(c->evsrc, EV_READ, NULL))
-                redsocks_log_error(&pump->c, LOG_DEBUG, "backpressure: event_del(%s_read)", pipename(pump, event_get_fd(c->evsrc)));
-            redsocks_event_del(&pump->c, c->evsrc);
-        }
-        else
-        {
-            redsocks_log_errno(&pump->c, pipeprio(pump, in), "splice(from %s)", pipename(pump, in));
-            redsocks_drop_client(&pump->c);
+                redsocks_log_error(&pump->c, LOG_DEBUG, "backpressure: event_del(%s_read)", 
+                                 pipename(pump, event_get_fd(c->evsrc)));
+            redsocks_event_del(&pump->c, c->evsrc); // 暂停读取事件
+        } else {
+            // 情况4.2：严重错误（如连接断开）
+            redsocks_log_errno(&pump->c, pipeprio(pump, in), "splice(from %s)", 
+                             pipename(pump, in));
+            redsocks_drop_client(&pump->c); // 终止连接
         }
         return;
     }
 
-    if (got == 0)
-    { // 收到EOF
-        if (shutdown(in, SHUT_RD) != 0)
-        {
-            if (errno != ENOTCONN)
-            { // 不记录splice()的常见情况
-                redsocks_log_errno(&pump->c, LOG_DEBUG, "shutdown(%s, SHUT_RD) after EOF", pipename(pump, in));
-            }
+    /* 5. EOF处理 */
+    if (got == 0) {
+        if (shutdown(in, SHUT_RD) != 0 && errno != ENOTCONN) {
+            redsocks_log_errno(&pump->c, LOG_DEBUG, "shutdown(%s, SHUT_RD) after EOF", 
+                             pipename(pump, in));
         }
-        *c->shut_src |= EV_READ;
-        redsocks_event_del(&pump->c, c->evsrc);
+        *c->shut_src |= EV_READ;       // 标记连接半关闭
+        redsocks_event_del(&pump->c, c->evsrc); // 移除读取监听
+    } 
+    /* 6. 正常数据传输 */
+    else {
+        c->dst->size += got;           // 更新管道数据量统计
+        event_active(c->evdst, EV_WRITE, 0); // 触发写入事件
     }
-    else
-    {
-        c->dst->size += got;
-    }
-    event_active(c->evdst, EV_WRITE, 0);
 }
 
 // 更新泵的活动时间
@@ -974,19 +1020,30 @@ static void redsplice_relay_read(int fd, short what, void *_pump)
     redsplice_read_cb(pump, &c, fd);
 }
 
-// 客户端读取回调
+// 客户端Socket数据到达时的回调函数，负责将客户端数据通过内核管道零拷贝转发到代理服务器方向
 static void redsplice_client_read(int fd, short what, void *_pump)
 {
+    /* 1. 调试日志输出 */
     LOG_DEBUG_C(" [*] 客户端读取回调 \n");
+    
+    /* 2. 获取泵上下文 */
     redsocks_pump *pump = _pump;
+    
+    /* 3. 断言校验（防御性编程） */
     assert(fd == event_get_fd(&pump->client_read) && (what & EV_READ));
+    
+    /* 4. 更新活动时间戳 */
     redsocks_touch_pump(pump);
+    
+    /* 5. 构造读取上下文结构体 */
     redsplice_read_ctx c = {
-        .dst = &pump->request,
-        .evsrc = &pump->client_read,
-        .evdst = &pump->relay_write,
-        .shut_src = &pump->c.client_evshut,
+        .dst = &pump->request,          // 目标管道：request（客户端→代理方向）
+        .evsrc = &pump->client_read,    // 事件源：客户端读取事件
+        .evdst = &pump->relay_write,    // 事件目标：代理写入事件（用于反压控制）
+        .shut_src = &pump->c.client_evshut, // 客户端关闭状态标记
     };
+    
+    /* 6. 调用核心读取处理函数 */
     redsplice_read_cb(pump, &c, fd);
 }
 
@@ -1011,24 +1068,54 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
     redsplice_write_cb(pump, &c, fd);
 }
 
-// 客户端写入回调
-static void redsplice_client_write(int fd, short what, void *_pump)
+/* 
+ * splice模式下的客户端写入回调函数
+ * 功能：处理从代理服务器到客户端方向的数据传输（reply管道数据）
+ */
+static void redsplice_client_write(int fd, short what, void *_pump) 
 {
+    // 调试日志：记录客户端写入事件触发
     LOG_DEBUG_C("[*]  客户端写入回调\n");
+
+    // 1. 获取泵(pump)控制结构体
     redsocks_pump *pump = _pump;
+
+    // 2. 安全性断言检查：
+    //    - 确保触发事件的fd确实是客户端写入事件的fd
+    //    - 确保事件类型包含EV_WRITE可写标志
     assert(fd == event_get_fd(&pump->client_write) && (what & EV_WRITE));
+
+    // 3. 更新泵的最后活动时间戳
+    //    （用于连接超时管理）
     redsocks_touch_pump(pump);
+
+    // 4. 构建写入上下文结构体
     redsplice_write_ctx c = {
+        // 数据源缓冲区数组：
+        // [0] 客户端的输出缓冲区（待发送数据）
+        // [1] 中继端的输入缓冲区（已接收数据）
         .ebsrc = {
-            pump->c.client ? pump->c.client->output : NULL,
-            pump->c.relay ? pump->c.relay->input : NULL,
+            pump->c.client ? pump->c.client->output : NULL,  // 客户端输出缓冲区
+            pump->c.relay ? pump->c.relay->input : NULL,     // 中继端输入缓冲区
         },
+
+        // 指向回复管道（relay->client方向的数据管道）
         .pisrc = &pump->reply,
-        .evsrc = &pump->relay_read,
-        .evdst = &pump->client_write,
-        .shut_src = &pump->c.relay_evshut,
-        .shut_dst = &pump->c.client_evshut,
+
+        // 关联的事件对象：
+        .evsrc = &pump->relay_read,    // 中继读取事件（用于反压控制）
+        .evdst = &pump->client_write,  // 客户端写入事件（当前事件）
+
+        // 关闭状态标记：
+        .shut_src = &pump->c.relay_evshut,  // 中继端关闭状态
+        .shut_dst = &pump->c.client_evshut, // 客户端关闭状态
     };
+
+    // 5. 调用核心写入处理函数
+    //    参数说明：
+    //    - pump : 泵控制结构体
+    //    - &c   : 写入上下文
+    //    - fd   : 目标文件描述符（客户端socket）
     redsplice_write_cb(pump, &c, fd);
 }
 
@@ -1469,12 +1556,10 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
     // 检查目标端口并解析内容
     if (client->destaddr.sin_port == htons(443))
     {
-
        LOG_DEBUG_C("[*] HTTPS 请求：%s \n", destIP);
     }
     else if (client->destaddr.sin_port == htons(80))
     {
-
         LOG_DEBUG_C("[*] HTTP  请求：%s \n", destIP);
     }
 
@@ -1518,7 +1603,7 @@ void redsocks_connect_relay(redsocks_client *client)
     HASH_FIND_STR(domain_table, ip_str, entry);
 
 
-    route_by_domain(client);
+    //route_by_domain(client);
     //ip_domain_map *entry;
     //HASH_FIND_STR(domain_table, ip_str, entry);
     
