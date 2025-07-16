@@ -46,11 +46,12 @@ static inline char* get_timestamp() {
 #define LOG(level, color, tag, fmt, ...) \
     do { \
         if (level <= current_log_level) { \
-            fprintf(stderr, "%s %s[%-7s]%s %s:%d:%s(): " fmt, \
+            fprintf(stdout, "%s %s[%-7s]%s %s:%d:%s(): " fmt, \
                     get_timestamp(), color, tag, COLOR_RESET, \
                     __FILE__, __LINE__, __func__, ##__VA_ARGS__); \
         } \
     } while (0)
+    
 
 // 具体日志级别
 #define LOG_VERBOSE_C(fmt, ...) LOG(LOG_LEVEL_VERBOSE, COLOR_CYAN,   "VERBOSE", fmt, ##__VA_ARGS__)

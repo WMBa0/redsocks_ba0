@@ -211,7 +211,7 @@ void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
                 entry->domain[name_len] = '\0';
                 HASH_ADD_STR(domain_table, ip, entry);
 
-                LOG_DEBUG_C( "记录 HTTPS SNI: %s -> %s \n", domain, ip_str);
+                log_error(LOG_NOTICE, "记录 HTTPS SNI: %s -> %s", domain, ip_str);
             }
             else if (strcmp(entry->domain, domain) != 0)
             {
@@ -269,7 +269,7 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
 // 识别 buffev 成员
 void parse_sni_from_bufferevent(struct bufferevent *buffev, redsocks_client *client)
 {
-
+    log_error(LOG_NOTICE, "[*] parse_sni_from_bufferevent 触发");
 
     if (!buffev || !client)
     {
@@ -911,11 +911,9 @@ typedef struct redsplice_read_ctx_t
 // splice读取回调
 static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in)
 {
-    LOG_DEBUG_C(" splice读取回调 \n");
+    LOG_DEBUG_C("[*] splice读取回调 \n");
     const size_t pipesize = 1048576; // 来自fs.pipe-max-size的默认值
     const ssize_t got = splice(in, NULL, c->dst->write, NULL, pipesize, SPLICE_F_MOVE | SPLICE_F_NONBLOCK);
-
-    
     if (got == -1)
     {
         if (would_block(errno))
@@ -963,7 +961,7 @@ static void redsocks_touch_pump(redsocks_pump *pump)
 // 中继读取回调
 static void redsplice_relay_read(int fd, short what, void *_pump)
 {
-    LOG_DEBUG_C(" 中继读取回调 \n");
+    LOG_DEBUG_C("[*] 中继读取回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->relay_read) && (what & EV_READ));
     redsocks_touch_pump(pump);
@@ -979,7 +977,7 @@ static void redsplice_relay_read(int fd, short what, void *_pump)
 // 客户端读取回调
 static void redsplice_client_read(int fd, short what, void *_pump)
 {
-    LOG_DEBUG_C(" [*] splice客户端读取回调 \n");
+    LOG_DEBUG_C(" [*] 客户端读取回调 \n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->client_read) && (what & EV_READ));
     redsocks_touch_pump(pump);
@@ -1016,7 +1014,7 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
 // 客户端写入回调
 static void redsplice_client_write(int fd, short what, void *_pump)
 {
-    LOG_DEBUG_C(" 客户端写入回调 \n");
+    LOG_DEBUG_C("[*]  客户端写入回调\n");
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->client_write) && (what & EV_WRITE));
     redsocks_touch_pump(pump);
@@ -1034,65 +1032,95 @@ static void redsplice_client_write(int fd, short what, void *_pump)
     redsplice_write_cb(pump, &c, fd);
 }
 
-// 启动splice泵
+/**
+ * 启动splice零拷贝数据泵
+ * @param client 客户端连接上下文
+ * @return 成功返回0，失败返回-1并记录错误日志
+ */
 static int redsocks_start_splicepump(redsocks_client *client)
 {
-    
-    // 禁用缓冲区事件的读写
+    /* === 阶段1：禁用传统缓冲模式 === */
+    // 禁用客户端Socket的读写事件（停止bufferevent的数据处理）
     int error = bufferevent_disable(client->client, EV_READ | EV_WRITE);
     if (!error)
-        error = bufferevent_disable(client->relay, EV_READ | EV_WRITE);
-    if (error)
-    {
+        error = bufferevent_disable(client->relay, EV_READ | EV_WRITE); // 禁用代理端Socket
+    if (error) {
         redsocks_log_errno(client, LOG_ERR, "bufferevent_disable");
         return error;
     }
 
-    // 解冻缓冲区以便从套接字中窃取
-    evbuffer_unfreeze(client->client->input, 0);
-    evbuffer_unfreeze(client->client->output, 1);
-    evbuffer_unfreeze(client->relay->input, 0);
-    evbuffer_unfreeze(client->relay->output, 1);
+    /* === 阶段2：准备内核资源 === */
+    // 解冻缓冲区以获取底层Socket控制权
+    // 参数说明： 
+    // 0 = 解冻输入方向（读取），1 = 解冻输出方向（写入）
+    evbuffer_unfreeze(client->client->input,  0); // 客户端接收缓冲区
+    evbuffer_unfreeze(client->client->output, 1); // 客户端发送缓冲区
+    evbuffer_unfreeze(client->relay->input,   0); // 代理接收缓冲区
+    evbuffer_unfreeze(client->relay->output,  1); // 代理发送缓冲区
 
+    /* === 阶段3：初始化splice泵 === */
+    // 获取splice泵上下文（包含两个管道和事件处理器）
     redsocks_pump *pump = red_pump(client);
+    
+    // 创建非阻塞管道（request方向：client → relay）
     if (!error)
-        error = pipe2(&pump->request.read, O_NONBLOCK);
+        error = pipe2(&pump->request.read, O_NONBLOCK); 
+    // 创建非阻塞管道（reply方向：relay → client）
     if (!error)
         error = pipe2(&pump->reply.read, O_NONBLOCK);
-    if (error)
-    {
+    if (error) {
         redsocks_log_errno(client, LOG_ERR, "pipe2");
-        return error;
+        goto fail;
     }
 
-    struct event_base *base = NULL;
-    const int relay_fd = bufferevent_getfd(client->relay);
-    const int client_fd = bufferevent_getfd(client->client);
+    /* === 阶段4：设置事件处理器 === */
+    struct event_base *base = NULL; // 使用默认事件基
+    const int relay_fd = bufferevent_getfd(client->relay);  // 获取代理Socket真实fd
+    const int client_fd = bufferevent_getfd(client->client); // 获取客户端Socket真实fd
+
+    // 注册四个核心事件：
+    // 1. 客户端数据可读事件
     if (!error)
-        error = event_assign(&pump->client_read, base, client_fd, EV_READ | EV_PERSIST, redsplice_client_read, pump);
+        error = event_assign(&pump->client_read, base, client_fd, 
+                           EV_READ | EV_PERSIST, redsplice_client_read, pump);
+    // 2. 客户端可写事件（用于反压控制）
     if (!error)
-        error = event_assign(&pump->client_write, base, client_fd, EV_WRITE | EV_PERSIST, redsplice_client_write, pump);
+        error = event_assign(&pump->client_write, base, client_fd, 
+                           EV_WRITE | EV_PERSIST, redsplice_client_write, pump);
+    // 3. 代理端数据可读事件
     if (!error)
-        error = event_assign(&pump->relay_read, base, relay_fd, EV_READ | EV_PERSIST, redsplice_relay_read, pump);
+        error = event_assign(&pump->relay_read, base, relay_fd, 
+                           EV_READ | EV_PERSIST, redsplice_relay_read, pump);
+    // 4. 代理端可写事件（用于反压控制）
     if (!error)
-        error = event_assign(&pump->relay_write, base, relay_fd, EV_WRITE | EV_PERSIST, redsplice_relay_write, pump);
-    if (error)
-    {
+        error = event_assign(&pump->relay_write, base, relay_fd, 
+                           EV_WRITE | EV_PERSIST, redsplice_relay_write, pump);
+    if (error) {
         redsocks_log_errno(client, LOG_ERR, "event_assign");
-        return error;
+        goto fail;
     }
 
-    // 丢弃文件描述符
+    /* === 阶段5：移交控制权 === */
+    // 从bufferevent中分离Socket描述符（避免双重控制）
     redsocks_bufferevent_dropfd(client, client->relay);
     redsocks_bufferevent_dropfd(client, client->client);
 
-    // 刷新缓冲区(如果有)并启用EV_READ回调
+    /* === 阶段6：启动数据泵 === */
+    // 立即触发写事件（处理可能的残留数据）
     event_active(&pump->client_write, EV_WRITE, 0);
     event_active(&pump->relay_write, EV_WRITE, 0);
+    
+    // 注册读事件监听（开始接收新数据）
     redsocks_event_add(&pump->c, &pump->client_read);
     redsocks_event_add(&pump->c, &pump->relay_read);
 
-    return 0;
+    return 0; // 成功
+
+fail:
+    // 错误处理：关闭已创建的管道
+    if (pump->request.read != -1) close(pump->request.read);
+    if (pump->reply.read != -1)  close(pump->reply.read);
+    return -1;
 }
 
 // 检查目标地址是否为回环地址
@@ -1427,12 +1455,14 @@ int redsocks_write_helper(
 // 中继连接建立回调 (太早了 没有数据)
 static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_connected 中继连接建立回调");
+   // log_error(LOG_NOTICE, "[*] redsocks_relay_connected 中继连接建立回调");
     redsocks_client *client = _arg;
 
     assert(buffev == client->relay);
 
     redsocks_touch_client(client);
+
+  
 
     char destaddr_str[RED_INET_ADDRSTRLEN];
     char *destIP = red_inet_ntop(&(client)->destaddr, destaddr_str, sizeof(destaddr_str));
