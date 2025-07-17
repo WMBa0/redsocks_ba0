@@ -108,7 +108,52 @@ typedef struct
     UT_hash_handle hh; // uthash哈希表处理
 } ip_domain_map;
 
-static ip_domain_map *domain_table = NULL; // 全局域名映射表
+static ip_domain_map *domain_table = NULL; // 全局IP-域名映射表
+
+//白名单域名哈希表
+typedef struct{
+    char domain[256];  
+    UT_hash_handle hh;
+} whitelist_domain;
+static whitelist_domain *whitelist=NULL; //全局白域名哈希变量
+#define WHITELIST_FILE "whitelist_domain.txt"
+
+/* 加载白名单域名 */
+static void load_whitelist() {
+   
+    
+    FILE *fp = fopen(WHITELIST_FILE, "r");
+    if (!fp) {
+        
+        LOG_DEBUG_C("域名白名单文件不存在，请创建该文件: %s\n", WHITELIST_FILE);
+        return;
+    }
+
+    char line[256];
+    unsigned count = 0;
+    while (fgets(line, sizeof(line), fp)) {
+        // 去除换行符
+        line[strcspn(line, "\r\n")] = 0;
+        
+        if (strlen(line) == 0 || line[0] == '#') {
+            continue; // 跳过空行和注释
+        }
+
+        whitelist_domain *entry = NULL;
+        HASH_FIND_STR(whitelist, line, entry);
+        if (!entry) {
+            entry = malloc(sizeof(whitelist_domain));
+            strncpy(entry->domain, line, sizeof(entry->domain)-1);
+            entry->domain[sizeof(entry->domain)-1] = '\0';
+            HASH_ADD_STR(whitelist, domain, entry);
+            count++;
+        }
+    }
+
+    fclose(fp);
+    LOG_DEBUG_C("加载了 %u 个白名单域名\n", count);
+    
+}
 
 /* 新增：保存IP域名表到文件 */
 static void save_domain_table(const char *filename) {
@@ -156,7 +201,6 @@ static void load_domain_table(const char *filename) {
     fclose(fp);
     LOG_DEBUG_C("[*]从 %s 加载了 %u 条域名映射\n", filename, HASH_COUNT(domain_table));
 }
-
 
 static void print_hex_dump_tcp(const char *title, const void *data, size_t len)
 {
@@ -353,88 +397,97 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
 
     }
 
-    // redsocks_log_error(client, LOG_DEBUG, "Host header: %s -> %s", host, ip_str);
-     log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
-    //printf("HTTP : Host header: %s -> %s\n", host, ip_str);
+    
+    log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
+   
 }
 
-
-
-// 识别 buffev 成员
-void parse_sni_from_bufferevent(struct bufferevent *buffev, redsocks_client *client)
-{
-    log_error(LOG_NOTICE, "[*] parse_sni_from_bufferevent 触发");
-
-    if (!buffev || !client)
-    {
-        redsocks_log_error(client, LOG_ERR, "Invalid arguments");
-        return;
-    }
-
-    // 获取输入缓冲区
-    struct evbuffer *input = bufferevent_get_input(buffev);
-    size_t len = evbuffer_get_length(input);
-
-    // 检查最小TLS头长度
-    if (len < 5)
-    {
-        redsocks_log_error(client, LOG_DEBUG, "Incomplete TLS header (%zu bytes)", len);
-        return;
-    }
-
-    // struct evbuffer *input = bufferevent_get_input(buffev);
-    // size_t len = evbuffer_get_length(input);
-    if (len > 0)
-    {
-        // 获取数据指针（不消费缓冲区）
-        unsigned char *data = evbuffer_pullup(input, len);
-        log_error(LOG_NOTICE, "Current input buffer (%zu bytes):\n", len);
-        for (size_t i = 0; i < len; i++)
-        {
-            printf("%02x ", data[i]);
+/* 添加域名到白名单 */
+void add_to_whitelist(const char *domain) {
+   // pthread_mutex_lock(&whitelist_mutex);
+    
+    whitelist_domain *entry = NULL;
+    HASH_FIND_STR(whitelist, domain, entry);
+    
+    if (!entry) {
+        entry = malloc(sizeof(whitelist_domain));
+        strncpy(entry->domain, domain, sizeof(entry->domain)-1);
+        entry->domain[sizeof(entry->domain)-1] = '\0';
+        HASH_ADD_STR(whitelist, domain, entry);
+        
+        // 追加到白名单文件
+        FILE *fp = fopen(WHITELIST_FILE, "a");
+        if (fp) {
+            fprintf(fp, "%s\n", domain);
+            fclose(fp);
         }
-        printf("\n");
+        
+        log_error(LOG_NOTICE, "已添加白名单域名: %s", domain);
     }
-
-    // 提取数据（不消费缓冲区）
-    unsigned char *data = evbuffer_pullup(input, len);
-    if (!data)
-    {
-        redsocks_log_errno(client, LOG_ERR, "evbuffer_pullup failed");
-        return;
-    }
-
-    // 解析SNI
-    parse_sni(data, len, client);
+    
+    //pthread_mutex_unlock(&whitelist_mutex);
 }
 
-/* 根据域名选择代理（示例函数） */
-void route_by_domain(redsocks_client *client)
-{
+/* 从白名单移除域名 */
+void remove_from_whitelist(const char *domain) {
+   // pthread_mutex_lock(&whitelist_mutex);
+    
+    whitelist_domain *entry = NULL;
+    HASH_FIND_STR(whitelist, domain, entry);
+    
+    if (entry) {
+        HASH_DEL(whitelist, entry);
+        free(entry);
+        
+        // 重新写入白名单文件
+        FILE *fp = fopen(WHITELIST_FILE, "w");
+        if (fp) {
+            whitelist_domain *tmp;
+            for(tmp = whitelist; tmp != NULL; tmp = tmp->hh.next) {
+                fprintf(fp, "%s\n", tmp->domain);
+            }
+            fclose(fp);
+        }
+        
+        log_error(LOG_NOTICE, "已移除白名单域名: %s", domain);
+    }
+    
+   // pthread_mutex_unlock(&whitelist_mutex);
+}
+
+//根据域名选择代理服务器
+void route_by_domain(redsocks_client *client){
+    //获取目标服务器IP
     char ip_str[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET, &client->destaddr.sin_addr, ip_str, sizeof(ip_str));
-
-    ip_domain_map *entry;
-    HASH_FIND_STR(domain_table, ip_str, entry);
-
-    if (entry)
-    {
-        if (strstr(entry->domain, "www.baidu.com"))
-        {
-            // 使用代理A
-            // client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("1.2.3.4");
-            log_error(LOG_NOTICE, "[*] www.baidu.com 域名 代理处理");
+    inet_ntop(AF_INET,&client->destaddr.sin_addr,ip_str,sizeof(ip_str));
+    
+    //检查IP是否有对应域名
+    ip_domain_map* entry;
+    HASH_FIND_STR(domain_table,ip_str,entry);
+    
+    if(entry){
+        //检查域名是否在白名单内
+        whitelist_domain* wl_entry =NULL;
+        HASH_FIND_STR(whitelist,entry->domain,wl_entry);
+        
+        if(wl_entry){
+            //白名单模式 使用国内代理
+            
+            //client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("192.168.1.1");
+            //client->instance->config.relayaddr.sin_port=htons("80");
+            LOG_DEBUG_C("[*] %s -> 国内代理 \n",entry->domain);
+        }else{
+            //走默认代理(国外代理)
+            
+            //client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("4.4.4.4");
+            //client->instance->config.relayaddr.sin_port=htons("9000");
+            LOG_DEBUG_C("[*] %s -> 国外代理 \n",entry->domain);
         }
-        else if (strstr(entry->domain, "github.com"))
-        {
-            // 使用代理B
-            // client->instance->config.relayaddr.sin_addr.s_addr = inet_addr("5.6.7.8");
-            log_error(LOG_NOTICE, "[*] github.com 域名 代理处理");
-        }
-    }
-    else
-    {
-        log_error(LOG_NOTICE, "[*]  %s 没有映射表", ip_str);
+        
+    }else{
+        //没有域名映射，使用默认代理
+        LOG_DEBUG_C("[*] %s 没有域名映射，使用默认代理 \n",ip_str);
+
     }
 }
 
@@ -1737,43 +1790,13 @@ void redsocks_connect_relay(redsocks_client *client)
     ip_domain_map *entry = NULL;
     HASH_FIND_STR(domain_table, ip_str, entry);
 
-    // route_by_domain(client);
-    // ip_domain_map *entry;
-    // HASH_FIND_STR(domain_table, ip_str, entry);
 
     // 2. 保存原始代理配置（用于回退）
     struct sockaddr_in original_relay = client->instance->config.relayaddr;
 
-    // 3. 根据域名选择代理
-    if (entry)
-    {
-        printf("[*] 找到域名映射: %s -> %s\n", entry->domain, entry->ip);
 
-        if (strstr(entry->domain, "baidu.com") ||
-            strstr(entry->domain, "qq.com") ||
-            strstr(entry->domain, "taobao.com"))
-        {
-            // 国内代理服务器地址：
-            char *proxy_ip = "192.168.3.142";
-            uint16_t proxy_port = 8000;
-            // client->instance->config.relayaddr.sin_port = htons(proxy_port);              // 设置端口（需转换为网络字节序）
-
-            // 国内网站使用国内代理
-            // inet_pton(AF_INET,proxy_ip, &client->instance->config.relayaddr.sin_addr);
-            printf("[*] %s -> %s 使用国内代理 %s:%d\n", entry->domain, entry->ip, proxy_ip, proxy_port);
-        }
-        else
-        {
-            // 其他网站使用国外代理
-            // char *proxy_ip="1.2.3.4";
-            // inet_pton(AF_INET, proxy_ip, &client->instance->config.relayaddr.sin_addr);
-            printf("[*] %s -> %s 使用国外代理\n", entry->domain, entry->ip);
-        }
-    }
-    else
-    {
-        printf("[*] 没有找到域名映射 使用默认代理 %s\n", dest_rlay_IP);
-    }
+    //根据域名选择代理
+    route_by_domain(client);
 
     // 5. 连接代理服务器
     client->relay = red_connect_relay(&client->instance->config.relayaddr,
@@ -1784,7 +1807,7 @@ void redsocks_connect_relay(redsocks_client *client)
     // 6. 如果连接失败，尝试回退到原始代理
     if (!client->relay)
     {
-        printf("[*] 代理连接失败，尝试回退到默认代理");
+        printf("[*] 代理连接失败，尝试回退到默认代理\n");
 
         // 恢复原始代理配置
         client->instance->config.relayaddr = original_relay;
@@ -1795,7 +1818,7 @@ void redsocks_connect_relay(redsocks_client *client)
                                           client);
         if (!client->relay)
         {
-            printf("[*] 回退代理连接也失败");
+            printf("[*] 回退代理连接也失败\n");
             redsocks_drop_client(client);
         }
     }
@@ -2339,6 +2362,9 @@ static int redsocks_init()
 
     //新增读取文件初始化域名表
     load_domain_table("./ip_domain_table.txt");
+
+    //add--------------
+    load_whitelist();
 
     return 0;
 

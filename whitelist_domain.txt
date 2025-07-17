@@ -1,0 +1,7 @@
+# 国内网站白名单
+baidu.com
+www.baidu.com
+qq.com
+taobao.com
+jd.com
+weibo.com
