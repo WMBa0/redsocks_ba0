@@ -110,6 +110,54 @@ typedef struct
 
 static ip_domain_map *domain_table = NULL; // 全局域名映射表
 
+/* 新增：保存IP域名表到文件 */
+static void save_domain_table(const char *filename) {
+    FILE *fp = fopen(filename, "w");
+    if (!fp) {
+        LOG_DEBUG_C("[*] 无法打开域名表文件用于写入");
+        return;
+    }
+
+    ip_domain_map *entry, *tmp;
+    HASH_ITER(hh, domain_table, entry, tmp) {
+        fprintf(fp, "%s %s\n", entry->ip, entry->domain);
+    }
+
+    fclose(fp);
+    LOG_DEBUG_C("[*] 域名表已保存到 %s\n", filename);
+}
+
+/* 新增：从文件加载IP域名表 */
+static void load_domain_table(const char *filename) {
+    FILE *fp = fopen(filename, "r");
+    if (!fp) {
+        // 文件不存在是正常情况，不记录错误
+        LOG_DEBUG_C("[*]读取域名-映射表文件失败，不存在该文件\n");
+        return;
+    }
+
+    char line[512];
+    while (fgets(line, sizeof(line), fp)) {
+        char ip[16], domain[256];
+        if (sscanf(line, "%15s %255s", ip, domain) == 2) {
+            ip_domain_map *entry = NULL;
+            HASH_FIND_STR(domain_table, ip, entry);
+            if (!entry) {
+                entry = malloc(sizeof(ip_domain_map));
+                strncpy(entry->ip, ip, sizeof(entry->ip)-1);
+                strncpy(entry->domain, domain, sizeof(entry->domain)-1);
+                entry->ip[sizeof(entry->ip)-1] = '\0';
+                entry->domain[sizeof(entry->domain)-1] = '\0';
+                HASH_ADD_STR(domain_table, ip, entry);
+                LOG_DEBUG_C("[*]从文件加载域名映射: %s -> %s\n", domain, ip);
+            }
+        }
+    }
+    fclose(fp);
+    LOG_DEBUG_C("[*]从 %s 加载了 %u 条域名映射\n", filename, HASH_COUNT(domain_table));
+}
+
+
 static void print_hex_dump_tcp(const char *title, const void *data, size_t len)
 {
     const unsigned char *buf = (const unsigned char *)data;
@@ -253,14 +301,14 @@ void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
                 entry->domain[name_len] = '\0';
                 HASH_ADD_STR(domain_table, ip, entry);
 
-                printf("记录 HTTPS SNI: %s -> %s\n", domain, ip_str);
+                LOG_DEBUG_C("记录 HTTPS SNI: %s -> %s\n", domain, ip_str);
             }
             else if (strcmp(entry->domain, domain) != 0)
             {
                 // IP已存在但域名不同，更新域名
                 strncpy(entry->domain, domain, name_len);
                 entry->domain[name_len] = '\0';
-                printf("更新 HTTPS SNI Updated: %s -> %s\n", domain, ip_str);
+                LOG_DEBUG_C("更新 HTTPS SNI Updated: %s -> %s\n", domain, ip_str);
             }
 
             break;
@@ -302,12 +350,15 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
         strcpy(entry->ip, ip_str);
         strcpy(entry->domain, host);
         HASH_ADD_STR(domain_table, ip, entry);
+
     }
 
     // redsocks_log_error(client, LOG_DEBUG, "Host header: %s -> %s", host, ip_str);
-    // log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
-    printf("HTTP : Host header: %s -> %s\n", host, ip_str);
+     log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
+    //printf("HTTP : Host header: %s -> %s\n", host, ip_str);
 }
+
+
 
 // 识别 buffev 成员
 void parse_sni_from_bufferevent(struct bufferevent *buffev, redsocks_client *client)
@@ -652,8 +703,8 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 // 中继写入回调包装
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
-    // log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
-    LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
+    log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
+    //LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
     redsocks_touch_client(client);
@@ -666,7 +717,7 @@ static void redsocks_relay_clientreadcb(struct bufferevent *from, void *_client)
 {
     redsocks_client *client = _client;
     redsocks_touch_client(client);
-    LOG_DEBUG_C("[*] relay 客户端读取回调 \n");
+    // LOG_DEBUG_C("[*] relay 客户端读取回调 \n");
     // 继续正常的数据转发
     redsocks_relay_readcb(client, client->client, client->relay);
 }
@@ -674,7 +725,7 @@ static void redsocks_relay_clientreadcb(struct bufferevent *from, void *_client)
 // 客户端写入回调
 static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
 {
-    LOG_DEBUG_C("[*] relay 客户端写入回调 \n");
+    //LOG_DEBUG_C("[*] relay 客户端写入回调 \n");
 
     redsocks_client *client = _client;
     redsocks_touch_client(client);
@@ -691,7 +742,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
-        print_hex_dump_tcp("[*]relay HTTPS:", data, len);
+        //print_hex_dump_tcp("[*]relay HTTPS:", data, len);
         if (data)
         {
             parse_sni(data, len, client);
@@ -709,7 +760,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
-        print_hex_dump_tcp("[*]relay HTTP:", data, len);
+        //print_hex_dump_tcp("[*]relay HTTP:", data, len);
         if (data)
         {
             parse_host_header((const char *)data, len, client);
@@ -1650,8 +1701,6 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
         LOG_DEBUG_C("[*] HTTP  请求：%s \n", destIP);
     }
 
-    // 在连接建立后根据域名选择代理
-    // route_by_domain(client);
 
     if (!red_is_socket_connected_ok(buffev))
     {
@@ -2288,6 +2337,9 @@ static int redsocks_init()
             goto fail;
     }
 
+    //新增读取文件初始化域名表
+    load_domain_table("./ip_domain_table.txt");
+
     return 0;
 
 fail:
@@ -2315,6 +2367,8 @@ static int redsocks_fini()
             log_errno(LOG_WARNING, "signal_del");
         memset(&debug_dumper, 0, sizeof(debug_dumper));
     }
+    //新增保存文件初始化域名表
+    save_domain_table("./ip_domain_table.txt");
 
     return 0;
 }

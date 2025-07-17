@@ -1,6 +1,136 @@
-[*] 客户端请求IP：183.240.99.169:80
+2025-07-17 11:41:09.928 [34m[DEBUG  ][0m redsocks.c:444:is_splice_good(): 支持 splice模式 
+2025-07-17 11:41:09.928 [34m[DEBUG  ][0m redsocks.c:152:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
+2025-07-17 11:41:09.928 [34m[DEBUG  ][0m redsocks.c:152:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
+2025-07-17 11:41:09.928 [34m[DEBUG  ][0m redsocks.c:152:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 13.89.179.14
+2025-07-17 11:41:09.928 [34m[DEBUG  ][0m redsocks.c:157:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 3 条域名映射
+[*] 客户端请求IP：183.2.172.17:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 找到域名映射: www.baidu.com -> 183.2.172.17
+[*] www.baidu.com -> 183.2.172.17 使用国内代理 192.168.3.142:8000
+2025-07-17 11:41:13.471 [34m[DEBUG  ][0m redsocks.c:1697:redsocks_relay_connected(): [*] HTTPS 请求：183.2.172.17:443 
+2025-07-17 11:41:13.794 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：183.2.172.17:443
+2025-07-17 11:41:14.326 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：183.2.172.17:443
+2025-07-17 11:41:14.329 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：183.2.172.17:443
+2025-07-17 11:41:14.694 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：183.2.172.17:443
+[*] 客户端请求IP：23.54.118.47:443
 [*] 当前代理服务器IP: 192.168.206.142:9000
 [*] 没有找到域名映射 使用默认代理 192.168.206.142:9000
-[*] 客户端读取回调 
-[*] splice客户端数据=0
-[*]  可读数据量: 0 字节
+2025-07-17 11:41:18.967 [34m[DEBUG  ][0m redsocks.c:1697:redsocks_relay_connected(): [*] HTTPS 请求：23.54.118.47:443 
+2025-07-17 11:41:19.207 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:19.207 [34m[DEBUG  ][0m redsocks.c:304:parse_sni(): 记录 HTTPS SNI: www.bing.com -> 23.54.118.47
+2025-07-17 11:41:19.643 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:19.644 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.082 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.189 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.295 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.295 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.295 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.295 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.295 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.504 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.504 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.504 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.504 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.504 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.551 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.551 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.551 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.551 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+2025-07-17 11:41:20.551 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：23.54.118.47:443
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 没有找到域名映射 使用默认代理 192.168.206.142:9000
+2025-07-17 11:41:42.118 [34m[DEBUG  ][0m redsocks.c:1697:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+2025-07-17 11:41:42.390 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:42.390 [34m[DEBUG  ][0m redsocks.c:304:parse_sni(): 记录 HTTPS SNI: github.com -> 20.205.243.166
+2025-07-17 11:41:42.672 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:42.673 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.398 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.399 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.909 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.909 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.909 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.909 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:43.909 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.122 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.123 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.123 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.123 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.123 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.123 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.332 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.332 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.332 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.332 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.332 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.336 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.336 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.337 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.594 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.594 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.594 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.595 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.595 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.596 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.596 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.596 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.596 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:44.596 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.351 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.351 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.351 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.351 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.351 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.352 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.353 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.353 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.353 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.353 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.353 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.570 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.571 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.571 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.571 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.571 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.572 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.572 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.572 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.572 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.572 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.573 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.573 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.573 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.573 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.817 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.817 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.817 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:45.818 [34m[DEBUG  ][0m redsocks.c:739:redsocks_relay_clientwritecb(): [*] HTTPS 443 请求：20.205.243.166:443
+2025-07-17 11:41:47.360 [34m[DEBUG  ][0m redsocks.c:127:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
