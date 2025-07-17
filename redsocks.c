@@ -45,7 +45,7 @@
 #include "redsocks.h"
 #include "utils.h"
 #include "libevent-compat.h"
-#include "debug.h"
+#include "debugcor.h"
 
 // 定义中继缓冲区大小
 #define REDSOCKS_RELAY_HALFBUFF 4096
