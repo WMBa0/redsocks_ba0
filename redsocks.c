@@ -98,6 +98,12 @@ static parser_entry redsocks_entries[] = {
     {.key = "splice", .type = pt_bool},
     {.key = "disclose_src", .type = pt_disclose_src},
     {.key = "on_proxy_fail", .type = pt_on_proxy_fail},
+    // add.....
+    {.key = "cn_ip", .type = pt_in_addr},
+    {.key = "cn_port", .type = pt_uint16},
+    {.key = "foreign_ip", .type = pt_in_addr},
+    {.key = "foreign_port", .type = pt_pchar},
+
     {}};
 
 /* 新增：用于存储IP和域名的映射关系 */
@@ -110,61 +116,68 @@ typedef struct
 
 static ip_domain_map *domain_table = NULL; // 全局IP-域名映射表
 
-//白名单域名哈希表
-typedef struct{
-    char domain[256];  
+// 白名单域名哈希表
+typedef struct
+{
+    char domain[256];
     UT_hash_handle hh;
 } whitelist_domain;
-static whitelist_domain *whitelist=NULL; //全局白域名哈希变量
+static whitelist_domain *whitelist = NULL; // 全局白域名哈希变量
 #define WHITELIST_FILE "whitelist_domain.txt"
 
 /* 加载白名单域名 */
-static void load_whitelist() {
-   
-    
+static void load_whitelist()
+{
+
     FILE *fp = fopen(WHITELIST_FILE, "r");
-    if (!fp) {
-        
+    if (!fp)
+    {
+
         LOG_DEBUG_C("域名白名单文件不存在，请创建该文件: %s\n", WHITELIST_FILE);
         return;
     }
 
     char line[256];
     unsigned count = 0;
-    while (fgets(line, sizeof(line), fp)) {
+    while (fgets(line, sizeof(line), fp))
+    {
         // 去除换行符
         line[strcspn(line, "\r\n")] = 0;
-        
-        if (strlen(line) == 0 || line[0] == '#') {
+
+        if (strlen(line) == 0 || line[0] == '#')
+        {
             continue; // 跳过空行和注释
         }
 
         whitelist_domain *entry = NULL;
         HASH_FIND_STR(whitelist, line, entry);
-        if (!entry) {
+        if (!entry)
+        {
             entry = malloc(sizeof(whitelist_domain));
-            strncpy(entry->domain, line, sizeof(entry->domain)-1);
-            entry->domain[sizeof(entry->domain)-1] = '\0';
+            strncpy(entry->domain, line, sizeof(entry->domain) - 1);
+            entry->domain[sizeof(entry->domain) - 1] = '\0';
             HASH_ADD_STR(whitelist, domain, entry);
             count++;
         }
     }
-
-    fclose(fp);
-    LOG_DEBUG_C("加载了 %u 个白名单域名\n", count);
     
+    fclose(fp);
+    LOG_DEBUG_C("[*] %s 加载了 %d 个白名单域名\n",WHITELIST_FILE,count);
 }
 
 /* 新增：保存IP域名表到文件 */
-static void save_domain_table(const char *filename) {
+static void save_domain_table(const char *filename)
+{
     FILE *fp = fopen(filename, "w");
-    if (!fp) {
+    if (!fp)
+    {
         LOG_DEBUG_C("[*] 无法打开域名表文件用于写入");
         return;
     }
 
     ip_domain_map *entry, *tmp;
-    HASH_ITER(hh, domain_table, entry, tmp) {
+    HASH_ITER(hh, domain_table, entry, tmp)
+    {
         fprintf(fp, "%s %s\n", entry->ip, entry->domain);
     }
 
@@ -173,26 +186,31 @@ static void save_domain_table(const char *filename) {
 }
 
 /* 新增：从文件加载IP域名表 */
-static void load_domain_table(const char *filename) {
+static void load_domain_table(const char *filename)
+{
     FILE *fp = fopen(filename, "r");
-    if (!fp) {
+    if (!fp)
+    {
         // 文件不存在是正常情况，不记录错误
         LOG_DEBUG_C("[*]读取域名-映射表文件失败，不存在该文件\n");
         return;
     }
 
     char line[512];
-    while (fgets(line, sizeof(line), fp)) {
+    while (fgets(line, sizeof(line), fp))
+    {
         char ip[16], domain[256];
-        if (sscanf(line, "%15s %255s", ip, domain) == 2) {
+        if (sscanf(line, "%15s %255s", ip, domain) == 2)
+        {
             ip_domain_map *entry = NULL;
             HASH_FIND_STR(domain_table, ip, entry);
-            if (!entry) {
+            if (!entry)
+            {
                 entry = malloc(sizeof(ip_domain_map));
-                strncpy(entry->ip, ip, sizeof(entry->ip)-1);
-                strncpy(entry->domain, domain, sizeof(entry->domain)-1);
-                entry->ip[sizeof(entry->ip)-1] = '\0';
-                entry->domain[sizeof(entry->domain)-1] = '\0';
+                strncpy(entry->ip, ip, sizeof(entry->ip) - 1);
+                strncpy(entry->domain, domain, sizeof(entry->domain) - 1);
+                entry->ip[sizeof(entry->ip) - 1] = '\0';
+                entry->domain[sizeof(entry->domain) - 1] = '\0';
                 HASH_ADD_STR(domain_table, ip, entry);
                 LOG_DEBUG_C("[*]从文件加载域名映射: %s -> %s\n", domain, ip);
             }
@@ -394,100 +412,125 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
         strcpy(entry->ip, ip_str);
         strcpy(entry->domain, host);
         HASH_ADD_STR(domain_table, ip, entry);
-
     }
 
-    
     log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
-   
 }
 
 /* 添加域名到白名单 */
-void add_to_whitelist(const char *domain) {
-   // pthread_mutex_lock(&whitelist_mutex);
-    
+void add_to_whitelist(const char *domain)
+{
+    // pthread_mutex_lock(&whitelist_mutex);
+
     whitelist_domain *entry = NULL;
     HASH_FIND_STR(whitelist, domain, entry);
-    
-    if (!entry) {
+
+    if (!entry)
+    {
         entry = malloc(sizeof(whitelist_domain));
-        strncpy(entry->domain, domain, sizeof(entry->domain)-1);
-        entry->domain[sizeof(entry->domain)-1] = '\0';
+        strncpy(entry->domain, domain, sizeof(entry->domain) - 1);
+        entry->domain[sizeof(entry->domain) - 1] = '\0';
         HASH_ADD_STR(whitelist, domain, entry);
-        
+
         // 追加到白名单文件
         FILE *fp = fopen(WHITELIST_FILE, "a");
-        if (fp) {
+        if (fp)
+        {
             fprintf(fp, "%s\n", domain);
             fclose(fp);
         }
-        
+
         log_error(LOG_NOTICE, "已添加白名单域名: %s", domain);
     }
-    
-    //pthread_mutex_unlock(&whitelist_mutex);
+
+    // pthread_mutex_unlock(&whitelist_mutex);
 }
 
 /* 从白名单移除域名 */
-void remove_from_whitelist(const char *domain) {
-   // pthread_mutex_lock(&whitelist_mutex);
-    
+void remove_from_whitelist(const char *domain)
+{
+    // pthread_mutex_lock(&whitelist_mutex);
+
     whitelist_domain *entry = NULL;
     HASH_FIND_STR(whitelist, domain, entry);
-    
-    if (entry) {
+
+    if (entry)
+    {
         HASH_DEL(whitelist, entry);
         free(entry);
-        
+
         // 重新写入白名单文件
         FILE *fp = fopen(WHITELIST_FILE, "w");
-        if (fp) {
+        if (fp)
+        {
             whitelist_domain *tmp;
-            for(tmp = whitelist; tmp != NULL; tmp = tmp->hh.next) {
+            for (tmp = whitelist; tmp != NULL; tmp = tmp->hh.next)
+            {
                 fprintf(fp, "%s\n", tmp->domain);
             }
             fclose(fp);
         }
-        
+
         log_error(LOG_NOTICE, "已移除白名单域名: %s", domain);
     }
-    
-   // pthread_mutex_unlock(&whitelist_mutex);
+
+    // pthread_mutex_unlock(&whitelist_mutex);
 }
 
-//根据域名选择代理服务器
-void route_by_domain(redsocks_client *client){
-    //获取目标服务器IP
+// 根据域名选择代理服务器
+void route_by_domain(redsocks_client *client)
+{
+    // 获取目标服务器IP
     char ip_str[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET,&client->destaddr.sin_addr,ip_str,sizeof(ip_str));
-    
-    //检查IP是否有对应域名
-    ip_domain_map* entry;
-    HASH_FIND_STR(domain_table,ip_str,entry);
-    
-    if(entry){
-        //检查域名是否在白名单内
-        whitelist_domain* wl_entry =NULL;
-        HASH_FIND_STR(whitelist,entry->domain,wl_entry);
-        
-        if(wl_entry){
-            //白名单模式 使用国内代理
-            
-            //client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("192.168.1.1");
-            //client->instance->config.relayaddr.sin_port=htons("80");
-            LOG_DEBUG_C("[*] %s -> 国内代理 \n",entry->domain);
-        }else{
-            //走默认代理(国外代理)
-            
-            //client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("4.4.4.4");
-            //client->instance->config.relayaddr.sin_port=htons("9000");
-            LOG_DEBUG_C("[*] %s -> 国外代理 \n",entry->domain);
-        }
-        
-    }else{
-        //没有域名映射，使用默认代理
-        LOG_DEBUG_C("[*] %s 没有域名映射，使用默认代理 \n",ip_str);
+    inet_ntop(AF_INET, &client->destaddr.sin_addr, ip_str, sizeof(ip_str));
 
+    // 检查IP是否有对应域名
+    ip_domain_map *entry;
+    HASH_FIND_STR(domain_table, ip_str, entry);
+
+    if (entry)
+    {
+        // 检查域名是否在白名单内
+        whitelist_domain *wl_entry = NULL;
+        HASH_FIND_STR(whitelist, entry->domain, wl_entry);
+
+        if (wl_entry)
+        {
+            // 白名单模式 使用国内代理
+            memcpy(&client->instance->config.relayaddr,
+                   &client->instance->config.cn_relayaddr,
+                   sizeof(struct sockaddr_in));
+            // client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("192.168.1.1");
+            // client->instance->config.relayaddr.sin_port=htons("80");
+            char ip_str_cn[INET_ADDRSTRLEN];
+            struct sockaddr_in *addr = &client->instance->config.cn_relayaddr;
+            inet_ntop(AF_INET,&addr->sin_addr,ip_str_cn,sizeof(ip_str_cn));
+            uint16_t port = ntohs(addr->sin_port);
+
+            LOG_DEBUG_C("[*] %s -> 国内代理 %s:%d \n", entry->domain,
+                            ip_str_cn,port);
+        }
+        else
+        {
+            // 走默认代理(国外代理)
+            memcpy(&client->instance->config.relayaddr,
+                   &client->instance->config.foreign_relayaddr,
+                   sizeof(struct sockaddr_in));
+            // client->instance->config.relayaddr.sin_addr.s_addr=inet_addr("4.4.4.4");
+            // client->instance->config.relayaddr.sin_port=htons("9000");
+            char ip_str_foreign[INET_ADDRSTRLEN];
+            struct sockaddr_in *addr = &client->instance->config.foreign_relayaddr;
+            inet_ntop(AF_INET,&addr->sin_addr,ip_str_foreign,sizeof(ip_str_foreign));
+            uint16_t port = ntohs(addr->sin_port);
+
+            LOG_DEBUG_C("[*] %s -> 国内代理 %s:%d \n", entry->domain,
+                            ip_str_foreign,port);
+        }
+    }
+    else
+    {
+        // 没有域名映射，使用默认代理
+        LOG_DEBUG_C("[*] %s 没有域名映射，使用默认代理 \n", ip_str);
     }
 }
 
@@ -551,18 +594,28 @@ static int redsocks_onenter(parser_section *section)
     // 设置配置项地址
     for (parser_entry *entry = &section->entries[0]; entry->key; entry++)
     {
-        entry->addr = (strcmp(entry->key, "local_ip") == 0) ? (void *)&instance->config.bindaddr.sin_addr : (strcmp(entry->key, "local_port") == 0)  ? (void *)&instance->config.bindaddr.sin_port
-                                                                                                        : (strcmp(entry->key, "ip") == 0)            ? (void *)&instance->config.relayaddr.sin_addr
-                                                                                                        : (strcmp(entry->key, "port") == 0)          ? (void *)&instance->config.relayaddr.sin_port
-                                                                                                        : (strcmp(entry->key, "type") == 0)          ? (void *)&instance->config.type
-                                                                                                        : (strcmp(entry->key, "login") == 0)         ? (void *)&instance->config.login
-                                                                                                        : (strcmp(entry->key, "password") == 0)      ? (void *)&instance->config.password
-                                                                                                        : (strcmp(entry->key, "listenq") == 0)       ? (void *)&instance->config.listenq
-                                                                                                        : (strcmp(entry->key, "splice") == 0)        ? (void *)&instance->config.use_splice
-                                                                                                        : (strcmp(entry->key, "disclose_src") == 0)  ? (void *)&instance->config.disclose_src
-                                                                                                        : (strcmp(entry->key, "on_proxy_fail") == 0) ? (void *)&instance->config.on_proxy_fail
-                                                                                                                                                     : NULL;
+        entry->addr = (strcmp(entry->key, "local_ip") == 0)        ? (void *)&instance->config.bindaddr.sin_addr
+                      : (strcmp(entry->key, "local_port") == 0)    ? (void *)&instance->config.bindaddr.sin_port
+                      : (strcmp(entry->key, "ip") == 0)            ? (void *)&instance->config.relayaddr.sin_addr
+                      : (strcmp(entry->key, "port") == 0)          ? (void *)&instance->config.relayaddr.sin_port
+                      : (strcmp(entry->key, "type") == 0)          ? (void *)&instance->config.type
+                      : (strcmp(entry->key, "login") == 0)         ? (void *)&instance->config.login
+                      : (strcmp(entry->key, "password") == 0)      ? (void *)&instance->config.password
+                      : (strcmp(entry->key, "listenq") == 0)       ? (void *)&instance->config.listenq
+                      : (strcmp(entry->key, "splice") == 0)        ? (void *)&instance->config.use_splice
+                      : (strcmp(entry->key, "disclose_src") == 0)  ? (void *)&instance->config.disclose_src
+                      : (strcmp(entry->key, "on_proxy_fail") == 0) ? (void *)&instance->config.on_proxy_fail
+                      // add.....
+                      : (strcmp(entry->key, "cn_ip") == 0)        ? (void *)&instance->config.cn_relayaddr.sin_addr
+                      : (strcmp(entry->key, "cn_port") == 0)      ? (void *)&instance->config.cn_relayaddr.sin_port
+                      : (strcmp(entry->key, "foreign_ip") == 0)   ? (void *)&instance->config.foreign_relayaddr.sin_addr
+                      : (strcmp(entry->key, "foreign_port") == 0) ? (void *)&instance->config.foreign_relayaddr.sin_port
+
+                                                                  : NULL;
     }
+    instance->config.cn_relayaddr.sin_family = AF_INET;
+    instance->config.foreign_relayaddr.sin_family = AF_INET;
+
     section->data = instance;
     return 0;
 }
@@ -580,6 +633,10 @@ static int redsocks_onexit(parser_section *section)
     // 转换端口号为网络字节序
     instance->config.bindaddr.sin_port = htons(instance->config.bindaddr.sin_port);
     instance->config.relayaddr.sin_port = htons(instance->config.relayaddr.sin_port);
+
+    // add.....
+    instance->config.cn_relayaddr.sin_port = htons(instance->config.cn_relayaddr.sin_port);
+    instance->config.foreign_relayaddr.sin_port = htons(instance->config.foreign_relayaddr.sin_port);
 
     // 验证类型配置
     if (instance->config.type)
@@ -757,7 +814,7 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
     log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
-    //LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
+    // LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
     redsocks_touch_client(client);
@@ -778,7 +835,7 @@ static void redsocks_relay_clientreadcb(struct bufferevent *from, void *_client)
 // 客户端写入回调
 static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
 {
-    //LOG_DEBUG_C("[*] relay 客户端写入回调 \n");
+    // LOG_DEBUG_C("[*] relay 客户端写入回调 \n");
 
     redsocks_client *client = _client;
     redsocks_touch_client(client);
@@ -789,13 +846,13 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
     if (client->destaddr.sin_port == htons(443))
     {
 
-        LOG_DEBUG_C("[*] HTTPS 443 请求：%s\n", destIP);
+        //LOG_DEBUG_C("[*] HTTPS 443 请求：%s\n", destIP);
 
         // HTTPS流量：解析SNI
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
-        //print_hex_dump_tcp("[*]relay HTTPS:", data, len);
+        // print_hex_dump_tcp("[*]relay HTTPS:", data, len);
         if (data)
         {
             parse_sni(data, len, client);
@@ -813,7 +870,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
-        //print_hex_dump_tcp("[*]relay HTTP:", data, len);
+        // print_hex_dump_tcp("[*]relay HTTP:", data, len);
         if (data)
         {
             parse_host_header((const char *)data, len, client);
@@ -1244,7 +1301,7 @@ static void redsplice_client_read(int fd, short what, void *_pump)
             print_hex_dump_tcp(" 数据包：", buffer, bytes_read);
             if (bytes_read)
             {
-               // parse_sni(buf, bytes_read, &client);
+                // parse_sni(buf, bytes_read, &client);
             }
             else
             {
@@ -1754,7 +1811,6 @@ static void redsocks_relay_connected(struct bufferevent *buffev, void *_arg)
         LOG_DEBUG_C("[*] HTTP  请求：%s \n", destIP);
     }
 
-
     if (!red_is_socket_connected_ok(buffev))
     {
         redsocks_log_errno(client, LOG_NOTICE, "red_is_socket_connected_ok");
@@ -1790,12 +1846,10 @@ void redsocks_connect_relay(redsocks_client *client)
     ip_domain_map *entry = NULL;
     HASH_FIND_STR(domain_table, ip_str, entry);
 
-
     // 2. 保存原始代理配置（用于回退）
     struct sockaddr_in original_relay = client->instance->config.relayaddr;
 
-
-    //根据域名选择代理
+    // 根据域名选择代理
     route_by_domain(client);
 
     // 5. 连接代理服务器
@@ -2360,10 +2414,10 @@ static int redsocks_init()
             goto fail;
     }
 
-    //新增读取文件初始化域名表
+    // 新增读取文件初始化域名表
     load_domain_table("./ip_domain_table.txt");
 
-    //add--------------
+    // add--------------
     load_whitelist();
 
     return 0;
@@ -2393,7 +2447,7 @@ static int redsocks_fini()
             log_errno(LOG_WARNING, "signal_del");
         memset(&debug_dumper, 0, sizeof(debug_dumper));
     }
-    //新增保存文件初始化域名表
+    // 新增保存文件初始化域名表
     save_domain_table("./ip_domain_table.txt");
 
     return 0;

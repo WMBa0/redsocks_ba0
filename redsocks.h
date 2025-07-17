@@ -36,7 +36,9 @@ typedef struct redsocks_config_t {
 	bool use_splice;
 	enum disclose_src_e disclose_src;
 	enum on_proxy_fail_e on_proxy_fail;
-		
+	//add......
+	struct sockaddr_in cn_relayaddr;
+	struct sockaddr_in foreign_relayaddr;
 
 } redsocks_config;
 

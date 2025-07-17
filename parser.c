@@ -86,7 +86,7 @@ void parser_add_section(parser_context *context, parser_section *section)
 {
 	section->next = context->sections;
 	context->sections = section;
-	log_error(LOG_NOTICE,"配置名称：%s",section->name);
+	
 	section->context = context;
 }
 
