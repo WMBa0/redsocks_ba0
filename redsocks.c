@@ -32,6 +32,9 @@
 #include <event.h>
 #include <uthash.h> // 哈希表库
 #include <pthread.h>
+#include <sys/ioctl.h>
+#include <sys/stat.h>
+#include <limits.h>
 
 // 包含项目自定义头文件
 #include "list.h"
@@ -106,6 +109,45 @@ typedef struct
 } ip_domain_map;
 
 static ip_domain_map *domain_table = NULL; // 全局域名映射表
+
+static void print_hex_dump_tcp(const char *title, const void *data, size_t len)
+{
+    const unsigned char *buf = (const unsigned char *)data;
+    size_t i, j;
+
+    // log_error(LOG_DEBUG, "====== %s (长度: %zu) ======", title, len);
+    printf("====== %s (长度: %zu) ======\n", title, len);
+    for (i = 0; i < len; i += 16)
+    {
+        char hex[512] = {0};
+        char ascii[20] = {0};
+        size_t line_len = (len - i) > 16 ? 16 : (len - i);
+
+        // 构建十六进制部分
+        for (j = 0; j < line_len; j++)
+        {
+            char byte[4];
+            snprintf(byte, sizeof(byte), "%02x ", buf[i + j]);
+            strcat(hex, byte);
+        }
+
+        // 填充对齐
+        for (; j < 16; j++)
+        {
+            strcat(hex, "   ");
+        }
+
+        // 构建ASCII部分
+        for (j = 0; j < line_len; j++)
+        {
+            ascii[j] = isprint(buf[i + j]) ? buf[i + j] : '.';
+        }
+
+        // log_error(LOG_DEBUG, "0x%04zx: %s |%s|", i, hex, ascii);
+        printf("0x%04zx: %s |%s| \n", i, hex, ascii);
+    }
+    printf("\n");
+}
 
 /* 解析TLS ClientHello中的SNI（Server Name Indication）*/
 void parse_sni(const unsigned char *data, size_t len, redsocks_client *client)
@@ -263,7 +305,8 @@ void parse_host_header(const char *data, size_t len, redsocks_client *client)
     }
 
     // redsocks_log_error(client, LOG_DEBUG, "Host header: %s -> %s", host, ip_str);
-    log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
+    // log_error(LOG_NOTICE, "HTTP : Host header: %s -> %s", host, ip_str);
+    printf("HTTP : Host header: %s -> %s\n", host, ip_str);
 }
 
 // 识别 buffev 成员
@@ -648,6 +691,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
+        print_hex_dump_tcp("[*]relay HTTPS:", data, len);
         if (data)
         {
             parse_sni(data, len, client);
@@ -665,6 +709,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
         unsigned char *data = evbuffer_pullup(input, len);
+        print_hex_dump_tcp("[*]relay HTTP:", data, len);
         if (data)
         {
             parse_host_header((const char *)data, len, client);
@@ -822,8 +867,9 @@ static void redsplice_write_cb(redsocks_pump *pump, redsplice_write_ctx *c, int 
         const size_t avail = c->pisrc->size;
         if (avail)
         {
-            //
+
             const ssize_t sent = splice(c->pisrc->read, NULL, out, NULL, avail, SPLICE_F_MOVE | SPLICE_F_NONBLOCK);
+
             if (sent == -1)
             {
                 if (would_block(errno))
@@ -908,93 +954,15 @@ typedef struct redsplice_read_ctx_t
     struct event *evdst;
     evshut_t *shut_src;
 } redsplice_read_ctx;
-// 打印前 16 个字节（但不消耗数据）
-void peek_first_16_bytes(int in)
-{
-    int pipefd[2];
-    if (pipe(pipefd) < 0)
-    {
-        perror("pipe failed");
-        return;
-    }
-
-    // 使用 tee 复制数据到临时管道（不消耗 in 的数据）
-    ssize_t got = tee(in, pipefd[1], 16, SPLICE_F_NONBLOCK);
-    if (got <= 0)
-    {
-        close(pipefd[0]);
-        close(pipefd[1]);
-        if (got == 0)
-            printf("No data available (EOF)\n");
-        else
-            perror("tee failed");
-        return;
-    }
-
-    // 读取临时管道的前 16 字节并打印
-    char buf[16];
-    ssize_t bytes_read = read(pipefd[0], buf, sizeof(buf));
-    close(pipefd[0]);
-    close(pipefd[1]);
-
-    if (bytes_read > 0)
-    {
-        printf("First %zd bytes: ", bytes_read);
-        for (ssize_t i = 0; i < bytes_read; i++)
-        {
-            printf("%02x ", (unsigned char)buf[i]); // 16进制打印
-        }
-        printf("\n");
-    }
-}
 
 // splice读取回调
 static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in)
 {
     /* 1. 调试日志 */
-    LOG_DEBUG_C("[*] 客户端读取回调（发送splice） \n");
+    // LOG_DEBUG_C("[*] 客户端读取回调（发送splice） \n");
 
     /* 2. 设置管道传输参数 */
     const size_t pipesize = 1048576; // 默认管道容量（1MB，来自系统配置fs.pipe-max-size）
-
-    redsocks_client client = pump->c;
-    char destaddr_str[RED_INET_ADDRSTRLEN];
-    char *destIP = red_inet_ntop(&client.destaddr, destaddr_str, sizeof(destaddr_str));
-    // 检查目标端口并解析内容
-    if (client.destaddr.sin_port == htons(443))
-    {
-        char buf[255];
-        ssize_t bytes_read = recv(in, buf, sizeof(buf), MSG_PEEK | MSG_DONTWAIT);
-        printf("[*] HTTPS 443 请求：%s\n", destIP);
-
-        // HTTPS流量：解析SNI
-        
-        if (bytes_read)
-        {
-            parse_sni(buf, bytes_read, &client);
-        }
-        else
-        {
-            //  LOG_DEBUG_C("[*] HTTPS 数据为空\n");
-        }
-    }
-    else if (client.destaddr.sin_port == htons(80))
-    {
-
-        printf("[*] 80 请求：%s \n", destIP);
-        // HTTP流量：解析Host头
-        // struct evbuffer *input = bufferevent_get_input(to);
-        // size_t len = evbuffer_get_length(input);
-        // unsigned char *data = evbuffer_pullup(input, len);
-        // if (data)
-        // {
-        //     parse_host_header((const char *)data, len, client);
-        // }
-        // else
-        // {
-        //     LOG_DEBUG_C("[*] HTTP 数据为空\n");
-        // }
-    }
 
     /* 3. 执行零拷贝数据转移 */
     const ssize_t got = splice(
@@ -1004,6 +972,10 @@ static void redsplice_read_cb(redsocks_pump *pump, redsplice_read_ctx *c, int in
         SPLICE_F_MOVE |       // 允许内核移动内存页
             SPLICE_F_NONBLOCK // 非阻塞模式
     );
+    // if(got<=0){
+    //     printf("read_cb got = %ld \n",got);
+    // }
+
     /* 4. 错误处理 */
     if (got == -1)
     {
@@ -1065,14 +1037,14 @@ static void redsplice_relay_read(int fd, short what, void *_pump)
         .evdst = &pump->client_write,
         .shut_src = &pump->c.relay_evshut,
     };
+
     redsplice_read_cb(pump, &c, fd);
 }
 
-// 客户端Socket数据到达时的回调函数，负责将客户端数据通过内核管道零拷贝转发到代理服务器方向
 static void redsplice_client_read(int fd, short what, void *_pump)
 {
     /* 1. 调试日志输出 */
-    LOG_DEBUG_C(" [*] 客户端读取回调 \n");
+    printf("[*] 客户端读取回调 \n");
 
     /* 2. 获取泵上下文 */
     redsocks_pump *pump = _pump;
@@ -1091,6 +1063,94 @@ static void redsplice_client_read(int fd, short what, void *_pump)
         .shut_src = &pump->c.client_evshut, // 客户端关闭状态标记
     };
 
+    /* 1. 检查是否是HTTP/HTTPS流量 */
+    if (pump->c.destaddr.sin_port == htons(80) || pump->c.destaddr.sin_port == htons(443))
+    {
+        /* 2. 使用tee()复制管道数据而不消耗它 */
+        int peek_pipe[2];
+        if (pipe(peek_pipe) == -1)
+        {
+            perror("创建临时管道失败\n");
+        }
+        else
+        {
+            /* 3. 获取管道中可用数据量 */
+            int avail;
+            ioctl(pump->request.read, FIONREAD, &avail);
+
+            if (avail > 0)
+            {
+                /* 4. 复制数据到临时管道 */
+                ssize_t copied = tee(pump->request.read, peek_pipe[1], avail, SPLICE_F_NONBLOCK);
+
+                if (copied > 0)
+                {
+                    /* 5. 读取并打印数据 */
+                    char *buf = malloc(copied + 1);
+                    ssize_t n = read(peek_pipe[0], buf, copied);
+                    if (n > 0)
+                    {
+                        buf[n] = '\0';
+
+                        /* 6. 根据端口区分HTTP/HTTPS */
+                        if (pump->c.destaddr.sin_port == htons(80))
+                        {
+                            print_hex_dump_tcp("HTTP请求数据:", buf, n);
+                            /* 7. 解析HTTP Host头 */
+                            parse_host_header(buf, n, &pump->c);
+                        }
+                        else if (pump->c.destaddr.sin_port == htons(443))
+                        {
+                            print_hex_dump_tcp("HTTPS请求数据:", buf, n);
+                            /* 8. 解析TLS SNI */
+                            parse_sni((unsigned char *)buf, n, &pump->c);
+                        }
+                    }
+                    free(buf);
+                }
+            }
+            else
+            {
+                printf("[*] splice客户端数据=0\n");
+            }
+            /* 9. 关闭临时管道 */
+            close(peek_pipe[0]);
+            close(peek_pipe[1]);
+        }
+    }
+    else
+    {
+        //  printf("端口错误\n");
+    }
+
+    // 使用读取socket的方式来拿到响应数据
+
+    if (pump->c.destaddr.sin_port == htons(80) || pump->c.destaddr.sin_port == htons(443))
+    {
+        int available;
+        ioctl(fd, FIONREAD, &available);
+        printf("[*]  可读数据量: %d 字节\n", available);
+        if (available > 0)
+        {
+            // 读取流量
+            char *buffer = malloc(available);
+            ssize_t bytes_read = recv(fd, buffer, available, MSG_PEEK | MSG_DONTWAIT);
+            // ... 处理数据
+            // printf("[*] 接收到 %zd 字节数据:\n", bytes_read);
+            print_hex_dump_tcp(" 数据包：", buffer, bytes_read);
+            if (bytes_read)
+            {
+               // parse_sni(buf, bytes_read, &client);
+            }
+            else
+            {
+                printf("[*] 数据为空\n");
+            }
+
+            free(buffer);
+        }
+    }
+
     /* 6. 调用核心读取处理函数 */
     redsplice_read_cb(pump, &c, fd);
 }
@@ -1102,6 +1162,7 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
     redsocks_pump *pump = _pump;
     assert(fd == event_get_fd(&pump->relay_write) && (what & EV_WRITE));
     redsocks_touch_pump(pump);
+
     redsplice_write_ctx c = {
         .ebsrc = {
             pump->c.relay ? pump->c.relay->output : NULL,
@@ -1113,6 +1174,7 @@ static void redsplice_relay_write(int fd, short what, void *_pump)
         .shut_src = &pump->c.client_evshut,
         .shut_dst = &pump->c.relay_evshut,
     };
+
     redsplice_write_cb(pump, &c, fd);
 }
 
@@ -1134,6 +1196,7 @@ static void redsplice_client_write(int fd, short what, void *_pump)
         .shut_src = &pump->c.relay_evshut,
         .shut_dst = &pump->c.client_evshut,
     };
+
     redsplice_write_cb(pump, &c, fd);
 }
 
@@ -1227,7 +1290,10 @@ static int redsocks_start_splicepump(redsocks_client *client)
 fail:
     // 错误处理：关闭已创建的管道
     if (pump->request.read != -1)
+    {
+        printf("[*] error request close\n");
         close(pump->request.read);
+    }
     if (pump->reply.read != -1)
         close(pump->reply.read);
     return -1;

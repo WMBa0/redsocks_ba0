@@ -1,15 +1,6 @@
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:940:redsplice_read_cb(): [*] 客户端读取回调（发送splice） 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:1074:redsplice_client_write(): [*]  客户端写入回调
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:778:redsplice_write_cb(): splice写入回调 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:1010:redsplice_relay_read(): [*] 中继读取回调 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:940:redsplice_read_cb(): [*] 客户端读取回调（发送splice） 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:1074:redsplice_client_write(): [*]  客户端写入回调
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:778:redsplice_write_cb(): splice写入回调 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:1027:redsplice_client_read():  [*] 客户端读取回调 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:940:redsplice_read_cb(): [*] 客户端读取回调（发送splice） 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:1053:redsplice_relay_write():  中继写入回调 
-2025-07-16 13:11:13.055 [DEBUG  ] redsocks.c:778:redsplice_write_cb(): splice写入回调 
-2025-07-16 13:11:13.056 [DEBUG  ] redsocks.c:1027:redsplice_client_read():  [*] 客户端读取回调 
-2025-07-16 13:11:13.056 [DEBUG  ] redsocks.c:940:redsplice_read_cb(): [*] 客户端读取回调（发送splice） 
-2025-07-16 13:11:13.056 [DEBUG  ] redsocks.c:1010:redsplice_relay_read(): [*] 中继读取回调 
-2025-07-16 13:11:13.056 [DEBUG  ] redsocks.c:940:redsplice_read_cb(): [*] 客户端读取回调（发送splice）
+[*] 客户端请求IP：183.240.99.169:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 没有找到域名映射 使用默认代理 192.168.206.142:9000
+[*] 客户端读取回调 
+[*] splice客户端数据=0
+[*]  可读数据量: 0 字节
