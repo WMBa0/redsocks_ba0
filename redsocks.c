@@ -47,6 +47,8 @@
 #include "libevent-compat.h"
 #include "debugcor.h"
 
+LogLevel current_log_level = LOG_LEVEL_DEBUG;  // 实际定义
+
 // 定义中继缓冲区大小
 #define REDSOCKS_RELAY_HALFBUFF 4096
 

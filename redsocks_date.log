@@ -68,3 +68,5 @@ SOCKS5 Raw Request (39 bytes): 05 01 00 03 20 6D 6F 62 69 6C 65 2E 65 76 65 6E 7
 [*] 存在域名 进行域名替换：113.59.44.69 -> zhuanlan.zhihu.com 
 SOCKS5 Raw Request (25 bytes): 05 01 00 03 12 7A 68 75 61 6E 6C 61 6E 2E 7A 68 69 68 75 2E 63 6F 6D 01 BB 
 2025-07-18 11:33:14.174 [34m[DEBUG  ][0m redsocks.c:203:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
+
+

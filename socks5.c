@@ -363,7 +363,7 @@ static void print_socks5_request_ex(const void *data, size_t len, int cmd)
 void print_raw_socks5_request(const void *data, size_t len)
 {
 	const uint8_t *bytes = (const uint8_t *)data;
-	printf("SOCKS5 Raw Request (%zu bytes): ", len);
+	printf("[*] SOCKS5 Raw Request (%zu bytes): ", len);
 	for (size_t i = 0; i < len; i++)
 	{
 		printf("%02X ", bytes[i]);
