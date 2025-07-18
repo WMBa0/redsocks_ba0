@@ -125,6 +125,24 @@ typedef struct
 static whitelist_domain *whitelist = NULL; // 全局白域名哈希变量
 #define WHITELIST_FILE "whitelist_domain.txt"
 
+//根据IP返回域名
+const char *get_domain_by_ip(const struct sockaddr_in *addr)
+{
+    char ip_str[INET_ADDRSTRLEN];
+    inet_ntop(addr->sin_family, &addr->sin_addr, ip_str, sizeof(ip_str));
+    
+    ip_domain_map *entry = NULL;
+    const char *domain = NULL;
+    
+   
+    HASH_FIND_STR(domain_table, ip_str, entry);
+    if (entry) {
+        domain = entry->domain;
+    }
+   
+    return domain;
+}
+
 /* 加载白名单域名 */
 static void load_whitelist()
 {
@@ -160,7 +178,7 @@ static void load_whitelist()
             count++;
         }
     }
-    
+
     fclose(fp);
     LOG_DEBUG_C("[*] %s 加载了 %d 个白名单域名\n",WHITELIST_FILE,count);
 }
@@ -1850,7 +1868,8 @@ void redsocks_connect_relay(redsocks_client *client)
     struct sockaddr_in original_relay = client->instance->config.relayaddr;
 
     // 根据域名选择代理
-    route_by_domain(client);
+    // v1.4 版本功能 取消
+    // route_by_domain(client);
 
     // 5. 连接代理服务器
     client->relay = red_connect_relay(&client->instance->config.relayaddr,

@@ -109,6 +109,10 @@ void redsocks_connect_relay(redsocks_client *client);
 void redsocks_start_relay(redsocks_client *client);
 bool redsocks_has_splice_instance();
 
+//add.............通过地址得到域名信息
+const char *get_domain_by_ip(const struct sockaddr_in *addr);
+
+
 typedef int (*size_comparator)(size_t a, size_t b);
 int sizes_equal(size_t a, size_t b);
 int sizes_greater_equal(size_t a, size_t b);
