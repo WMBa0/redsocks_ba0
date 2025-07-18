@@ -1,26 +1,70 @@
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:558:is_splice_good(): 支持 splice模式 
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: http.com -> 5.22.145.16
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:238:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 17 条域名映射
-2025-07-18 10:55:17.217 [34m[DEBUG  ][0m redsocks.c:183:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
-[*] 客户端请求IP：183.2.172.17:443
+2025-07-18 11:32:20.530 [34m[DEBUG  ][0m redsocks.c:558:is_splice_good(): 支持 splice模式 
+2025-07-18 11:32:20.530 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
+2025-07-18 11:32:20.530 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
+2025-07-18 11:32:20.530 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: http.com -> 5.22.145.16
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:233:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:238:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 18 条域名映射
+2025-07-18 11:32:20.531 [34m[DEBUG  ][0m redsocks.c:183:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
+[*] 客户端请求IP：52.168.117.169:443
 [*] 当前代理服务器IP: 192.168.206.142:9000
-2025-07-18 10:55:19.882 [34m[DEBUG  ][0m redsocks.c:1825:redsocks_relay_connected(): [*] HTTPS 请求：183.2.172.17:443 
-[*] 存在域名 进行域名替换：183.2.172.17 -> www.baidu.com 
-SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 77 77 77 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
-2025-07-18 10:55:21.627 [34m[DEBUG  ][0m redsocks.c:203:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
+2025-07-18 11:32:22.169 [34m[DEBUG  ][0m redsocks.c:1825:redsocks_relay_connected(): [*] HTTPS 请求：52.168.117.169:443 
+[*] 存在域名 进行域名替换：52.168.117.169 -> mobile.events.data.microsoft.com 
+SOCKS5 Raw Request (39 bytes): 05 01 00 03 20 6D 6F 62 69 6C 65 2E 65 76 65 6E 74 73 2E 64 61 74 61 2E 6D 69 63 72 6F 73 6F 66 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:32:29.481 [34m[DEBUG  ][0m redsocks.c:1829:redsocks_relay_connected(): [*] HTTP  请求：20.205.243.166:80 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 00 50 
+2025-07-18 11:32:29.560 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：20.205.243.166:80 
+2025-07-18 11:32:29.620 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：20.205.243.166:80 
+2025-07-18 11:32:29.620 [34m[DEBUG  ][0m redsocks.c:898:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+[*] 客户端请求IP：103.41.167.234:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:32:56.058 [34m[DEBUG  ][0m redsocks.c:1829:redsocks_relay_connected(): [*] HTTP  请求：103.41.167.234:80 
+2025-07-18 11:32:56.125 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：103.41.167.234:80 
+2025-07-18 11:32:56.194 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：103.41.167.234:80 
+2025-07-18 11:32:56.194 [34m[DEBUG  ][0m redsocks.c:898:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+[*] 客户端请求IP：113.59.44.69:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:33:02.718 [34m[DEBUG  ][0m redsocks.c:1829:redsocks_relay_connected(): [*] HTTP  请求：113.59.44.69:80 
+2025-07-18 11:33:02.749 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：113.59.44.69:80 
+2025-07-18 11:33:02.781 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：113.59.44.69:80 
+2025-07-18 11:33:02.781 [34m[DEBUG  ][0m redsocks.c:898:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+[*] 客户端请求IP：113.59.44.69:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:33:04.437 [34m[DEBUG  ][0m redsocks.c:1829:redsocks_relay_connected(): [*] HTTP  请求：113.59.44.69:80 
+[*] 存在域名 进行域名替换：113.59.44.69 -> zhuanlan.zhihu.com 
+SOCKS5 Raw Request (25 bytes): 05 01 00 03 12 7A 68 75 61 6E 6C 61 6E 2E 7A 68 69 68 75 2E 63 6F 6D 00 50 
+2025-07-18 11:33:04.470 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：113.59.44.69:80 
+2025-07-18 11:33:04.501 [34m[DEBUG  ][0m redsocks.c:886:redsocks_relay_clientwritecb(): [*] 80 请求：113.59.44.69:80 
+2025-07-18 11:33:04.501 [34m[DEBUG  ][0m redsocks.c:898:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+[*] 客户端请求IP：52.168.117.169:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:33:05.202 [34m[DEBUG  ][0m redsocks.c:1825:redsocks_relay_connected(): [*] HTTPS 请求：52.168.117.169:443 
+[*] 存在域名 进行域名替换：52.168.117.169 -> mobile.events.data.microsoft.com 
+SOCKS5 Raw Request (39 bytes): 05 01 00 03 20 6D 6F 62 69 6C 65 2E 65 76 65 6E 74 73 2E 64 61 74 61 2E 6D 69 63 72 6F 73 6F 66 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：52.168.117.169:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:33:08.792 [34m[DEBUG  ][0m redsocks.c:1825:redsocks_relay_connected(): [*] HTTPS 请求：52.168.117.169:443 
+[*] 存在域名 进行域名替换：52.168.117.169 -> mobile.events.data.microsoft.com 
+SOCKS5 Raw Request (39 bytes): 05 01 00 03 20 6D 6F 62 69 6C 65 2E 65 76 65 6E 74 73 2E 64 61 74 61 2E 6D 69 63 72 6F 73 6F 66 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：113.59.44.69:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-18 11:33:10.043 [34m[DEBUG  ][0m redsocks.c:1825:redsocks_relay_connected(): [*] HTTPS 请求：113.59.44.69:443 
+[*] 存在域名 进行域名替换：113.59.44.69 -> zhuanlan.zhihu.com 
+SOCKS5 Raw Request (25 bytes): 05 01 00 03 12 7A 68 75 61 6E 6C 61 6E 2E 7A 68 69 68 75 2E 63 6F 6D 01 BB 
+2025-07-18 11:33:14.174 [34m[DEBUG  ][0m redsocks.c:203:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt

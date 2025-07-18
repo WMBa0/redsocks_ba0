@@ -2437,3 +2437,429 @@
 1752807320.191659 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
 1752807320.191934 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
 1752807321.627598 notice main.c:197 main(...) redsocks goes down 结束
+1752809329.130165 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752809333.740260 notice main.c:197 main(...) redsocks goes down 结束
+1752809419.396143 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752809421.517572 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809421.517642 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:56348 -> 52.168.117.169:443
+1752809421.517649 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809421.817894 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809421.817947 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809421.817954 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809421.817959 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809421.817987 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809421.817994 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809421.817997 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809421.818068 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809421.818078 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.619143 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809422.619210 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:46828 -> 183.2.172.177:443
+1752809422.619227 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809422.623994 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809422.624041 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.624090 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.625711 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.625890 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809422.625899 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.625953 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.625963 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.625966 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.626721 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809422.626775 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.626787 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.626834 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809422.685869 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809422.685914 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809422.685922 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809422.685927 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809422.685936 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.685941 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.685944 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.686020 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.686027 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.814271 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809422.814335 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.814379 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.814931 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.814990 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.814997 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.815548 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809422.815568 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.815624 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.815934 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.815984 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.815991 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.878007 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809422.878057 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.878099 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.878236 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809422.878247 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.878307 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.878588 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809422.878646 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809422.878654 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809422.879123 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809422.879139 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.879144 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.879182 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809422.879188 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.879191 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809422.879228 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809425.397086 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809425.397141 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:60880 -> 52.168.117.169:443
+1752809425.397148 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809425.746281 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809425.746334 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809425.746341 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809425.746348 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809425.746358 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809425.746364 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809425.746367 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809425.746467 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809425.746482 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809426.389000 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809426.389066 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809426.389128 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809426.390383 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809426.390598 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809426.390618 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809426.390691 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809426.390714 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809426.390719 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809426.391535 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809426.391588 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809426.391597 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809426.391641 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809432.108278 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809432.108370 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:60896 -> 52.168.117.169:443
+1752809432.108379 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809432.394227 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809432.394278 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809432.394286 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809432.394291 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809432.394300 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809432.394307 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809432.394309 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809432.394364 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809432.394395 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809433.093188 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809433.093236 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809433.093283 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809433.094190 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809433.094239 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809433.094247 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809433.094299 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809433.094306 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809433.094309 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809433.095075 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809433.095112 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809433.095121 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809433.095373 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809433.558501 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809433.558601 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:58808 -> 183.2.172.177:80
+1752809433.558610 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809433.622084 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809433.622158 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809433.622166 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809433.622171 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809433.622199 notice redsocks.c:435 parse_host_header(...) HTTP : Host header: www.baidu.com -> 183.2.172.177
+1752809433.622205 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809433.622209 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809433.622211 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809433.622269 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809433.622278 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809435.318761 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809435.318822 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809435.318895 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809435.319307 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809435.319347 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809435.319355 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809435.319920 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809435.319942 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809435.319948 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809435.319991 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809436.192082 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809436.192137 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:57642 -> 52.168.117.169:443
+1752809436.192144 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809436.490269 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809436.490320 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809436.490328 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809436.490333 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809436.490353 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809436.490360 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809436.490363 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809436.490427 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809436.490470 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809437.397202 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809437.397252 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809437.397315 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809437.398213 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809437.398239 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809437.398252 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809437.398357 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809437.398385 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809437.398393 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809437.398891 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809437.398925 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809437.398932 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809437.398964 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809437.462398 notice main.c:197 main(...) redsocks goes down 结束
+1752809540.531082 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752809542.168969 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809542.169025 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:47736 -> 52.168.117.169:443
+1752809542.169032 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809542.636827 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809542.636887 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809542.636896 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809542.636903 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809542.636916 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809542.636924 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809542.636928 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809542.637017 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809542.637026 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809543.374844 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809543.374929 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809543.374993 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809543.375548 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809543.375682 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809543.375694 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809543.375713 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809543.375721 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809543.375727 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809543.376274 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809543.376290 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809543.376293 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809543.376326 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809549.481020 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809549.481101 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:37370 -> 20.205.243.166:80
+1752809549.481109 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809549.560438 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809549.560469 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809549.560473 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809549.560478 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809549.560507 notice redsocks.c:435 parse_host_header(...) HTTP : Host header: github.com -> 20.205.243.166
+1752809549.560511 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809549.560514 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809549.560518 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809549.560581 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809549.560589 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809549.620354 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809549.620384 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809549.620489 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809549.620787 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809549.620798 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809549.620803 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809549.621304 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809549.621321 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809549.621325 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809549.621363 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809576.057891 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809576.057969 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:54842 -> 103.41.167.234:80
+1752809576.057976 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809576.125246 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809576.125297 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809576.125305 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809576.125310 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809576.125339 notice redsocks.c:435 parse_host_header(...) HTTP : Host header: zhihu.com -> 103.41.167.234
+1752809576.125344 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809576.125348 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809576.125350 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809576.125410 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809576.125420 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809576.194026 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809576.194075 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809576.194174 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809576.195064 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809576.195079 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809576.195085 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809576.195633 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809576.195677 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809576.195685 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809576.195732 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809582.718058 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809582.718147 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:42432 -> 113.59.44.69:80
+1752809582.718157 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809582.749304 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809582.749356 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809582.749365 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809582.749372 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809582.749410 notice redsocks.c:435 parse_host_header(...) HTTP : Host header: zhuanlan.zhihu.com -> 113.59.44.69
+1752809582.749418 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809582.749424 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809582.749427 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809582.749510 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809582.749517 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809582.781095 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809582.781150 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809582.781264 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809582.781485 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809582.781516 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809582.781524 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809582.782076 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809582.782134 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809582.782143 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809582.782183 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809584.436919 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809584.436996 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:42442 -> 113.59.44.69:80
+1752809584.437011 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809584.469987 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809584.470038 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809584.470046 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809584.470051 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809584.470080 notice redsocks.c:435 parse_host_header(...) HTTP : Host header: zhuanlan.zhihu.com -> 113.59.44.69
+1752809584.470085 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809584.470090 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809584.470092 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809584.470151 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809584.470157 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809584.501265 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809584.501328 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809584.501425 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809584.501625 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809584.501658 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809584.501666 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809584.502180 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809584.502218 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809584.502227 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809584.502267 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809585.201607 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809585.201671 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:52850 -> 52.168.117.169:443
+1752809585.201679 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809585.553590 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809585.553640 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809585.553647 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809585.553652 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809585.553662 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809585.553668 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809585.553670 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809585.553736 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809585.553743 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809586.291755 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809586.291803 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809586.291863 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809586.292283 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809586.292353 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809586.292360 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809586.292766 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809586.292783 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809586.292824 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809586.293163 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809586.293176 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809586.293183 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809586.293223 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809588.791237 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809588.791312 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:52862 -> 52.168.117.169:443
+1752809588.791322 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809589.145535 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809589.145582 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809589.145589 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809589.145594 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809589.145603 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809589.145609 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809589.145612 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809589.145690 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809589.145701 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.040553 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.040599 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.040648 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.041548 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.041640 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809590.041648 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.041708 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.041715 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.041718 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.042974 notice redsocks.c:2112 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1752809590.043071 notice redsocks.c:2216 redsocks_accept_client(...) [*] 请求连接： 192.168.202.128:57794 -> 113.59.44.69:443
+1752809590.043080 notice redsocks.c:1850 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1752809590.043228 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809590.043241 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.043245 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.043281 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809590.097634 notice redsocks.c:910 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1752809590.097683 notice redsocks.c:936 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1752809590.097692 notice redsocks.c:940 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1752809590.097698 notice redsocks.c:927 redsocks_start_relay(...) [*] 中继通道已建立
+1752809590.097708 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.097713 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.097716 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.097785 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.097792 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.144539 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.144592 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.144665 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.145456 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.145564 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.145575 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.145587 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.145601 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.145608 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.146019 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.146059 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.146110 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.193380 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.193431 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.193499 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.193691 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.193746 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.193752 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.580839 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.580874 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.580948 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.580955 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581030 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581048 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581055 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581070 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581075 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581099 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581113 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581617 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581635 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581649 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581654 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581743 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581799 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581853 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581860 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581879 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.581888 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.581893 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.581909 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.583868 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.583909 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.583949 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.583957 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.583983 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584004 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584013 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584018 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584026 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584213 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584227 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584243 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584249 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584269 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584290 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584366 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584382 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584402 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584434 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584441 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584460 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.584471 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.584474 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.584482 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.589590 notice redsocks.c:822 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1752809590.589616 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.589672 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.597455 notice redsocks.c:776 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1752809590.597547 notice redsocks.c:834 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1752809590.597554 notice redsocks.c:797 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1752809590.598052 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809590.598067 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.598072 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.598355 notice redsocks.c:1651 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1752809590.598366 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.598369 notice redsocks.c:1577 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1752809590.598412 notice redsocks.c:1491 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752809594.174290 notice main.c:197 main(...) redsocks goes down 结束

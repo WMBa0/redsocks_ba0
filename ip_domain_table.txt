@@ -15,3 +15,6 @@
 23.55.39.18 www.bing.com
 23.55.39.8 www.bing.com
 52.182.143.211 mobile.events.data.microsoft.com
+52.168.117.169 mobile.events.data.microsoft.com
+103.41.167.234 zhihu.com
+113.59.44.69 zhuanlan.zhihu.com
