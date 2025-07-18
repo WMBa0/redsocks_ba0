@@ -7,18 +7,17 @@
 
 struct sockaddr_in;
 
-#define SIZEOF_ARRAY(arr)        (sizeof(arr) / sizeof(arr[0]))
-#define FOREACH(ptr, array)      for (ptr = array; ptr < array + SIZEOF_ARRAY(array); ptr++)
-#define FOREACH_REV(ptr, array)  for (ptr = array + SIZEOF_ARRAY(array) - 1; ptr >= array; ptr--)
+#define SIZEOF_ARRAY(arr) (sizeof(arr) / sizeof(arr[0]))
+#define FOREACH(ptr, array) for (ptr = array; ptr < array + SIZEOF_ARRAY(array); ptr++)
+#define FOREACH_REV(ptr, array) for (ptr = array + SIZEOF_ARRAY(array) - 1; ptr >= array; ptr--)
 
-#define UNUSED(x)                ((void)(x))
+#define UNUSED(x) ((void)(x))
 
 #if defined __GNUC__
 #define PACKED __attribute__((packed))
 #else
 #error Unknown compiler, modify utils.h for it
 #endif
-
 
 #ifdef __GNUC__
 #define member_type(type, member) __typeof(((type *)0)->member)
@@ -34,24 +33,23 @@ struct sockaddr_in;
  *
  */
 #define container_of(ptr, type, member) \
-	((type *)( \
-		(char *)(member_type(type, member) *){ ptr } - offsetof(type, member) \
-	))
+        ((type *)((char *)(member_type(type, member) *){ptr} - offsetof(type, member)))
 
-
-#define clamp_value(value, min_val, max_val) do { \
-       if (value < min_val) \
-               value = min_val; \
-       if (value > max_val) \
-               value = max_val; \
-} while (0)
-
+#define clamp_value(value, min_val, max_val) \
+        do                                   \
+        {                                    \
+                if (value < min_val)         \
+                        value = min_val;     \
+                if (value > max_val)         \
+                        value = max_val;     \
+        } while (0)
 
 uint32_t red_randui32();
 time_t redsocks_time(time_t *t);
 int redsocks_gettimeofday(struct timeval *tv);
 char *redsocks_evbuffer_readline(struct evbuffer *buf);
-struct bufferevent* red_connect_relay(struct sockaddr_in *addr, evbuffercb writecb, everrorcb errorcb, void *cbarg);
+struct bufferevent *red_connect_relay(struct sockaddr_in *addr, evbuffercb writecb, everrorcb errorcb, void *cbarg);
+
 int red_socket_geterrno(struct bufferevent *buffev);
 int red_socket_client(int type);
 int red_socket_server(int type, struct sockaddr_in *bindaddr);
@@ -61,29 +59,35 @@ int red_recv_udp_pkt(int fd, char *buf, size_t buflen, struct sockaddr_in *froma
 int fcntl_nonblock(int fd);
 
 #define event_fmt_str "%s|%s|%s|%s|%s|0x%x"
-#define event_fmt(what) \
-				(what) & EVBUFFER_READ ? "EVBUFFER_READ" : "0", \
-				(what) & EVBUFFER_WRITE ? "EVBUFFER_WRITE" : "0", \
-				(what) & EVBUFFER_EOF ? "EVBUFFER_EOF" : "0", \
-				(what) & EVBUFFER_ERROR ? "EVBUFFER_ERROR" : "0", \
-				(what) & EVBUFFER_TIMEOUT ? "EVBUFFER_TIMEOUT" : "0", \
-				(what) & ~(EVBUFFER_READ|EVBUFFER_WRITE|EVBUFFER_EOF|EVBUFFER_ERROR|EVBUFFER_TIMEOUT)
+#define event_fmt(what)                                           \
+        (what) & EVBUFFER_READ ? "EVBUFFER_READ" : "0",           \
+            (what) & EVBUFFER_WRITE ? "EVBUFFER_WRITE" : "0",     \
+            (what) & EVBUFFER_EOF ? "EVBUFFER_EOF" : "0",         \
+            (what) & EVBUFFER_ERROR ? "EVBUFFER_ERROR" : "0",     \
+            (what) & EVBUFFER_TIMEOUT ? "EVBUFFER_TIMEOUT" : "0", \
+            (what) & ~(EVBUFFER_READ | EVBUFFER_WRITE | EVBUFFER_EOF | EVBUFFER_ERROR | EVBUFFER_TIMEOUT)
 
 #if INET6_ADDRSTRLEN < INET_ADDRSTRLEN
-#	error Impossible happens: INET6_ADDRSTRLEN < INET_ADDRSTRLEN
+#error Impossible happens: INET6_ADDRSTRLEN < INET_ADDRSTRLEN
 #else
-#	define RED_INET_ADDRSTRLEN (INET6_ADDRSTRLEN + 1 + 5 + 1) // addr + : + port + \0
+#define RED_INET_ADDRSTRLEN (INET6_ADDRSTRLEN + 1 + 5 + 1) // addr + : + port + \0
 #endif
-char *red_inet_ntop(const struct sockaddr_in* sa, char* buffer, size_t buffer_size);
+char *red_inet_ntop(const struct sockaddr_in *sa, char *buffer, size_t buffer_size);
 
 /* vim:set tabstop=4 softtabstop=4 shiftwidth=4: */
 /* vim:set foldmethod=marker foldlevel=32 foldmarker={,}: */
 #endif /* UTILS_H_SAT_FEB__2_02_24_05_2008 */
 
-
-struct bufferevent* red_prepare_relay(const char *ifname,
-                                int sa_family,
-                                bufferevent_data_cb readcb,
-                                bufferevent_data_cb writecb,
-                                bufferevent_event_cb errorcb,
-                                void *cbarg);
+struct bufferevent *red_prepare_relay(const char *ifname,
+                                      int sa_family,
+                                      bufferevent_data_cb readcb,
+                                      bufferevent_data_cb writecb,
+                                      bufferevent_event_cb errorcb,
+                                      void *cbarg);
+struct bufferevent *red_connect_relay2(const char *ifname,
+                                       struct sockaddr_storage *addr,
+                                       bufferevent_data_cb readcb,
+                                       bufferevent_data_cb writecb,
+                                       bufferevent_event_cb errorcb,
+                                       void *cbarg,
+                                       const struct timeval *timeout_write);

@@ -45,6 +45,8 @@ typedef struct dns_request_t {
     struct timeval      req_time; 
     int *               delay;
     size_t              data_len;
+
+    
     union {
         char            raw[513]; // DNS request longer than 512 should go over TCP.
         dns_header header;

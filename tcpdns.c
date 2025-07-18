@@ -29,6 +29,7 @@
 #include "redsocks.h"
 #include "tcpdns.h"
 #include "utils.h"
+#include "debugcor.h"
 
 // 定义日志宏
 #define tcpdns_log_error(prio, msg...) \
@@ -195,10 +196,7 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
             // 打印IP和域名映射关系
 
             // parse_dns_response(&buff.raw[2], read_size);
-            //解析DNS域名：
-           
-
-
+            // 解析DNS域名：
 
             switch (dh->ra_z_rcode & DNS_RC_MASK)
             {
@@ -213,6 +211,7 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
                            (struct sockaddr *)&req->client_addr,
                            sizeof(req->client_addr)) != read_size - 2)
                 {
+                    printf("[*] sendoto Client DNS error\n");
                     tcpdns_log_errno(LOG_ERR, "sendto失败");
                 }
                 req->state = STATE_RESPONSE_SENT;
@@ -244,17 +243,18 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
         log_error(LOG_ERR, "无效参数: req=%p, buffev=%p", req, buffev);
         return;
     }
-    if (buffev != req->resolver)
-    {
-        // log_error(LOG_ERR, "请求 %p 的resolver不匹配 (预期=%p, 实际=%p)",
-        //           req, req->resolver, buffev);
-        // tcpdns_drop_request(req);
-        // return;
-        req->resolver = buffev;
-        // buffev =
-    }
+    // //BUG   修复纪念：未声明函数，导致编译器自动识别为int，发生类型截断 
+    // if (buffev != req->resolver)
+    // {
+    //      LOG_DEBUG_C("req->resolver=%p, buffev=%p)\n",
+    //                req->resolver, buffev);
+    //      //tcpdns_drop_request(req);
+    //      //return;
+    //     req->resolver = buffev;
+    //     //buffev = req->resolver; //error   
+    // }
 
-    // dns_request *req = _arg;
+   
     assert(buffev == req->resolver);
     struct timeval tv, tv2;
 
@@ -272,11 +272,11 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
     uint16_t len = htons((uint16_t)req->data_len);
     if (bufferevent_write(buffev, &len, sizeof(uint16_t)) == -1 || bufferevent_write(buffev, &req->data.raw, req->data_len) == -1)
     {
-        tcpdns_log_errno(LOG_ERR, "bufferevent_write失败");
+        LOG_DEBUG_C("[*] bufferevent_write失败 \n");
         tcpdns_drop_request(req);
         return;
     }
-
+    
     // 设置读取超时(剩余时间)
     gettimeofday(&tv, 0);
     timersub(&tv, &req->req_time, &tv);
@@ -431,16 +431,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         return;
     }
 
-    // 打印接收到的原始数据包(十六进制)
-    print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
-    char buf[255];
-    printf("新建请求 %p, 客户端: %s\n", req,
-           red_inet_ntop(&req->client_addr, buf, sizeof(buf)));
-
-    printf("新请求: 客户端端口=%d, 类型=%s\n",
-           ntohs(((struct sockaddr_in *)&req->client_addr)->sin_port),
-           (qtype == 1) ? "A" : (qtype == 28) ? "AAAA"
-                                              : "其他");
+    // printf("新请求: 客户端端口=%d, 类型=%s\n",ntohs(((struct sockaddr_in *)&req->client_addr)->sin_port),(qtype == 1) ? "A" : (qtype == 28) ? "AAAA": "其他");
 
     // 检查DNS头标志
     if ((req->data.header.qr_opcode_aa_tc_rd & DNS_QR) == 0 && // 是查询
@@ -450,6 +441,13 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         && qtype == 1                                          // 只处理A请求
     )
     {
+
+        // 打印接收到的原始数据包(十六进制)
+        print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
+        char buf[255];
+        printf("新建请求 %p, 客户端: %s\n", req,
+               red_inet_ntop(&req->client_addr, buf, sizeof(buf)));
+
         tv.tv_sec = self->config.timeout;
         tv.tv_usec = 0;
 
@@ -463,10 +461,13 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
             return;
         }
 
-        // 连接到上游DNS服务器
+        // 连接到上游DNS服务器 建立TCP 连接
         req->resolver = red_connect_relay2(NULL, destaddr,
                                            tcpdns_readcb, tcpdns_connected, tcpdns_event_error, req,
                                            &tv);
+        
+        //LOG_DEBUG_C("[*] req->resolver = %p\n",req->resolver);
+
         if (req->resolver)
             list_add(&req->list, &self->requests); // 添加到请求列表
         else

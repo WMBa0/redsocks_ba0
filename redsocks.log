@@ -2935,3 +2935,33 @@
 1752822541.774055 notice redsocks.c:1493 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
 1752822541.774166 notice redsocks.c:1493 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
 1752822541.774247 notice redsocks.c:1493 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1752823965.816596 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752823987.573375 notice main.c:197 main(...) redsocks goes down 结束
+1752823997.817682 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752824035.122928 notice main.c:197 main(...) redsocks goes down 结束
+1752824428.878255 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752824450.646611 notice main.c:197 main(...) redsocks goes down 结束
+1752825471.216742 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752825495.523424 notice main.c:197 main(...) redsocks goes down 结束
+1752825505.610907 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752825524.547482 notice main.c:197 main(...) redsocks goes down 结束
+1752826604.716938 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752826624.134599 notice main.c:197 main(...) redsocks goes down 结束
+1752826707.676669 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752826771.809077 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827037.028042 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827109.054964 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827145.138964 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827164.333994 notice main.c:197 main(...) redsocks goes down 结束
+1752827368.624515 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827391.380719 notice main.c:197 main(...) redsocks goes down 结束
+1752827454.158589 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827472.920993 notice main.c:197 main(...) redsocks goes down 结束
+1752827787.548754 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827808.653880 notice main.c:197 main(...) redsocks goes down 结束
+1752827944.460782 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752827963.360401 notice main.c:197 main(...) redsocks goes down 结束
+1752828280.173778 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752828302.121927 notice main.c:197 main(...) redsocks goes down 结束
+1752830963.886903 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1752830983.040835 notice main.c:197 main(...) redsocks goes down 结束

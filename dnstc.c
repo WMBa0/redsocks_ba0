@@ -94,30 +94,7 @@ static void dnstc_pkt_from_client(int fd, short what, void *_arg)
 		 && !buf.h.ancount && !buf.h.nscount			  /* 没有回答 */
 	)
 	{
-        // 解析DNS查询中的域名
-        // char domain[256] = {0};
-        // const char *ptr = buf.raw + sizeof(dns_header);
-        // char *dst = domain;
-        // while (*ptr) {
-        //     uint8_t len = *ptr++;
-        //     if (dst + len + 1 > domain + sizeof(domain))
-        //         break;
-        //     memcpy(dst, ptr, len);
-        //     dst += len;
-        //     *dst++ = '.';
-        //     ptr += len;
-        // }
-        // if (dst > domain)
-        //     *(dst-1) = '\0'; // 去掉最后的点
-		
-        // 解析域名获取IP (不能这样写)
-        // struct hostent *host = gethostbyname(domain);
-        // char ip_str[INET_ADDRSTRLEN] = "unknown";
-        // if (host && host->h_addr_list[0]) {
-        //     inet_ntop(AF_INET, host->h_addr_list[0], ip_str, sizeof(ip_str));
-        // }
-
-
+        
 		// 设置响应标志和截断标志
 		buf.h.qr_opcode_aa_tc_rd |= DNS_QR;
 		buf.h.qr_opcode_aa_tc_rd |= DNS_TC;
