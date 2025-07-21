@@ -40,7 +40,7 @@ typedef struct dnsu2t_instance_t {
 	struct event       relay_rd;
 	struct event       relay_wr;
 
-	bool               reqstream_broken;
+	char               reqstream_broken;
 	int                request_count;
 	int                inflight_count;
 	void*              inflight_root;

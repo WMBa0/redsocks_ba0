@@ -1,10 +1,8 @@
-# # 1. 创建专用链（可选但推荐）
+# 1. 创建专用链（可选但推荐）
 iptables -t nat -N REDSOCKS_DNS
 
-# # 2. 排除本地和私有网络（避免循环）
-# iptables -t nat -A REDSOCKS_DNS -d 0.0.0.0/8 -j RETURN
-# iptables -t nat -A REDSOCKS_DNS -d 127.0.0.0/8 -j RETURN
-# iptables -t nat -A REDSOCKS_DNS -d 192.168.0.0/16 -j RETURN
+# 2. 排除本地和私有网络（避免循环）
+
 iptables -t nat -A REDSOCKS_DNS -d 0.0.0.0/8 -j RETURN
 iptables -t nat -A REDSOCKS_DNS -d 10.0.0.0/8 -j RETURN
 iptables -t nat -A REDSOCKS_DNS -d 100.64.0.0/10 -j RETURN
@@ -23,12 +21,12 @@ iptables -t nat -A OUTPUT -p tcp -j REDSOCKS_DNS
 
 
 # DNS重定向（强制走TCP）
-iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9992
+#iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9992
 
 
 # HTTP\HTTPS 重定向
-#iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 9999
-#iptables -t nat -A OUTPUT -p tcp --dport 443 -j REDIRECT --to-ports 9999
+iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 9999
+iptables -t nat -A OUTPUT -p tcp --dport 443 -j REDIRECT --to-ports 9999
 
 #清空表：sudo iptables -t nat -F
 #清空链：sudo iptables -t nat -X

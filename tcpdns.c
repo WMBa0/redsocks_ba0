@@ -20,6 +20,7 @@
 #include <arpa/inet.h>
 #include <assert.h>
 #include <errno.h>
+#include <limits.h>
 
 #include "base.h"
 #include "list.h"
@@ -36,6 +37,17 @@
     redsocks_log_write_plain(__FILE__, __LINE__, __func__, 0, &req->client_addr, &req->instance->config.bindaddr, prio, ##msg)
 #define tcpdns_log_errno(prio, msg...) \
     redsocks_log_write_plain(__FILE__, __LINE__, __func__, 1, &req->client_addr, &req->instance->config.bindaddr, prio, ##msg)
+
+
+/* 添加这些宏定义 */
+#ifndef MIN
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#endif
+
+#ifndef MAX
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#endif
+
 
 // 前向声明
 static void tcpdns_fini_instance(tcpdns_instance *instance);
@@ -64,6 +76,8 @@ static int tcpdns_fini();
 // 测试标志
 #define FLAG_TCP_TEST 0x01
 #define FLAG_UDP_TEST 0x02
+
+#define DELAY_LOG_FORMAT "[*] DNS服务器 %s 延迟: %dms (历史: %d/%d/%d) | 请求ID: %04x | 客户端: %s:%d \n"
 
 // TCPDNS状态枚举
 typedef enum tcpdns_state_t
@@ -140,8 +154,8 @@ static uint16_t get_qtype(const uint8_t *packet, size_t packet_len)
 static void tcpdns_drop_request(dns_request *req)
 {
     int fd;
-    log_error(LOG_DEBUG, "释放请求 %p (状态=%d, resolver=%p)",
-              req, req->state, req->resolver);
+    LOG_DEBUG_C("释放请求 %p (状态=%d, resolver=%p) \n",
+                req, req->state, req->resolver);
     if (req->resolver)
     {
         bufferevent_free(req->resolver); // 确保释放bufferevent
@@ -157,9 +171,76 @@ static void tcpdns_drop_request(dns_request *req)
  */
 static inline void tcpdns_update_delay(dns_request *req, int delay)
 {
-    if (req->delay)
-        *req->delay = delay; // 更新延迟值
+    //add.................
+
+    // 确定当前操作的 DNS代理服务器
+    if (!req || !req->delay || !req->instance)
+    {
+        return;
+    }
+
+    tcpdns_instance *instances = req->instance;
+    char dns_addr_str[INET_ADDRSTRLEN];
+
+    char *server_name = "unkonwn";
+    int *delay_ptr = req->delay;
+    // 确定是哪一个代理服务器
+    if (delay_ptr == &instances->tcp1_delay_ms && instances->config.tcpdns1)
+    {
+        server_name = "TCPDNS1";
+        //red_inet_ntop(&instances->config.tcpdns1_addr, dns_addr_str, sizeof(dns_addr_str));
+
+        struct sockaddr_in *sin = (struct sockaddr_in *)&instances->config.tcpdns1_addr;
+        inet_ntop(AF_INET,&sin->sin_addr,dns_addr_str,sizeof(dns_addr_str));
+    }
+    else if (delay_ptr == (struct sockaddr_in*)&instances->tcp2_delay_ms && instances->config.tcpdns2)
+    {
+        server_name = "TCPDNS2";
+        struct sockaddr_in *sin = (struct sockaddr_in *)&instances->config.tcpdns2_addr;
+        inet_ntop(AF_INET,&sin->sin_addr,dns_addr_str,sizeof(dns_addr_str));
+ 
+    }
+
+    // 计算统计指标
+    static struct
+    {
+        int min;
+        int max;
+        int total;
+        int count;
+    } delay_stats[2] = {{INT_MAX, 0, 0, 0}, {INT_MAX, 0, 0, 0}};
+
+    int server_idx = (delay_ptr == &instances->tcp1_delay_ms) ? 0 : 1;
+    delay_stats[server_idx].total += delay;
+    delay_stats[server_idx].count++;
+    delay_stats[server_idx].min = MIN(delay_stats[server_idx].min, delay);
+    delay_stats[server_idx].max = MAX(delay_stats[server_idx].max, delay);
+    int avg = delay_stats[server_idx].total / delay_stats[server_idx].count;
+
+    // 获取请求信息  dns-request-id
+    uint16_t req_id = ntohs(req->data.header.id);
+    char client_addr[INET_ADDRSTRLEN];
+    int client_port;
+    if (req->client_addr.ss_family == AF_INET)
+    {
+        struct sockaddr_in *sin = (struct sockaddr_in *)&req->client_addr;
+        inet_ntop(AF_INET, &sin->sin_addr, client_addr, sizeof(client_addr));
+        client_port = ntohs(sin->sin_port);
+    }
+    // 记录详细日志
+    printf(DELAY_LOG_FORMAT,
+           dns_addr_str, delay,
+           delay_stats[server_idx].min,
+           avg,
+           delay_stats[server_idx].max,
+           req_id,
+           client_addr,
+           client_port);
+
+    // 更新延迟
+    delay_ptr = delay;
 }
+
 
 /* 从上游DNS服务器读取响应的回调
  * @param from 触发事件的bufferevent
@@ -219,11 +300,14 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
                 gettimeofday(&tv, 0);
                 timersub(&tv, &req->req_time, &tv);
                 tcpdns_update_delay(req, tv.tv_sec * 1000 + tv.tv_usec / 1000);
+                
+                //tcpdns_drop_request(req);
             }
             break;
             default:
                 // 惩罚服务器(设置高延迟)
                 tcpdns_update_delay(req, (req->instance->config.timeout + 1) * 1000);
+                //tcpdns_drop_request(req);
             }
         }
     }
@@ -243,7 +327,7 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
         log_error(LOG_ERR, "无效参数: req=%p, buffev=%p", req, buffev);
         return;
     }
-    // //BUG   修复纪念：未声明函数，导致编译器自动识别为int，发生类型截断 
+    // //BUG   修复纪念：未声明函数，导致编译器自动识别为int，发生类型截断
     // if (buffev != req->resolver)
     // {
     //      LOG_DEBUG_C("req->resolver=%p, buffev=%p)\n",
@@ -251,10 +335,9 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
     //      //tcpdns_drop_request(req);
     //      //return;
     //     req->resolver = buffev;
-    //     //buffev = req->resolver; //error   
+    //     //buffev = req->resolver; //error
     // }
 
-   
     assert(buffev == req->resolver);
     struct timeval tv, tv2;
 
@@ -276,7 +359,7 @@ static void tcpdns_connected(struct bufferevent *buffev, void *_arg)
         tcpdns_drop_request(req);
         return;
     }
-    
+
     // 设置读取超时(剩余时间)
     gettimeofday(&tv, 0);
     timersub(&tv, &req->req_time, &tv);
@@ -412,7 +495,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         free(req);
         return;
     }
-
+    
     // 验证DNS请求
     if (pktlen <= sizeof(dns_header))
     {
@@ -422,6 +505,8 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
     }
 
     req->data_len = pktlen;
+
+   
 
     uint16_t qtype = get_qtype(req->data.raw, req->data_len);
     if (qtype != 1 /* A记录 */)
@@ -441,6 +526,8 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         && qtype == 1                                          // 只处理A请求
     )
     {
+        
+
 
         // 打印接收到的原始数据包(十六进制)
         print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
@@ -465,8 +552,8 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         req->resolver = red_connect_relay2(NULL, destaddr,
                                            tcpdns_readcb, tcpdns_connected, tcpdns_event_error, req,
                                            &tv);
-        
-        //LOG_DEBUG_C("[*] req->resolver = %p\n",req->resolver);
+
+        // LOG_DEBUG_C("[*] req->resolver = %p\n",req->resolver);
 
         if (req->resolver)
             list_add(&req->list, &self->requests); // 添加到请求列表

@@ -1243,7 +1243,7 @@ static void redsplice_client_read(int fd, short what, void *_pump)
         .evdst = &pump->relay_write,        // 事件目标：代理写入事件（用于反压控制）
         .shut_src = &pump->c.client_evshut, // 客户端关闭状态标记
     };
-
+    
     /* 1. 检查是否是HTTP/HTTPS流量 */
     if (pump->c.destaddr.sin_port == htons(80) || pump->c.destaddr.sin_port == htons(443))
     {
@@ -1428,6 +1428,7 @@ static int redsocks_start_splicepump(redsocks_client *client)
     struct event_base *base = NULL;                          // 使用默认事件基
     const int relay_fd = bufferevent_getfd(client->relay);   // 获取代理Socket真实fd
     const int client_fd = bufferevent_getfd(client->client); // 获取客户端Socket真实fd
+
 
     // 注册四个核心事件：
     // 1. 客户端数据可读事件
