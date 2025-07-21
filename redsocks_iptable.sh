@@ -25,8 +25,8 @@ iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9992
 
 
 # HTTP\HTTPS 重定向
-#iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 9999
-#iptables -t nat -A OUTPUT -p tcp --dport 443 -j REDIRECT --to-ports 9999
+iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 9999
+iptables -t nat -A OUTPUT -p tcp --dport 443 -j REDIRECT --to-ports 9999
 
 #清空表：sudo iptables -t nat -F
 #清空链：sudo iptables -t nat -X

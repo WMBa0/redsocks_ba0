@@ -1,65 +1,1641 @@
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:624:is_splice_good(): 支持 splice模式 
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:304:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 19 条域名映射
-2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:249:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
-新建请求 0x557e69c89c00, 客户端: 127.0.0.1:49039
-响应大小: 103 
-2025-07-21 15:49:45.374 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.151
-2025-07-21 15:49:45.374 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.186
-[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 102/102/102) | 请求ID: d4ce | 客户端: 127.0.0.1:49039 
-2025-07-21 15:49:45.374 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c89c00 (状态=2, resolver=0x557e69c89ee0) 
-新建请求 0x557e69c8a5a0, 客户端: 127.0.0.1:49039
-响应大小: 103 
-2025-07-21 15:49:50.394 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.151
-2025-07-21 15:49:50.394 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.186
-[*] DNS服务器 114.114.114.114 延迟: 118ms (历史: 118/118/118) | 请求ID: d4ce | 客户端: 127.0.0.1:49039 
-2025-07-21 15:49:50.394 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c8a5a0 (状态=2, resolver=0x557e69c8fef0) 
-新建请求 0x557e69c90480, 客户端: 127.0.0.1:59012
-响应大小: 57 
-2025-07-21 15:49:53.026 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
-DNS Response: github.com -> 20.205.243.166
-[*] DNS服务器 114.114.114.114 延迟: 122ms (历史: 102/112/122) | 请求ID: f4be | 客户端: 127.0.0.1:59012 
-2025-07-21 15:49:53.026 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c90480 (状态=2, resolver=0x557e69c90760) 
-新建请求 0x557e69c90dd0, 客户端: 127.0.0.1:41056
-响应大小: 103 
-2025-07-21 15:49:55.387 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.186
-2025-07-21 15:49:55.387 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.151
-[*] DNS服务器 114.114.114.114 延迟: 109ms (历史: 109/113/118) | 请求ID: d4ce | 客户端: 127.0.0.1:41056 
-2025-07-21 15:49:55.387 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c90dd0 (状态=2, resolver=0x557e69c910b0) 
-新建请求 0x557e69c91440, 客户端: 127.0.0.1:59012
-响应大小: 57 
-2025-07-21 15:49:58.029 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
-DNS Response: github.com -> 20.205.243.166
-[*] DNS服务器 114.114.114.114 延迟: 124ms (历史: 102/116/124) | 请求ID: f4be | 客户端: 127.0.0.1:59012 
-2025-07-21 15:49:58.029 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c91440 (状态=2, resolver=0x557e69c91720) 
-新建请求 0x557e69c91440, 客户端: 127.0.0.1:46195
-响应大小: 57 
-2025-07-21 15:50:03.082 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
-DNS Response: github.com -> 20.205.243.166
-[*] DNS服务器 114.114.114.114 延迟: 176ms (历史: 109/134/176) | 请求ID: f4be | 客户端: 127.0.0.1:46195 
-2025-07-21 15:50:03.082 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c91440 (状态=2, resolver=0x557e69c91990) 
-2025-07-21 15:50:09.769 [34m[DEBUG  ][0m redsocks.c:269:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:624:is_splice_good(): 支持 splice模式 
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:304:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 19 条域名映射
+2025-07-21 16:17:54.780 [34m[DEBUG  ][0m redsocks.c:249:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
+2025-07-21 16:17:58.306 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe680c00, 客户端: 127.0.0.1:51407
+2025-07-21 16:17:58.329 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6815a0, 客户端: 127.0.0.1:59960
+2025-07-21 16:17:58.399 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 93/93/93) | 请求ID: 2ba2 | 客户端: 127.0.0.1:51407 
+2025-07-21 16:17:58.400 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe680c00 (状态=2, resolver=0x556afe680ee0) 
+2025-07-21 16:17:58.432 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 202.89.233.101 -> cn.bing.com 
+2025-07-21 16:17:58.432 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 202.89.233.100 -> cn.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 103/103/103) | 请求ID: 7fc9 | 客户端: 127.0.0.1:59960 
+2025-07-21 16:17:58.432 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6815a0 (状态=2, resolver=0x556afe686ef0) 
+2025-07-21 16:17:58.449 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe687870, 客户端: 127.0.0.1:58937
+2025-07-21 16:17:58.540 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.36.137.203 -> contile.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 90/91/93) | 请求ID: a609 | 客户端: 127.0.0.1:58937 
+2025-07-21 16:17:58.540 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe687870 (状态=2, resolver=0x556afe687b50) 
+2025-07-21 16:17:58.574 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:42434
+2025-07-21 16:17:58.619 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688c60, 客户端: 127.0.0.1:53886
+2025-07-21 16:17:58.631 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:51882
+2025-07-21 16:17:58.671 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.100 -> www.bing.com 
+2025-07-21 16:17:58.671 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.101 -> www.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 97/100/103) | 请求ID: fb79 | 客户端: 127.0.0.1:42434 
+2025-07-21 16:17:58.671 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6885f0) 
+2025-07-21 16:17:58.703 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:33963
+2025-07-21 16:17:58.723 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.160.144.191 -> content-signature-2.cdn.mozilla.net 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 90/95/104) | 请求ID: 1f3a | 客户端: 127.0.0.1:53886 
+2025-07-21 16:17:58.723 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688c60 (状态=2, resolver=0x556afe688f40) 
+2025-07-21 16:17:58.732 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 97/100/103) | 请求ID: 4cc9 | 客户端: 127.0.0.1:51882 
+2025-07-21 16:17:58.732 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe6895b0) 
+2025-07-21 16:17:58.796 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.149.100.209 -> firefox.settings.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 94ms (历史: 90/95/104) | 请求ID: 65ba | 客户端: 127.0.0.1:33963 
+2025-07-21 16:17:58.797 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe689940) 
+2025-07-21 16:17:59.139 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:37603
+2025-07-21 16:17:59.231 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.107.243.93 -> push.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 92ms (历史: 92/98/103) | 请求ID: 315e | 客户端: 127.0.0.1:37603 
+2025-07-21 16:17:59.231 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:03.310 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:51407
+2025-07-21 16:18:03.330 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe689e50, 客户端: 127.0.0.1:59960
+2025-07-21 16:18:03.414 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 90/97/104) | 请求ID: 2ba2 | 客户端: 127.0.0.1:51407 
+2025-07-21 16:18:03.414 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:03.432 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.100 -> cn.bing.com 
+2025-07-21 16:18:03.432 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.101 -> cn.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 92/98/103) | 请求ID: 7fc9 | 客户端: 127.0.0.1:59960 
+2025-07-21 16:18:03.432 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe689e50 (状态=2, resolver=0x556afe68a130) 
+2025-07-21 16:18:03.454 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:58937
+2025-07-21 16:18:03.561 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.36.137.203 -> contile.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 90/98/106) | 请求ID: a609 | 客户端: 127.0.0.1:58937 
+2025-07-21 16:18:03.561 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6892d0) 
+2025-07-21 16:18:03.577 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:42434
+2025-07-21 16:18:03.622 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe689e50, 客户端: 127.0.0.1:53886
+2025-07-21 16:18:03.633 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68a350, 客户端: 127.0.0.1:51882
+2025-07-21 16:18:03.680 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.101 -> www.bing.com 
+2025-07-21 16:18:03.680 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.100 -> www.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 92/99/103) | 请求ID: fb79 | 客户端: 127.0.0.1:42434 
+2025-07-21 16:18:03.680 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6892d0) 
+2025-07-21 16:18:03.706 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:33963
+2025-07-21 16:18:03.725 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.160.144.191 -> content-signature-2.cdn.mozilla.net 
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 90/99/106) | 请求ID: 1f3a | 客户端: 127.0.0.1:53886 
+2025-07-21 16:18:03.725 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe689e50 (状态=2, resolver=0x556afe68a130) 
+2025-07-21 16:18:03.747 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 114ms (历史: 92/101/114) | 请求ID: 4cc9 | 客户端: 127.0.0.1:51882 
+2025-07-21 16:18:03.748 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68a350 (状态=2, resolver=0x556afe68a630) 
+2025-07-21 16:18:03.804 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.149.100.209 -> firefox.settings.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 90/99/106) | 请求ID: 65ba | 客户端: 127.0.0.1:33963 
+2025-07-21 16:18:03.804 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6892d0) 
+2025-07-21 16:18:04.141 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:37603
+2025-07-21 16:18:04.253 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.243.93 -> push.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 112ms (历史: 92/102/114) | 请求ID: 315e | 客户端: 127.0.0.1:37603 
+2025-07-21 16:18:04.254 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6892d0) 
+2025-07-21 16:18:08.314 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe688310, 客户端: 127.0.0.1:38122
+2025-07-21 16:18:08.334 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe689e50, 客户端: 127.0.0.1:53102
+2025-07-21 16:18:08.416 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 90/99/106) | 请求ID: 2ba2 | 客户端: 127.0.0.1:38122 
+2025-07-21 16:18:08.416 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe688310 (状态=2, resolver=0x556afe6892d0) 
+2025-07-21 16:18:08.441 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.100 -> cn.bing.com 
+2025-07-21 16:18:08.441 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.101 -> cn.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 92/103/114) | 请求ID: 7fc9 | 客户端: 127.0.0.1:53102 
+2025-07-21 16:18:08.441 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe689e50 (状态=2, resolver=0x556afe68a130) 
+2025-07-21 16:18:08.458 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:44066
+2025-07-21 16:18:08.560 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.36.137.203 -> contile.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 90/99/106) | 请求ID: a609 | 客户端: 127.0.0.1:44066 
+2025-07-21 16:18:08.560 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:08.582 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:55512
+2025-07-21 16:18:08.627 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe689e50, 客户端: 127.0.0.1:41371
+2025-07-21 16:18:08.638 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68a400, 客户端: 127.0.0.1:56215
+2025-07-21 16:18:08.676 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.101 -> www.bing.com 
+2025-07-21 16:18:08.676 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 202.89.233.100 -> www.bing.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 92/102/114) | 请求ID: fb79 | 客户端: 127.0.0.1:55512 
+2025-07-21 16:18:08.676 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:08.710 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:42267
+2025-07-21 16:18:08.735 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.160.144.191 -> content-signature-2.cdn.mozilla.net 
+[*] DNS服务器 114.114.114.114 延迟: 107ms (历史: 90/100/107) | 请求ID: 1f3a | 客户端: 127.0.0.1:41371 
+2025-07-21 16:18:08.735 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe689e50 (状态=2, resolver=0x556afe68a130) 
+2025-07-21 16:18:08.735 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 92/101/114) | 请求ID: 4cc9 | 客户端: 127.0.0.1:56215 
+2025-07-21 16:18:08.735 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68a400 (状态=2, resolver=0x556afe68a6e0) 
+2025-07-21 16:18:08.800 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.149.100.209 -> firefox.settings.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 90/99/107) | 请求ID: 65ba | 客户端: 127.0.0.1:42267 
+2025-07-21 16:18:08.800 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:09.146 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:50386
+2025-07-21 16:18:09.252 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.243.93 -> push.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 92/102/114) | 请求ID: 315e | 客户端: 127.0.0.1:50386 
+2025-07-21 16:18:09.252 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:10.272 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:51996
+[*] DNS服务器 114.114.114.114 延迟: 135ms (历史: 90/102/135) | 请求ID: 2c2a | 客户端: 127.0.0.1:51996 
+2025-07-21 16:18:10.408 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:10.408 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:57908
+[*] DNS服务器 114.114.114.114 延迟: 141ms (历史: 92/105/141) | 请求ID: b73a | 客户端: 127.0.0.1:57908 
+2025-07-21 16:18:10.550 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:10.601 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:48891
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 90/102/135) | 请求ID: 81cf | 客户端: 127.0.0.1:48891 
+2025-07-21 16:18:10.704 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:10.704 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:54080
+[*] DNS服务器 114.114.114.114 延迟: 91ms (历史: 91/104/141) | 请求ID: d4a6 | 客户端: 127.0.0.1:54080 
+2025-07-21 16:18:10.796 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:13.318 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:33783
+[*] 客户端请求IP：34.107.221.82:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.319 [34m[DEBUG  ][0m redsocks.c:1895:redsocks_relay_connected(): [*] HTTP  请求：34.107.221.82:80 
+[*] 存在域名 进行域名替换：34.107.221.82 -> detectportal.firefox.com 
+[*] SOCKS5 Raw Request (31 bytes): 05 01 00 03 18 64 65 74 65 63 74 70 6F 72 74 61 6C 2E 66 69 72 65 66 6F 78 2E 63 6F 6D 00 50 
+2025-07-21 16:18:13.338 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aea0, 客户端: 127.0.0.1:50255
+[*] 客户端请求IP：202.89.233.100:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.339 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：202.89.233.100:443 
+[*] 存在域名 进行域名替换：202.89.233.100 -> www.bing.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 77 77 77 2E 62 69 6E 67 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:13.416 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:13.438 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+2025-07-21 16:18:13.438 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 99ms (历史: 91/103/141) | 请求ID: e2b8 | 客户端: 127.0.0.1:50255 
+2025-07-21 16:18:13.438 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aea0 (状态=2, resolver=0x556afe68b180) 
+2025-07-21 16:18:13.438 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: cn.bing.com -> 202.89.233.100
+2025-07-21 16:18:13.440 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 31.13.94.41 -> www.google.com 
+[*] DNS服务器 114.114.114.114 延迟: 121ms (历史: 90/103/135) | 请求ID: 6d0d | 客户端: 127.0.0.1:33783 
+2025-07-21 16:18:13.440 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:13.462 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:47849
+[*] 客户端请求IP：34.36.137.203:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.463 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.36.137.203:443 
+[*] 存在域名 进行域名替换：34.36.137.203 -> contile.services.mozilla.com 
+[*] SOCKS5 Raw Request (35 bytes): 05 01 00 03 1C 63 6F 6E 74 69 6C 65 2E 73 65 72 76 69 63 65 73 2E 6D 6F 7A 69 6C 6C 61 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:13.481 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:13.481 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+2025-07-21 16:18:13.553 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.255.63.36 -> pss.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 90/102/135) | 请求ID: bc26 | 客户端: 127.0.0.1:47849 
+2025-07-21 16:18:13.553 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:13.587 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:46806
+2025-07-21 16:18:13.630 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68c8d0, 客户端: 127.0.0.1:46727
+[*] 客户端请求IP：34.160.144.191:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.631 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.160.144.191:443 
+[*] 存在域名 进行域名替换：34.160.144.191 -> content-signature-2.cdn.mozilla.net 
+[*] SOCKS5 Raw Request (42 bytes): 05 01 00 03 23 63 6F 6E 74 65 6E 74 2D 73 69 67 6E 61 74 75 72 65 2D 32 2E 63 64 6E 2E 6D 6F 7A 69 6C 6C 61 2E 6E 65 74 01 BB 
+2025-07-21 16:18:13.642 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68d790, 客户端: 127.0.0.1:58366
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.643 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.643 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.644 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.644 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.644 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.644 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 96.7.128.192 -> example.org 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 23.215.0.132 -> example.org 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 96.7.128.186 -> example.org 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 23.215.0.133 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 91/103/141) | 请求ID: 941f | 客户端: 127.0.0.1:46806 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:13.685 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6892d0, 客户端: 127.0.0.1:54232
+2025-07-21 16:18:13.714 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:39405
+2025-07-21 16:18:13.720 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:18:13.720 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:18:13.720 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:18:13.720 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 89ms (历史: 89/101/135) | 请求ID: 57aa | 客户端: 127.0.0.1:46727 
+2025-07-21 16:18:13.720 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68c8d0 (状态=2, resolver=0x556afe68cbb0) 
+2025-07-21 16:18:13.736 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 192.0.0.170 -> ipv4only.arpa 
+2025-07-21 16:18:13.736 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 192.0.0.171 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 91/102/141) | 请求ID: bba3 | 客户端: 127.0.0.1:58366 
+2025-07-21 16:18:13.736 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68d790 (状态=2, resolver=0x556afe68da70) 
+2025-07-21 16:18:13.786 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 89/101/135) | 请求ID: 54bc | 客户端: 127.0.0.1:54232 
+2025-07-21 16:18:13.786 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6892d0 (状态=2, resolver=0x556afe688310) 
+2025-07-21 16:18:13.814 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 91/102/141) | 请求ID: 36f8 | 客户端: 127.0.0.1:39405 
+2025-07-21 16:18:13.814 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe693170) 
+[*] 客户端请求IP：34.107.221.82:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.815 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:46387
+2025-07-21 16:18:13.816 [34m[DEBUG  ][0m redsocks.c:1895:redsocks_relay_connected(): [*] HTTP  请求：34.107.221.82:80 
+[*] 存在域名 进行域名替换：34.107.221.82 -> detectportal.firefox.com 
+[*] SOCKS5 Raw Request (31 bytes): 05 01 00 03 18 64 65 74 65 63 74 70 6F 72 74 61 6C 2E 66 69 72 65 66 6F 78 2E 63 6F 6D 00 50 
+2025-07-21 16:18:13.876 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:13.924 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 109ms (历史: 89/102/135) | 请求ID: efd7 | 客户端: 127.0.0.1:46387 
+2025-07-21 16:18:13.924 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe693170) 
+2025-07-21 16:18:13.938 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:13.938 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:13.982 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:13.982 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:14.150 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68f840, 客户端: 127.0.0.1:51200
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:14.184 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:14.184 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:14.263 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+2025-07-21 16:18:14.263 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 112ms (历史: 91/103/141) | 请求ID: 75d3 | 客户端: 127.0.0.1:51200 
+2025-07-21 16:18:14.263 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68f840 (状态=2, resolver=0x556afe68f4b0) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:14.413 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:14.414 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:14.640 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:14.640 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:14.888 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:14.888 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:15.109 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:15.109 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:15.320 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:15.320 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:15.550 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:15.550 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:15.798 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+2025-07-21 16:18:15.798 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:18.322 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68ed10, 客户端: 127.0.0.1:37240
+2025-07-21 16:18:18.344 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68e570, 客户端: 127.0.0.1:42045
+[*] 客户端请求IP：157.148.69.186:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:18.345 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.186:443 
+[*] 存在域名 进行域名替换：157.148.69.186 -> www.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 77 77 77 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:18.440 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 96ms (历史: 91/102/141) | 请求ID: 1725 | 客户端: 127.0.0.1:42045 
+2025-07-21 16:18:18.440 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68e570 (状态=2, resolver=0x556afe6903f0) 
+2025-07-21 16:18:18.440 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.243.93 -> push.services.mozilla.com 
+[*] DNS服务器 114.114.114.114 延迟: 117ms (历史: 89/102/135) | 请求ID: 39b9 | 客户端: 127.0.0.1:37240 
+2025-07-21 16:18:18.440 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68ed10 (状态=2, resolver=0x556afe68e160) 
+2025-07-21 16:18:18.466 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68ed10, 客户端: 127.0.0.1:37088
+2025-07-21 16:18:18.564 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 89/102/135) | 请求ID: bd41 | 客户端: 127.0.0.1:37088 
+2025-07-21 16:18:18.564 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68ed10 (状态=2, resolver=0x556afe68e160) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:18.566 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:18.636 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68ffe0, 客户端: 127.0.0.1:55158
+2025-07-21 16:18:18.646 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68fc50, 客户端: 127.0.0.1:45596
+2025-07-21 16:18:18.732 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:18:18.732 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:18:18.732 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+2025-07-21 16:18:18.732 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 96ms (历史: 91/102/141) | 请求ID: c8dc | 客户端: 127.0.0.1:55158 
+2025-07-21 16:18:18.732 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68ffe0 (状态=2, resolver=0x556afe690780) 
+2025-07-21 16:18:18.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+2025-07-21 16:18:18.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 99ms (历史: 89/102/135) | 请求ID: 9608 | 客户端: 127.0.0.1:45596 
+2025-07-21 16:18:18.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68fc50 (状态=2, resolver=0x556afe68f4b0) 
+2025-07-21 16:18:18.818 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68e570, 客户端: 127.0.0.1:50888
+2025-07-21 16:18:18.884 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68e900, 客户端: 127.0.0.1:50788
+2025-07-21 16:18:18.909 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 91ms (历史: 91/101/141) | 请求ID: d92b | 客户端: 127.0.0.1:50888 
+2025-07-21 16:18:18.909 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68e570 (状态=2, resolver=0x556afe6903f0) 
+2025-07-21 16:18:18.984 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.255.63.36 -> pss.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 99ms (历史: 89/102/135) | 请求ID: d042 | 客户端: 127.0.0.1:50788 
+2025-07-21 16:18:18.984 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68e900 (状态=2, resolver=0x556afe68ffe0) 
+2025-07-21 16:18:19.006 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68fc50, 客户端: 127.0.0.1:46558
+2025-07-21 16:18:19.100 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 103.211.222.98 -> aisearch.bj.bcebos.com 
+2025-07-21 16:18:19.100 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 103.211.222.187 -> aisearch.bj.bcebos.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 91/101/141) | 请求ID: 5190 | 客户端: 127.0.0.1:46558 
+2025-07-21 16:18:19.100 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68fc50 (状态=2, resolver=0x556afe68f4b0) 
+2025-07-21 16:18:19.154 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6903f0, 客户端: 127.0.0.1:48362
+2025-07-21 16:18:19.256 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 110.53.110.35 -> search-operate.cdn.bcebos.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 89/102/135) | 请求ID: 18d4 | 客户端: 127.0.0.1:48362 
+2025-07-21 16:18:19.256 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6903f0 (状态=2, resolver=0x556afe68e900) 
+2025-07-21 16:18:23.326 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68ed10, 客户端: 127.0.0.1:39187
+[*] 客户端请求IP：34.107.243.93:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:23.327 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.107.243.93:443 
+[*] 存在域名 进行域名替换：34.107.243.93 -> push.services.mozilla.com 
+[*] SOCKS5 Raw Request (32 bytes): 05 01 00 03 19 70 75 73 68 2E 73 65 72 76 69 63 65 73 2E 6D 6F 7A 69 6C 6C 61 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:23.346 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe690780, 客户端: 127.0.0.1:41381
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:23.347 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:23.432 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 110.53.110.38 -> hectorstatic.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 91/101/141) | 请求ID: f73a | 客户端: 127.0.0.1:39187 
+2025-07-21 16:18:23.432 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68ed10 (状态=2, resolver=0x556afe690130) 
+2025-07-21 16:18:23.448 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.148.69.62 -> mbd.baidu.com 
+2025-07-21 16:18:23.448 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.148.69.152 -> mbd.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 89/102/135) | 请求ID: c7b9 | 客户端: 127.0.0.1:41381 
+2025-07-21 16:18:23.448 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe690780 (状态=2, resolver=0x556afe68fc50) 
+[*] 客户端请求IP：34.107.243.93:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:23.527 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.107.243.93:443 
+[*] 存在域名 进行域名替换：34.107.243.93 -> push.services.mozilla.com 
+[*] SOCKS5 Raw Request (32 bytes): 05 01 00 03 19 70 75 73 68 2E 73 65 72 76 69 63 65 73 2E 6D 6F 7A 69 6C 6C 61 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:23.638 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe690780, 客户端: 127.0.0.1:55158
+2025-07-21 16:18:23.650 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe693140, 客户端: 127.0.0.1:45596
+2025-07-21 16:18:23.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:18:23.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+2025-07-21 16:18:23.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:18:23.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 107ms (历史: 91/101/141) | 请求ID: c8dc | 客户端: 127.0.0.1:55158 
+2025-07-21 16:18:23.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe690780 (状态=2, resolver=0x556afe692e90) 
+2025-07-21 16:18:23.748 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+2025-07-21 16:18:23.748 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 89/102/135) | 请求ID: 9608 | 客户端: 127.0.0.1:45596 
+2025-07-21 16:18:23.748 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe693140 (状态=2, resolver=0x556afe68d790) 
+2025-07-21 16:18:23.822 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe690780, 客户端: 127.0.0.1:50888
+2025-07-21 16:18:23.886 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68d790, 客户端: 127.0.0.1:40697
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:23.887 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+2025-07-21 16:18:23.888 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:23.889 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:23.920 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 91/101/141) | 请求ID: d92b | 客户端: 127.0.0.1:50888 
+2025-07-21 16:18:23.921 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe690780 (状态=2, resolver=0x556afe68db20) 
+2025-07-21 16:18:23.988 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.186 -> sp1.baidu.com 
+2025-07-21 16:18:23.988 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.151 -> sp1.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 89/102/135) | 请求ID: 4864 | 客户端: 127.0.0.1:40697 
+2025-07-21 16:18:23.988 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68d790 (状态=2, resolver=0x556afe692e90) 
+2025-07-21 16:18:24.010 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:60590
+2025-07-21 16:18:24.116 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.186 -> sp2.baidu.com 
+2025-07-21 16:18:24.116 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.151 -> sp2.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 91/101/141) | 请求ID: 2aa7 | 客户端: 127.0.0.1:60590 
+2025-07-21 16:18:24.116 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe68d790) 
+2025-07-21 16:18:24.158 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:41016
+2025-07-21 16:18:24.264 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.38 -> psstatic.cdn.bcebos.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 89/102/135) | 请求ID: b389 | 客户端: 127.0.0.1:41016 
+2025-07-21 16:18:24.264 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe68b8a0) 
+2025-07-21 16:18:28.330 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:36696
+[*] 客户端请求IP：110.53.110.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:28.331 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.38:443 
+[*] 存在域名 进行域名替换：110.53.110.38 -> psstatic.cdn.bcebos.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 70 73 73 74 61 74 69 63 2E 63 64 6E 2E 62 63 65 62 6F 73 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:28.351 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+[*] 存在域名 进行域名替换：157.148.69.62 -> mbd.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 6D 62 64 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:28.399 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: hectorstatic.baidu.com -> 110.53.110.38
+2025-07-21 16:18:28.433 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 91/101/141) | 请求ID: 6a63 | 客户端: 127.0.0.1:36696 
+2025-07-21 16:18:28.434 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe6904a0) 
+2025-07-21 16:18:28.643 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:38155
+2025-07-21 16:18:28.654 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe691c40, 客户端: 127.0.0.1:55195
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 89/102/135) | 请求ID: c8dc | 客户端: 127.0.0.1:38155 
+2025-07-21 16:18:28.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe6904a0) 
+[*] 存在域名 进行域名替换：157.148.69.62 -> mbd.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 6D 62 64 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:28.768 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+2025-07-21 16:18:28.768 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 114ms (历史: 91/102/141) | 请求ID: 9608 | 客户端: 127.0.0.1:55195 
+2025-07-21 16:18:28.768 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe691c40 (状态=2, resolver=0x556afe6918b0) 
+2025-07-21 16:18:28.826 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:47482
+[*] 客户端请求IP：157.148.69.186:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：157.148.69.186:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:28.892 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.186:443 
+2025-07-21 16:18:28.892 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.186:443 
+[*] 存在域名 进行域名替换：157.148.69.186 -> sp2.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 70 32 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：157.148.69.186 -> sp2.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 70 32 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:28.932 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 89/102/135) | 请求ID: d92b | 客户端: 127.0.0.1:47482 
+2025-07-21 16:18:28.932 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe6904a0) 
+2025-07-21 16:18:28.996 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: sp1.baidu.com -> 157.148.69.186
+[*] 客户端请求IP：157.148.69.186:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:29.015 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.186:443 
+[*] 存在域名 进行域名替换：157.148.69.186 -> sp1.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 70 31 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:29.108 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: sp2.baidu.com -> 157.148.69.186
+2025-07-21 16:18:29.464 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe694ba0, 客户端: 127.0.0.1:58280
+2025-07-21 16:18:29.513 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6951c0, 客户端: 127.0.0.1:46859
+2025-07-21 16:18:29.564 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.148.69.168 -> passport.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 91/102/141) | 请求ID: 2fdd | 客户端: 127.0.0.1:58280 
+2025-07-21 16:18:29.564 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe694ba0 (状态=2, resolver=0x556afe694e80) 
+2025-07-21 16:18:29.627 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.151 -> sp3.baidu.com 
+2025-07-21 16:18:29.627 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.186 -> sp3.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 114ms (历史: 89/102/135) | 请求ID: 6b60 | 客户端: 127.0.0.1:46859 
+2025-07-21 16:18:29.627 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6951c0 (状态=2, resolver=0x556afe6954a0) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:33.336 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:33.781 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe694f00, 客户端: 127.0.0.1:52739
+2025-07-21 16:18:33.889 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 107ms (历史: 91/102/141) | 请求ID: 1080 | 客户端: 127.0.0.1:52739 
+2025-07-21 16:18:33.889 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe694f00 (状态=2, resolver=0x556afe68bcf0) 
+[*] 客户端请求IP：157.148.69.168:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:34.471 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.168:443 
+[*] 存在域名 进行域名替换：157.148.69.168 -> passport.baidu.com 
+[*] SOCKS5 Raw Request (25 bytes): 05 01 00 03 12 70 61 73 73 70 6F 72 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.148.69.151:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:34.515 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.151:443 
+[*] 存在域名 进行域名替换：157.148.69.151 -> sp3.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 70 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:35.625 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe694ba0, 客户端: 127.0.0.1:48520
+2025-07-21 16:18:35.626 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695d00, 客户端: 127.0.0.1:48685
+2025-07-21 16:18:35.627 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe696290, 客户端: 127.0.0.1:53891
+2025-07-21 16:18:35.629 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6968b0, 客户端: 127.0.0.1:40067
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.255.63.33 -> ss2.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 94ms (历史: 89/102/135) | 请求ID: 6d37 | 客户端: 127.0.0.1:53891 
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe696290 (状态=2, resolver=0x556afe696570) 
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.255.63.33 -> ss3.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 92ms (历史: 91/102/141) | 请求ID: d2e5 | 客户端: 127.0.0.1:40067 
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6968b0 (状态=2, resolver=0x556afe696b90) 
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.255.63.33 -> ss1.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 95ms (历史: 91/101/141) | 请求ID: de46 | 客户端: 127.0.0.1:48685 
+2025-07-21 16:18:35.721 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695d00 (状态=2, resolver=0x556afe695fe0) 
+2025-07-21 16:18:35.725 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.255.63.33 -> ss0.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 89/102/135) | 请求ID: 8b02 | 客户端: 127.0.0.1:48520 
+2025-07-21 16:18:35.725 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe694ba0 (状态=2, resolver=0x556afe68bf10) 
+[*] 客户端请求IP：110.53.110.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:35.762 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.38:443 
+[*] 存在域名 进行域名替换：110.53.110.38 -> hectorstatic.baidu.com 
+[*] SOCKS5 Raw Request (29 bytes): 05 01 00 03 16 68 65 63 74 6F 72 73 74 61 74 69 63 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:35.801 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: psstatic.cdn.bcebos.com -> 110.53.110.38
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:37.328 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:37.333 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:38.107 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6966b0, 客户端: 127.0.0.1:36880
+2025-07-21 16:18:38.130 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe697760, 客户端: 127.0.0.1:49638
+2025-07-21 16:18:38.135 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe697c60, 客户端: 127.0.0.1:52733
+2025-07-21 16:18:38.214 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.35 -> baidubox-emoji.cdn.bcebos.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 89/102/135) | 请求ID: 5e2c | 客户端: 127.0.0.1:36880 
+2025-07-21 16:18:38.214 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6966b0 (状态=2, resolver=0x556afe696990) 
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:38.233 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+[*] 存在域名 进行域名替换：157.148.69.62 -> mbd.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 6D 62 64 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:38.240 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 113.59.46.36 -> gimg3.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 89/102/135) | 请求ID: 2dca | 客户端: 127.0.0.1:52733 
+2025-07-21 16:18:38.241 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe697c60 (状态=2, resolver=0x556afe697f40) 
+2025-07-21 16:18:38.241 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.38 -> gips2.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 91/102/141) | 请求ID: 93b2 | 客户端: 127.0.0.1:49638 
+2025-07-21 16:18:38.241 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe697760 (状态=2, resolver=0x556afe697a40) 
+[*] 客户端请求IP：157.148.69.186:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:38.363 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.186:443 
+[*] 存在域名 进行域名替换：157.148.69.186 -> sp3.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 70 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:38.417 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: sp1.baidu.com -> 157.148.69.186
+[*] 客户端请求IP：157.255.63.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:38.766 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.36:443 
+[*] 存在域名 进行域名替换：157.255.63.36 -> pss.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 70 73 73 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:38.782 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:41506
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:38.784 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:38.914 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 175.12.110.36 -> t8.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 131ms (历史: 91/102/141) | 请求ID: 24f7 | 客户端: 127.0.0.1:41506 
+2025-07-21 16:18:38.914 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe697020) 
+2025-07-21 16:18:40.628 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:41187
+[*] 客户端请求IP：157.255.63.33:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:40.630 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.33:443 
+[*] 存在域名 进行域名替换：157.255.63.33 -> ss0.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 73 30 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:40.631 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe698910, 客户端: 127.0.0.1:47883
+2025-07-21 16:18:40.631 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe698f30, 客户端: 127.0.0.1:55548
+2025-07-21 16:18:40.632 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe699550, 客户端: 127.0.0.1:36254
+[*] 客户端请求IP：157.255.63.33:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：157.255.63.33:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:40.635 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.33:443 
+[*] 客户端请求IP：157.255.63.33:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:40.636 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.33:443 
+2025-07-21 16:18:40.637 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.33:443 
+[*] 存在域名 进行域名替换：157.255.63.33 -> ss0.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 73 30 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：157.255.63.33 -> ss0.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 73 30 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：157.255.63.33 -> ss0.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 73 73 30 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:40.693 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: ss3.baidu.com -> 157.255.63.33
+2025-07-21 16:18:40.693 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: ss0.baidu.com -> 157.255.63.33
+2025-07-21 16:18:40.698 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: ss2.baidu.com -> 157.255.63.33
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 27.36.119.36 -> t15.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 111ms (历史: 91/103/141) | 请求ID: e9d2 | 客户端: 127.0.0.1:47883 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe698910 (状态=2, resolver=0x556afe698bf0) 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 113.59.46.36 -> gimg4.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 111ms (历史: 89/102/135) | 请求ID: 0da7 | 客户端: 127.0.0.1:55548 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe698f30 (状态=2, resolver=0x556afe699210) 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 175.12.110.36 -> t9.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 114ms (历史: 89/103/135) | 请求ID: aad9 | 客户端: 127.0.0.1:41187 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe697020) 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 27.36.119.36 -> t13.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 91/103/141) | 请求ID: 06fe | 客户端: 127.0.0.1:36254 
+2025-07-21 16:18:40.742 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe699550 (状态=2, resolver=0x556afe699830) 
+2025-07-21 16:18:41.706 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: ss1.baidu.com -> 157.255.63.33
+2025-07-21 16:18:43.112 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:37748
+[*] 客户端请求IP：110.53.110.35:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：110.53.110.35:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:43.113 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.35:443 
+2025-07-21 16:18:43.113 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.35:443 
+[*] 存在域名 进行域名替换：110.53.110.35 -> baidubox-emoji.cdn.bcebos.com 
+[*] SOCKS5 Raw Request (36 bytes): 05 01 00 03 1D 62 61 69 64 75 62 6F 78 2D 65 6D 6F 6A 69 2E 63 64 6E 2E 62 63 65 62 6F 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：110.53.110.35 -> baidubox-emoji.cdn.bcebos.com 
+[*] SOCKS5 Raw Request (36 bytes): 05 01 00 03 1D 62 61 69 64 75 62 6F 78 2D 65 6D 6F 6A 69 2E 63 64 6E 2E 62 63 65 62 6F 73 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:43.134 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe698d50, 客户端: 127.0.0.1:39911
+[*] 客户端请求IP：110.53.110.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：110.53.110.38:80
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:43.135 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.38:443 
+2025-07-21 16:18:43.135 [34m[DEBUG  ][0m redsocks.c:1895:redsocks_relay_connected(): [*] HTTP  请求：110.53.110.38:80 
+[*] 存在域名 进行域名替换：110.53.110.38 -> gips2.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 70 73 32 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：110.53.110.38 -> gips2.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 70 73 32 2E 62 61 69 64 75 2E 63 6F 6D 00 50 
+2025-07-21 16:18:43.138 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69c4e0, 客户端: 127.0.0.1:49901
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:43.140 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg4.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 34 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:43.189 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：110.53.110.38:80 
+2025-07-21 16:18:43.217 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 175.12.110.36 -> t7.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 89/103/135) | 请求ID: 7448 | 客户端: 127.0.0.1:37748 
+2025-07-21 16:18:43.217 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe697020) 
+2025-07-21 16:18:43.218 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：110.53.110.38:80 
+2025-07-21 16:18:43.218 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+2025-07-21 16:18:43.218 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：110.53.110.38:80 
+2025-07-21 16:18:43.218 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+2025-07-21 16:18:43.229 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 36.250.239.48 -> b.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 94ms (历史: 91/103/141) | 请求ID: 5de5 | 客户端: 127.0.0.1:39911 
+2025-07-21 16:18:43.229 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe698d50 (状态=2, resolver=0x556afe699030) 
+2025-07-21 16:18:43.229 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: gimg3.baidu.com -> 113.59.46.36
+2025-07-21 16:18:43.246 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.38 -> gips3.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 107ms (历史: 89/103/135) | 请求ID: 40f3 | 客户端: 127.0.0.1:49901 
+2025-07-21 16:18:43.246 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69c4e0 (状态=2, resolver=0x556afe69c7c0) 
+2025-07-21 16:18:43.787 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:57668
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:43.787 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+2025-07-21 16:18:43.787 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+2025-07-21 16:18:43.788 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:43.827 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:43.849 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t8.baidu.com -> 175.12.110.36
+2025-07-21 16:18:43.888 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 163.177.18.185 -> chat.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 91/103/141) | 请求ID: 3404 | 客户端: 127.0.0.1:57668 
+2025-07-21 16:18:43.888 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe69abb0) 
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:44.485 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:45.111 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:45.630 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69afd0, 客户端: 127.0.0.1:42034
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:45.632 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+2025-07-21 16:18:45.632 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+2025-07-21 16:18:45.632 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+2025-07-21 16:18:45.632 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t8.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 38 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t8.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 38 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t8.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 38 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t8.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 38 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:45.634 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6920d0, 客户端: 127.0.0.1:37645
+2025-07-21 16:18:45.634 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe698c90, 客户端: 127.0.0.1:56979
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:45.638 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:45.638 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:45.638 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:45.639 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:45.639 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:45.639 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.36:443 
+2025-07-21 16:18:45.640 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:45.640 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:45.641 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.36 -> gimg3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 6D 67 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> t13.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 74 31 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:45.678 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t9.baidu.com -> 175.12.110.36
+2025-07-21 16:18:45.725 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: gimg4.baidu.com -> 113.59.46.36
+2025-07-21 16:18:45.725 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t15.baidu.com -> 27.36.119.36
+2025-07-21 16:18:45.727 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t13.baidu.com -> 27.36.119.36
+2025-07-21 16:18:45.727 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t15.baidu.com -> 27.36.119.36
+2025-07-21 16:18:45.727 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t13.baidu.com -> 27.36.119.36
+2025-07-21 16:18:45.731 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 163.177.18.95 -> hpd.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 91/102/141) | 请求ID: fdd0 | 客户端: 127.0.0.1:37645 
+2025-07-21 16:18:45.731 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6920d0 (状态=2, resolver=0x556afe692690) 
+2025-07-21 16:18:45.741 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 163.177.18.212 -> ug.baidu.com 
+2025-07-21 16:18:45.741 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 163.177.17.178 -> ug.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 89/103/135) | 请求ID: c70f | 客户端: 127.0.0.1:42034 
+2025-07-21 16:18:45.741 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69afd0 (状态=2, resolver=0x556afe69ea70) 
+2025-07-21 16:18:45.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 89/103/135) | 请求ID: 69a5 | 客户端: 127.0.0.1:56979 
+2025-07-21 16:18:45.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe698c90 (状态=2, resolver=0x556afe698f70) 
+2025-07-21 16:18:47.242 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:47489
+2025-07-21 16:18:47.341 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.186 -> www.baidu.com 
+2025-07-21 16:18:47.341 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.151 -> www.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 91/102/141) | 请求ID: 7f53 | 客户端: 127.0.0.1:47489 
+2025-07-21 16:18:47.341 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe69cc00) 
+2025-07-21 16:18:48.114 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:34560
+[*] 客户端请求IP：175.12.110.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:48.115 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：175.12.110.36:443 
+[*] 存在域名 进行域名替换：175.12.110.36 -> t9.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 74 39 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:48.138 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:43374
+2025-07-21 16:18:48.142 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ddf0, 客户端: 127.0.0.1:49324
+[*] 客户端请求IP：110.53.110.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:48.143 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.38:443 
+[*] 存在域名 进行域名替换：110.53.110.38 -> gips3.baidu.com 
+[*] SOCKS5 Raw Request (22 bytes): 05 01 00 03 0F 67 69 70 73 33 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:48.169 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: t7.baidu.com -> 175.12.110.36
+2025-07-21 16:18:48.219 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.148.65.38 -> code.bdstatic.com 
+2025-07-21 16:18:48.219 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.255.63.38 -> code.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 89/103/135) | 请求ID: cdc4 | 客户端: 127.0.0.1:34560 
+2025-07-21 16:18:48.219 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe69cc00) 
+2025-07-21 16:18:48.241 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 116.162.119.38 -> mbdp02.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 91/102/141) | 请求ID: 6e23 | 客户端: 127.0.0.1:43374 
+2025-07-21 16:18:48.241 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe6920d0) 
+2025-07-21 16:18:48.241 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.38 -> mbdp01.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 89/103/135) | 请求ID: a5d8 | 客户端: 127.0.0.1:49324 
+2025-07-21 16:18:48.241 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ddf0 (状态=2, resolver=0x556afe69d650) 
+2025-07-21 16:18:48.791 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe695e60, 客户端: 127.0.0.1:49024
+[*] 客户端请求IP：163.177.18.185:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:48.792 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：163.177.18.185:443 
+[*] 存在域名 进行域名替换：163.177.18.185 -> chat.baidu.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 63 68 61 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:48.893 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 110.53.110.38 -> avatar.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 91/102/141) | 请求ID: a82e | 客户端: 127.0.0.1:49024 
+2025-07-21 16:18:48.893 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe695e60 (状态=2, resolver=0x556afe69cc00) 
+[*] 客户端请求IP：163.177.18.185:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:48.952 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：163.177.18.185:443 
+[*] 存在域名 进行域名替换：163.177.18.185 -> chat.baidu.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 63 68 61 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:50.634 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:54249
+[*] 客户端请求IP：163.177.18.212:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:50.635 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：163.177.18.212:443 
+[*] 存在域名 进行域名替换：163.177.18.212 -> ug.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 75 67 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：163.177.18.95:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:50.639 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：163.177.18.95:443 
+[*] 存在域名 进行域名替换：163.177.18.95 -> hpd.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 68 70 64 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:50.749 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 36.250.239.48 -> b.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 115ms (历史: 89/103/135) | 请求ID: 681c | 客户端: 127.0.0.1:54249 
+2025-07-21 16:18:50.749 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe69ed30) 
+[*] 客户端请求IP：163.177.18.212:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:50.809 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：163.177.18.212:443 
+[*] 存在域名 进行域名替换：163.177.18.212 -> ug.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 75 67 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.148.65.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:53.120 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.65.38:443 
+[*] 存在域名 进行域名替换：157.148.65.38 -> code.bdstatic.com 
+[*] SOCKS5 Raw Request (24 bytes): 05 01 00 03 11 63 6F 64 65 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:53.143 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:53.146 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a20b0, 客户端: 127.0.0.1:48260
+2025-07-21 16:18:53.249 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.62 -> mbd.baidu.com 
+2025-07-21 16:18:53.249 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.152 -> mbd.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 91/102/141) | 请求ID: 6fe7 | 客户端: 127.0.0.1:48260 
+2025-07-21 16:18:53.249 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a20b0 (状态=2, resolver=0x556afe6a0280) 
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:53.790 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:53.792 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a1d60, 客户端: 127.0.0.1:56529
+2025-07-21 16:18:53.792 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:53.795 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69e240, 客户端: 127.0.0.1:59350
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:53.819 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:53.821 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 客户端请求IP：116.162.119.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:53.822 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：116.162.119.38:443 
+[*] 存在域名 进行域名替换：116.162.119.38 -> mbdp02.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 6D 62 64 70 30 32 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:53.824 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a5ed0, 客户端: 127.0.0.1:49853
+2025-07-21 16:18:53.889 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.62 -> ext.baidu.com 
+2025-07-21 16:18:53.889 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.152 -> ext.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 91/102/141) | 请求ID: 6ede | 客户端: 127.0.0.1:59350 
+2025-07-21 16:18:53.889 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69e240 (状态=2, resolver=0x556afe693450) 
+2025-07-21 16:18:53.892 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69e240, 客户端: 127.0.0.1:41788
+2025-07-21 16:18:53.893 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 157.255.63.32 -> ss0.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 101ms (历史: 89/103/135) | 请求ID: 0fda | 客户端: 127.0.0.1:56529 
+2025-07-21 16:18:53.893 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a1d60 (状态=2, resolver=0x556afe69fe70) 
+2025-07-21 16:18:53.904 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a1d60, 客户端: 127.0.0.1:58422
+2025-07-21 16:18:53.917 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 110.53.110.38 -> avatar.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 89/103/135) | 请求ID: 68a9 | 客户端: 127.0.0.1:49853 
+2025-07-21 16:18:53.917 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a5ed0 (状态=2, resolver=0x556afe6a61b0) 
+2025-07-21 16:18:53.919 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a45b0, 客户端: 127.0.0.1:53461
+2025-07-21 16:18:53.997 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 27.36.119.36 -> f7.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 91/102/141) | 请求ID: f8c5 | 客户端: 127.0.0.1:41788 
+2025-07-21 16:18:53.997 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69e240 (状态=2, resolver=0x556afe693450) 
+2025-07-21 16:18:54.013 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 114.250.65.33 -> safebrowsing.googleapis.com 
+[*] DNS服务器 114.114.114.114 延迟: 93ms (历史: 91/102/141) | 请求ID: b706 | 客户端: 127.0.0.1:53461 
+2025-07-21 16:18:54.013 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a45b0 (状态=2, resolver=0x556afe6a4890) 
+2025-07-21 16:18:54.018 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 61.241.10.172 -> vd3.bdstatic.com 
+2025-07-21 16:18:54.018 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 61.241.10.174 -> vd3.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 113ms (历史: 89/103/135) | 请求ID: e777 | 客户端: 127.0.0.1:58422 
+2025-07-21 16:18:54.018 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a1d60 (状态=2, resolver=0x556afe69fe70) 
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:54.466 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+[*] 存在域名 进行域名替换：157.148.69.62 -> ext.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 65 78 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:54.473 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+[*] 存在域名 进行域名替换：157.148.69.62 -> ext.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 65 78 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：157.148.69.62:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:54.479 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.62:443 
+[*] 存在域名 进行域名替换：157.148.69.62 -> ext.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 65 78 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:54.542 [34m[DEBUG  ][0m redsocks.c:457:parse_sni(): 更新 HTTPS SNI Updated: mbd.baidu.com -> 157.148.69.62
+2025-07-21 16:18:55.638 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a5ed0, 客户端: 127.0.0.1:45588
+2025-07-21 16:18:55.749 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.152 -> ext.baidu.com 
+2025-07-21 16:18:55.749 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.69.62 -> ext.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 89/103/135) | 请求ID: d311 | 客户端: 127.0.0.1:45588 
+2025-07-21 16:18:55.749 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a5ed0 (状态=2, resolver=0x556afe6a61b0) 
+2025-07-21 16:18:58.150 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a5ed0, 客户端: 127.0.0.1:52680
+2025-07-21 16:18:58.254 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 91/102/141) | 请求ID: 9c3f | 客户端: 127.0.0.1:52680 
+2025-07-21 16:18:58.254 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a5ed0 (状态=2, resolver=0x556afe6a61b0) 
+2025-07-21 16:18:58.795 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a5ed0, 客户端: 127.0.0.1:46247
+[*] 客户端请求IP：157.255.63.32:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.796 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.255.63.32:443 
+[*] 存在域名 进行域名替换：157.255.63.32 -> ss0.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 73 73 30 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:58.798 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a6c00, 客户端: 127.0.0.1:49629
+2025-07-21 16:18:58.828 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a71c0, 客户端: 127.0.0.1:33022
+[*] 客户端请求IP：110.53.110.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.829 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：110.53.110.38:443 
+[*] 存在域名 进行域名替换：110.53.110.38 -> avatar.bdstatic.com 
+[*] SOCKS5 Raw Request (26 bytes): 05 01 00 03 13 61 76 61 74 61 72 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:58.894 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a80b0, 客户端: 127.0.0.1:44502
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.898 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:58.898 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:58.898 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:58.898 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:58.900 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+2025-07-21 16:18:58.900 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：61.241.10.172:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.907 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：61.241.10.172:443 
+[*] 存在域名 进行域名替换：61.241.10.172 -> vd3.bdstatic.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 76 64 33 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:58.909 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 113.59.46.36 -> t10.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 91/102/141) | 请求ID: 1767 | 客户端: 127.0.0.1:49629 
+2025-07-21 16:18:58.909 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a6c00 (状态=2, resolver=0x556afe6a6ee0) 
+2025-07-21 16:18:58.909 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 113ms (历史: 89/103/135) | 请求ID: 1632 | 客户端: 127.0.0.1:46247 
+2025-07-21 16:18:58.909 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a5ed0 (状态=2, resolver=0x556afe6a61b0) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.911 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:18:58.921 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6ac660, 客户端: 127.0.0.1:40851
+[*] 客户端请求IP：114.250.65.33:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:18:58.927 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：114.250.65.33:443 
+[*] 存在域名 进行域名替换：114.250.65.33 -> safebrowsing.googleapis.com 
+[*] SOCKS5 Raw Request (34 bytes): 05 01 00 03 1B 73 61 66 65 62 72 6F 77 73 69 6E 67 2E 67 6F 6F 67 6C 65 61 70 69 73 2E 63 6F 6D 01 BB 
+2025-07-21 16:18:58.933 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 113.59.46.36 -> t11.baidu.com 
+[*] DNS服务器 114.114.114.114 延迟: 104ms (历史: 89/103/135) | 请求ID: 1459 | 客户端: 127.0.0.1:33022 
+2025-07-21 16:18:58.933 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a71c0 (状态=2, resolver=0x556afe6a74a0) 
+2025-07-21 16:18:58.997 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:58.997 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+2025-07-21 16:18:59.004 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69c870, 客户端: 127.0.0.1:35822
+2025-07-21 16:18:59.004 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a41a0, 客户端: 127.0.0.1:59052
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 89/103/135) | 请求ID: 5dcf | 客户端: 127.0.0.1:40851 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6ac660 (状态=2, resolver=0x556afe6ac940) 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 157.148.65.38 -> himg.bdimg.com 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 211.97.82.38 -> himg.bdimg.com 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 211.97.83.38 -> himg.bdimg.com 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 113.59.46.38 -> himg.bdimg.com 
+[*] DNS服务器 114.114.114.114 延迟: 131ms (历史: 91/103/141) | 请求ID: f74e | 客户端: 127.0.0.1:44502 
+2025-07-21 16:18:59.026 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a80b0 (状态=2, resolver=0x556afe6a8390) 
+2025-07-21 16:18:59.083 [34m[DEBUG  ][0m redsocks.c:952:redsocks_relay_clientwritecb(): [*] 80 请求：34.107.221.82:80 
+2025-07-21 16:18:59.083 [34m[DEBUG  ][0m redsocks.c:964:redsocks_relay_clientwritecb(): [*] HTTP 数据为空
+2025-07-21 16:18:59.113 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+2025-07-21 16:18:59.113 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:18:59.113 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:18:59.113 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 109ms (历史: 91/103/141) | 请求ID: e6de | 客户端: 127.0.0.1:35822 
+2025-07-21 16:18:59.113 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69c870 (状态=2, resolver=0x556afe69c4e0) 
+2025-07-21 16:18:59.117 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+2025-07-21 16:18:59.117 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 113ms (历史: 89/104/135) | 请求ID: 80bf | 客户端: 127.0.0.1:59052 
+2025-07-21 16:18:59.117 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a41a0 (状态=2, resolver=0x556afe6af420) 
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:00.051 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:00.295 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:00.582 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:00.642 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a8ab0, 客户端: 127.0.0.1:34991
+[*] 客户端请求IP：157.148.69.152:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:00.643 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：157.148.69.152:443 
+[*] 存在域名 进行域名替换：157.148.69.152 -> ext.baidu.com 
+[*] SOCKS5 Raw Request (20 bytes): 05 01 00 03 0D 65 78 74 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:00.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 91/103/141) | 请求ID: 9b0c | 客户端: 127.0.0.1:34991 
+2025-07-21 16:19:00.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a8ab0 (状态=2, resolver=0x556afe6a9250) 
+[*] 客户端请求IP：27.36.119.36:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:00.839 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：27.36.119.36:443 
+[*] 存在域名 进行域名替换：27.36.119.36 -> f7.baidu.com 
+[*] SOCKS5 Raw Request (19 bytes): 05 01 00 03 0C 66 37 2E 62 61 69 64 75 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：36.250.239.48:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:01.058 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：36.250.239.48:443 
+[*] 存在域名 进行域名替换：36.250.239.48 -> b.bdstatic.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 62 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:03.154 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6aa190, 客户端: 127.0.0.1:37064
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:03.155 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:03.245 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 211.97.82.31 -> gss0.bdstatic.com 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 89/103/135) | 请求ID: f98b | 客户端: 127.0.0.1:37064 
+2025-07-21 16:19:03.245 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6aa190 (状态=2, resolver=0x556afe6ab0d0) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:03.484 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:03.802 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6acfa0, 客户端: 127.0.0.1:43886
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:03.813 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:03.830 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6aa190, 客户端: 127.0.0.1:51294
+2025-07-21 16:19:03.897 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 113.59.46.38 -> himg.bdimg.com 
+2025-07-21 16:19:03.897 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.65.38 -> himg.bdimg.com 
+2025-07-21 16:19:03.897 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 211.97.82.38 -> himg.bdimg.com 
+2025-07-21 16:19:03.897 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 211.97.83.38 -> himg.bdimg.com 
+[*] DNS服务器 114.114.114.114 延迟: 94ms (历史: 91/102/141) | 请求ID: d799 | 客户端: 127.0.0.1:43886 
+2025-07-21 16:19:03.897 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6acfa0 (状态=2, resolver=0x556afe6a8ab0) 
+2025-07-21 16:19:03.921 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 34.149.128.2 -> support.mozilla.org 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 89/103/135) | 请求ID: 2ee1 | 客户端: 127.0.0.1:51294 
+2025-07-21 16:19:03.921 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6aa190 (状态=2, resolver=0x556afe6aaa80) 
+2025-07-21 16:19:04.006 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6aa190, 客户端: 127.0.0.1:36177
+2025-07-21 16:19:04.006 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6acfa0, 客户端: 127.0.0.1:47639
+2025-07-21 16:19:04.097 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+2025-07-21 16:19:04.097 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 89/103/135) | 请求ID: 8d80 | 客户端: 127.0.0.1:47639 
+2025-07-21 16:19:04.097 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6acfa0 (状态=2, resolver=0x556afe6a8ab0) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:04.100 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:04.106 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:19:04.106 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:19:04.106 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:19:04.106 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 91/102/141) | 请求ID: ce7b | 客户端: 127.0.0.1:36177 
+2025-07-21 16:19:04.106 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6aa190 (状态=2, resolver=0x556afe6aaa80) 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:04.460 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:04.775 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：31.13.94.41:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:04.992 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：31.13.94.41:443 
+[*] 存在域名 进行域名替换：31.13.94.41 -> www.google.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 77 77 77 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:05.091 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+[*] 客户端请求IP：31.13.94.41:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:05.129 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：31.13.94.41:443 
+[*] 存在域名 进行域名替换：31.13.94.41 -> www.google.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 77 77 77 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:05.404 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:05.647 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6ab0d0, 客户端: 127.0.0.1:39026
+[*] 客户端请求IP：34.120.208.123:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:05.715 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：34.120.208.123:443 
+[*] 存在域名 进行域名替换：34.120.208.123 -> incoming.telemetry.mozilla.org 
+[*] SOCKS5 Raw Request (37 bytes): 05 01 00 03 1E 69 6E 63 6F 6D 69 6E 67 2E 74 65 6C 65 6D 65 74 72 79 2E 6D 6F 7A 69 6C 6C 61 2E 6F 72 67 01 BB 
+2025-07-21 16:19:05.757 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 110ms (历史: 91/103/141) | 请求ID: 1c85 | 客户端: 127.0.0.1:39026 
+2025-07-21 16:19:05.757 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6ab0d0 (状态=2, resolver=0x556afe6aa190) 
+2025-07-21 16:19:05.895 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe694f00, 客户端: 127.0.0.1:42170
+2025-07-21 16:19:05.895 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6ab0d0, 客户端: 127.0.0.1:42767
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.111.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.110.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.108.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.109.133 -> avatars.githubusercontent.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 89/103/135) | 请求ID: 0188 | 客户端: 127.0.0.1:42170 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe694f00 (状态=2, resolver=0x556afe6aaa80) 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.110.154 -> github.githubassets.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.109.154 -> github.githubassets.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.108.154 -> github.githubassets.com 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 185.199.111.154 -> github.githubassets.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 91/102/141) | 请求ID: 7bb8 | 客户端: 127.0.0.1:42767 
+2025-07-21 16:19:05.993 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6ab0d0 (状态=2, resolver=0x556afe6aa190) 
+2025-07-21 16:19:08.158 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6ab0d0, 客户端: 127.0.0.1:51215
+[*] 客户端请求IP：211.97.82.31:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:08.159 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：211.97.82.31:443 
+[*] 存在域名 进行域名替换：211.97.82.31 -> gss0.bdstatic.com 
+[*] SOCKS5 Raw Request (24 bytes): 05 01 00 03 11 67 73 73 30 2E 62 64 73 74 61 74 69 63 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:08.257 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 89/103/135) | 请求ID: 14a1 | 客户端: 127.0.0.1:51215 
+2025-07-21 16:19:08.257 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6ab0d0 (状态=2, resolver=0x556afe6aaa80) 
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:08.810 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+2025-07-21 16:19:08.810 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+2025-07-21 16:19:08.810 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+2025-07-21 16:19:08.811 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+2025-07-21 16:19:08.811 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+2025-07-21 16:19:08.811 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:09.011 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a9d80, 客户端: 127.0.0.1:36177
+2025-07-21 16:19:09.011 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:47639
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:09.032 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:09.108 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:19:09.108 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:19:09.108 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:19:09.108 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 91/102/141) | 请求ID: ce7b | 客户端: 127.0.0.1:36177 
+2025-07-21 16:19:09.108 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a9d80 (状态=2, resolver=0x556afe6a3850) 
+2025-07-21 16:19:09.116 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+2025-07-21 16:19:09.116 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 89/103/135) | 请求ID: 8d80 | 客户端: 127.0.0.1:47639 
+2025-07-21 16:19:09.117 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6992e0) 
+[*] 客户端请求IP：113.59.46.38:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:09.192 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：113.59.46.38:443 
+[*] 存在域名 进行域名替换：113.59.46.38 -> himg.bdimg.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 68 69 6D 67 2E 62 64 69 6D 67 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:10.650 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:39026
+2025-07-21 16:19:10.756 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 106ms (历史: 91/102/141) | 请求ID: 1c85 | 客户端: 127.0.0.1:39026 
+2025-07-21 16:19:10.757 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6aaa80) 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:13.166 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:14.014 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a9d80, 客户端: 127.0.0.1:34390
+2025-07-21 16:19:14.016 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:52489
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.186 -> example.org 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.132 -> example.org 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 23.215.0.133 -> example.org 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 96.7.128.192 -> example.org 
+[*] DNS服务器 114.114.114.114 延迟: 119ms (历史: 89/103/135) | 请求ID: ce7b | 客户端: 127.0.0.1:34390 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a9d80 (状态=2, resolver=0x556afe6ab0d0) 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.171 -> ipv4only.arpa 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 192.0.0.170 -> ipv4only.arpa 
+[*] DNS服务器 114.114.114.114 延迟: 117ms (历史: 91/103/141) | 请求ID: 8d80 | 客户端: 127.0.0.1:52489 
+2025-07-21 16:19:14.133 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6992e0) 
+2025-07-21 16:19:14.487 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6ab0d0, 客户端: 127.0.0.1:41594
+2025-07-21 16:19:14.487 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a9d80, 客户端: 127.0.0.1:43404
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.133 -> avatars.githubusercontent.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 91/103/141) | 请求ID: 4f56 | 客户端: 127.0.0.1:43404 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a9d80 (状态=2, resolver=0x556afe68aa90) 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.154 -> github.githubassets.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.154 -> github.githubassets.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.154 -> github.githubassets.com 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.154 -> github.githubassets.com 
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 89/103/135) | 请求ID: 6a9a | 客户端: 127.0.0.1:41594 
+2025-07-21 16:19:14.586 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6ab0d0 (状态=2, resolver=0x556afe6992e0) 
+2025-07-21 16:19:15.655 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:57711
+2025-07-21 16:19:15.745 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 34.107.221.82 -> detectportal.firefox.com 
+[*] DNS服务器 114.114.114.114 延迟: 90ms (历史: 89/103/135) | 请求ID: 1c85 | 客户端: 127.0.0.1:57711 
+2025-07-21 16:19:15.745 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6992e0) 
+[*] 客户端请求IP：185.199.111.133:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:19.494 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.111.133:443 
+[*] 存在域名 进行域名替换：185.199.111.133 -> avatars.githubusercontent.com 
+[*] SOCKS5 Raw Request (36 bytes): 05 01 00 03 1D 61 76 61 74 61 72 73 2E 67 69 74 68 75 62 75 73 65 72 63 6F 6E 74 65 6E 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:19.495 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:19.496 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+2025-07-21 16:19:19.496 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+2025-07-21 16:19:19.496 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:19.497 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+2025-07-21 16:19:19.497 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.109.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:19.797 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+2025-07-21 16:19:19.797 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.109.154:443 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.109.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:48.841 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:40312
+2025-07-21 16:19:48.842 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a9d80, 客户端: 127.0.0.1:40467
+2025-07-21 16:19:48.938 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.154 -> github.githubassets.com 
+2025-07-21 16:19:48.938 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.154 -> github.githubassets.com 
+2025-07-21 16:19:48.938 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.154 -> github.githubassets.com 
+2025-07-21 16:19:48.938 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.154 -> github.githubassets.com 
+[*] DNS服务器 114.114.114.114 延迟: 96ms (历史: 91/102/141) | 请求ID: aba6 | 客户端: 127.0.0.1:40312 
+2025-07-21 16:19:48.938 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe696a90) 
+2025-07-21 16:19:48.950 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:48.950 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:48.950 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.133 -> avatars.githubusercontent.com 
+2025-07-21 16:19:48.950 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.133 -> avatars.githubusercontent.com 
+[*] DNS服务器 114.114.114.114 延迟: 108ms (历史: 89/103/135) | 请求ID: d8d9 | 客户端: 127.0.0.1:40467 
+2025-07-21 16:19:48.950 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a9d80 (状态=2, resolver=0x556afe6986f0) 
+2025-07-21 16:19:50.268 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:47365
+2025-07-21 16:19:50.345 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6920d0, 客户端: 127.0.0.1:60557
+2025-07-21 16:19:50.372 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 140.82.112.21 -> collector.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 91/102/141) | 请求ID: bfb9 | 客户端: 127.0.0.1:47365 
+2025-07-21 16:19:50.372 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe696a90) 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:50.393 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:50.446 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 100ms (历史: 89/103/135) | 请求ID: 3631 | 客户端: 127.0.0.1:60557 
+2025-07-21 16:19:50.446 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6920d0 (状态=2, resolver=0x556afe6986f0) 
+2025-07-21 16:19:50.561 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:45399
+2025-07-21 16:19:50.666 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 20.205.243.168 -> api.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 105ms (历史: 91/102/141) | 请求ID: 5d2a | 客户端: 127.0.0.1:45399 
+2025-07-21 16:19:50.667 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe6a3850) 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:50.759 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:51.030 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:51.307 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:51.581 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:51.828 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:52.066 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:52.319 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:52.605 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:52.869 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：185.199.111.133:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:53.646 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.111.133:443 
+[*] 存在域名 进行域名替换：185.199.111.133 -> avatars.githubusercontent.com 
+[*] SOCKS5 Raw Request (36 bytes): 05 01 00 03 1D 61 76 61 74 61 72 73 2E 67 69 74 68 75 62 75 73 65 72 63 6F 6E 74 65 6E 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：185.199.110.154:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.111.133:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:53.847 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.110.154:443 
+2025-07-21 16:19:53.847 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.111.133:443 
+[*] 存在域名 进行域名替换：185.199.110.154 -> github.githubassets.com 
+[*] SOCKS5 Raw Request (30 bytes): 05 01 00 03 17 67 69 74 68 75 62 2E 67 69 74 68 75 62 61 73 73 65 74 73 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.111.133 -> avatars.githubusercontent.com 
+[*] SOCKS5 Raw Request (36 bytes): 05 01 00 03 1D 61 76 61 74 61 72 73 2E 67 69 74 68 75 62 75 73 65 72 63 6F 6E 74 65 6E 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：140.82.112.21:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：140.82.112.21:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:55.271 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.112.21:443 
+2025-07-21 16:19:55.271 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.112.21:443 
+[*] 存在域名 进行域名替换：140.82.112.21 -> collector.github.com 
+[*] SOCKS5 Raw Request (27 bytes): 05 01 00 03 14 63 6F 6C 6C 65 63 74 6F 72 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：140.82.112.21 -> collector.github.com 
+[*] SOCKS5 Raw Request (27 bytes): 05 01 00 03 14 63 6F 6C 6C 65 63 74 6F 72 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:19:55.351 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:37643
+2025-07-21 16:19:55.451 [34m[DEBUG  ][0m redsocks.c:169:add_domain_ip(): [*] IP-域名添加成功 140.82.112.26 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 99ms (历史: 89/103/135) | 请求ID: 6dbb | 客户端: 127.0.0.1:37643 
+2025-07-21 16:19:55.451 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe6992e0) 
+[*] 客户端请求IP：20.205.243.168:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:19:55.567 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.168:443 
+[*] 存在域名 进行域名替换：20.205.243.168 -> api.github.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 61 70 69 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：140.82.112.26:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:00.358 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.112.26:443 
+[*] 存在域名 进行域名替换：140.82.112.26 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:03.441 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe697360, 客户端: 127.0.0.1:43349
+2025-07-21 16:20:03.441 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68f840, 客户端: 127.0.0.1:40302
+2025-07-21 16:20:03.538 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.112.26 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 96ms (历史: 89/102/135) | 请求ID: cd5e | 客户端: 127.0.0.1:40302 
+2025-07-21 16:20:03.538 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68f840 (状态=2, resolver=0x556afe6a9d80) 
+2025-07-21 16:20:03.538 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 91/102/141) | 请求ID: 41d1 | 客户端: 127.0.0.1:43349 
+2025-07-21 16:20:03.538 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe697360 (状态=2, resolver=0x556afe68f0a0) 
+[*] 客户端请求IP：140.82.112.26:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:03.540 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.112.26:443 
+[*] 存在域名 进行域名替换：140.82.112.26 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:06.517 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:55913
+2025-07-21 16:20:06.627 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 109ms (历史: 91/102/141) | 请求ID: d943 | 客户端: 127.0.0.1:55913 
+2025-07-21 16:20:06.627 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe68aa90) 
+[*] 客户端请求IP：140.82.114.25:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:06.628 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.114.25:443 
+[*] 存在域名 进行域名替换：140.82.114.25 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:10.867 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68f840, 客户端: 127.0.0.1:39896
+2025-07-21 16:20:10.868 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe6a9d80, 客户端: 127.0.0.1:55086
+2025-07-21 16:20:11.078 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 211ms (历史: 89/104/211) | 请求ID: d70a | 客户端: 127.0.0.1:39896 
+2025-07-21 16:20:11.078 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68f840 (状态=2, resolver=0x556afe697360) 
+2025-07-21 16:20:11.078 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 210ms (历史: 91/104/210) | 请求ID: b16c | 客户端: 127.0.0.1:55086 
+2025-07-21 16:20:11.078 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe6a9d80 (状态=2, resolver=0x556afe68f0a0) 
+[*] 客户端请求IP：140.82.114.25:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:11.080 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.114.25:443 
+[*] 存在域名 进行域名替换：140.82.114.25 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:13.409 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe692e90, 客户端: 127.0.0.1:33018
+2025-07-21 16:20:13.506 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+[*] DNS服务器 114.114.114.114 延迟: 97ms (历史: 89/104/211) | 请求ID: 0f53 | 客户端: 127.0.0.1:33018 
+2025-07-21 16:20:13.506 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe692e90 (状态=2, resolver=0x556afe68aa90) 
+[*] 客户端请求IP：140.82.112.21:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:13.690 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.112.21:443 
+[*] 存在域名 进行域名替换：140.82.112.21 -> collector.github.com 
+[*] SOCKS5 Raw Request (27 bytes): 05 01 00 03 14 63 6F 6C 6C 65 63 74 6F 72 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:14.348 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:15.649 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:36825
+2025-07-21 16:20:15.649 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68f840, 客户端: 127.0.0.1:60128
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.154 -> github.githubassets.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.154 -> github.githubassets.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.154 -> github.githubassets.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.154 -> github.githubassets.com 
+[*] DNS服务器 114.114.114.114 延迟: 141ms (历史: 91/105/210) | 请求ID: 7dab | 客户端: 127.0.0.1:36825 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6996f0) 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.110.133 -> avatars.githubusercontent.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.111.133 -> avatars.githubusercontent.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.108.133 -> avatars.githubusercontent.com 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 185.199.109.133 -> avatars.githubusercontent.com 
+[*] DNS服务器 114.114.114.114 延迟: 141ms (历史: 89/105/211) | 请求ID: 036c | 客户端: 127.0.0.1:60128 
+2025-07-21 16:20:15.791 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68f840 (状态=2, resolver=0x556afe6a9d80) 
+2025-07-21 16:20:16.059 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:47981
+2025-07-21 16:20:16.154 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 185.199.111.133 -> private-user-images.githubusercontent.com 
+2025-07-21 16:20:16.154 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 185.199.108.133 -> private-user-images.githubusercontent.com 
+2025-07-21 16:20:16.154 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 185.199.109.133 -> private-user-images.githubusercontent.com 
+2025-07-21 16:20:16.154 [34m[DEBUG  ][0m redsocks.c:186:add_domain_ip(): [*] IP-域名更新成功 185.199.110.133 -> private-user-images.githubusercontent.com 
+[*] DNS服务器 114.114.114.114 延迟: 95ms (历史: 91/104/210) | 请求ID: a189 | 客户端: 127.0.0.1:47981 
+2025-07-21 16:20:16.154 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe697360) 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:16.763 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:17.113 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:17.941 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:18.381 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:19.163 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:19.430 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:20.306 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:20.686 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:20.947 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：185.199.111.133:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+[*] 客户端请求IP：185.199.111.133:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:21.065 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.111.133:443 
+2025-07-21 16:20:21.065 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：185.199.111.133:443 
+[*] 存在域名 进行域名替换：185.199.111.133 -> private-user-images.githubusercontent.com 
+[*] SOCKS5 Raw Request (48 bytes): 05 01 00 03 29 70 72 69 76 61 74 65 2D 75 73 65 72 2D 69 6D 61 67 65 73 2E 67 69 74 68 75 62 75 73 65 72 63 6F 6E 74 65 6E 74 2E 63 6F 6D 01 BB 
+[*] 存在域名 进行域名替换：185.199.111.133 -> private-user-images.githubusercontent.com 
+[*] SOCKS5 Raw Request (48 bytes): 05 01 00 03 29 70 72 69 76 61 74 65 2D 75 73 65 72 2D 69 6D 61 67 65 73 2E 67 69 74 68 75 62 75 73 65 72 63 6F 6E 74 65 6E 74 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.166:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:21.386 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.166:443 
+[*] 存在域名 进行域名替换：20.205.243.166 -> github.com 
+[*] SOCKS5 Raw Request (17 bytes): 05 01 00 03 0A 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+[*] 客户端请求IP：20.205.243.168:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:21.921 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：20.205.243.168:443 
+[*] 存在域名 进行域名替换：20.205.243.168 -> api.github.com 
+[*] SOCKS5 Raw Request (21 bytes): 05 01 00 03 0E 61 70 69 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:22.368 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:56529
+2025-07-21 16:20:22.369 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68f840, 客户端: 127.0.0.1:44336
+2025-07-21 16:20:22.458 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 89ms (历史: 89/104/210) | 请求ID: 062e | 客户端: 127.0.0.1:44336 
+2025-07-21 16:20:22.458 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68f840 (状态=2, resolver=0x556afe6996f0) 
+[*] 客户端请求IP：140.82.114.25:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:22.460 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.114.25:443 
+[*] 存在域名 进行域名替换：140.82.114.25 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:22.470 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 89/105/211) | 请求ID: 1ca8 | 客户端: 127.0.0.1:56529 
+2025-07-21 16:20:22.471 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe69ceb0) 
+2025-07-21 16:20:43.566 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:58868
+2025-07-21 16:20:43.566 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe69ceb0, 客户端: 127.0.0.1:56110
+2025-07-21 16:20:43.675 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 108ms (历史: 89/104/210) | 请求ID: 45b4 | 客户端: 127.0.0.1:56110 
+2025-07-21 16:20:43.675 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe69ceb0 (状态=2, resolver=0x556afe68bfc0) 
+2025-07-21 16:20:43.675 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 140.82.114.25 -> alive.github.com 
+[*] DNS服务器 114.114.114.114 延迟: 108ms (历史: 89/105/211) | 请求ID: 31cb | 客户端: 127.0.0.1:58868 
+2025-07-21 16:20:43.675 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe691d20) 
+[*] 客户端请求IP：140.82.114.25:443
+[*] 当前代理服务器IP: 192.168.206.142:9000
+2025-07-21 16:20:43.676 [34m[DEBUG  ][0m redsocks.c:1891:redsocks_relay_connected(): [*] HTTPS 请求：140.82.114.25:443 
+[*] 存在域名 进行域名替换：140.82.114.25 -> alive.github.com 
+[*] SOCKS5 Raw Request (23 bytes): 05 01 00 03 10 61 6C 69 76 65 2E 67 69 74 68 75 62 2E 63 6F 6D 01 BB 
+2025-07-21 16:20:51.935 [34m[DEBUG  ][0m tcpdns.c:611:tcpdns_pkt_from_client(): 新建请求 0x556afe68aa90, 客户端: 127.0.0.1:45707
+2025-07-21 16:20:52.039 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+[*] DNS服务器 114.114.114.114 延迟: 103ms (历史: 89/105/211) | 请求ID: 00fd | 客户端: 127.0.0.1:45707 
+2025-07-21 16:20:52.039 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x556afe68aa90 (状态=2, resolver=0x556afe6918b0) 
+2025-07-21 16:20:53.232 [34m[DEBUG  ][0m redsocks.c:269:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
