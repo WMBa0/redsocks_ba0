@@ -839,7 +839,7 @@ static const char *bufname(redsocks_client *client, struct bufferevent *buf)
 static void redsocks_relay_readcb(redsocks_client *client, struct bufferevent *from, struct bufferevent *to)
 {
 
-    log_error(LOG_NOTICE, "[*] redsocks_relay_readcb 中继读取回调");
+    //log_error(LOG_NOTICE, "[*] redsocks_relay_readcb 中继读取回调");
 
     if (evbuffer_get_length(to->output) < to->wm_write.high)
     {
@@ -860,7 +860,7 @@ static void redsocks_relay_readcb(redsocks_client *client, struct bufferevent *f
 // 中继写入回调
 static void redsocks_relay_writecb(redsocks_client *client, struct bufferevent *from, struct bufferevent *to)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_writecb 中继写入回调");
+    //log_error(LOG_NOTICE, "[*] redsocks_relay_writecb 中继写入回调");
 
     assert(from == client->client || from == client->relay);
     char from_eof = (from == client->client ? client->client_evshut : client->relay_evshut) & EV_READ;
@@ -885,7 +885,7 @@ static void redsocks_relay_writecb(redsocks_client *client, struct bufferevent *
 // 中继读取回调包装
 static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_relayreadcb 中继读取回调包装");
+    //log_error(LOG_NOTICE, "[*] redsocks_relay_relayreadcb 中继读取回调包装");
 
     redsocks_client *client = _client;
 
@@ -897,7 +897,7 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 // 中继写入回调包装
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
+    //log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
     // LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
@@ -948,8 +948,8 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
     }
     else if (client->destaddr.sin_port == htons(80))
     {
-
-        LOG_DEBUG_C("[*] 80 请求：%s \n", destIP);
+        // 关掉日志，会重复多次
+        // LOG_DEBUG_C("[*] 80 请求：%s \n", destIP);
         // HTTP流量：解析Host头
         struct evbuffer *input = bufferevent_get_input(to);
         size_t len = evbuffer_get_length(input);
@@ -960,8 +960,8 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
             parse_host_header((const char *)data, len, client);
         }
         else
-        {
-            LOG_DEBUG_C("[*] HTTP 数据为空\n");
+        {   // 关掉日志，会重复多次
+            //LOG_DEBUG_C("[*] HTTP 数据为空\n");
         }
     }
 
@@ -1554,7 +1554,7 @@ static bool has_loopback_destination(redsocks_client *client)
 // 关闭并释放客户端连接
 void redsocks_drop_client(redsocks_client *client)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_drop_client 关闭客户端连接");
+    //log_error(LOG_NOTICE, "[*] redsocks_drop_client 关闭客户端连接");
     if (shut_both(client))
     {
         redsocks_log_error(client, LOG_INFO, "connection closed");
@@ -1640,7 +1640,7 @@ void redsocks_drop_client(redsocks_client *client)
 // 关闭连接的一端或两端
 void redsocks_shutdown(redsocks_client *client, struct bufferevent *buffev, int how)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_shutdown  关闭连接的一端或两端");
+    //log_error(LOG_NOTICE, "[*] redsocks_shutdown  关闭连接的一端或两端");
 
     short evhow = 0;
     const char *strev, *strhow = NULL, *strevhow = NULL;
@@ -1714,7 +1714,7 @@ static int redsocks_socket_geterrno(redsocks_client *client, struct bufferevent 
 // 错误事件回调
 static void redsocks_event_error(struct bufferevent *buffev, short what, void *_arg)
 {
-    log_error(LOG_NOTICE, "[*] redsocks_event_error 错误事件回调");
+    //log_error(LOG_NOTICE, "[*] redsocks_event_error 错误事件回调");
     redsocks_client *client = _arg;
     assert(buffev == client->relay || buffev == client->client);
     const int bakerrno = errno;

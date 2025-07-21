@@ -73,3 +73,12 @@
 140.82.114.25 alive.github.com
 20.205.243.168 api.github.com
 140.82.112.26 alive.github.com
+103.235.46.102 www.baidu.com
+103.235.46.115 www.baidu.com
+20.42.72.131 mobile.events.data.microsoft.com
+13.107.5.93 default.exp-tas.com
+13.89.179.10 mobile.events.data.microsoft.com
+52.168.117.170 mobile.events.data.microsoft.com
+13.89.179.14 mobile.events.data.microsoft.com
+45.113.192.102 www.baidu.com
+45.113.192.101 www.baidu.com
