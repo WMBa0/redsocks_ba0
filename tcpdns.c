@@ -22,6 +22,7 @@
 #include <errno.h>
 #include <limits.h>
 
+
 #include "base.h"
 #include "list.h"
 #include "log.h"
@@ -163,6 +164,8 @@ static void tcpdns_drop_request(dns_request *req)
     }
     list_del(&req->list); // 从链表中移除
     free(req);            // 释放内存
+
+    
 }
 
 /* 更新DNS服务器延迟
@@ -242,6 +245,78 @@ static inline void tcpdns_update_delay(dns_request *req, int delay)
 }
 
 
+
+
+void parse_dns_response2(const uint8_t *packet, size_t len) {
+    // 1. 检查基本有效性
+    if (len < 12) return; // DNS头部固定12字节
+    
+    // 2. 跳过DNS头部（Transaction ID + Flags + QDCOUNT等）
+    const uint8_t *ptr = packet + 12;
+    
+    // 3. 跳过查询问题部分（QNAME + QTYPE + QCLASS）
+    while (*ptr != 0 && ptr < packet + len) ptr++; // 跳过域名
+    ptr += 5; // 跳过0x00 + QTYPE(2) + QCLASS(2)
+    
+    // 4. 解析Answer记录
+    uint16_t ancount = (packet[6] << 8) | packet[7]; // ANCOUNT字段
+    for (int i = 0; i < ancount && ptr + 12 <= packet + len; i++) {
+        // 4.1 跳过NAME（可能是压缩指针）
+        if ((*ptr & 0xC0) == 0xC0) { // 压缩指针
+            ptr += 2;
+        } else { // 普通域名
+            while (*ptr != 0 && ptr < packet + len) ptr++;
+            ptr++;
+        }
+        
+        // 4.2 读取TYPE和CLASS
+        uint16_t type  = (ptr[0] << 8) | ptr[1];
+        uint16_t class = (ptr[2] << 8) | ptr[3];
+        ptr += 4;
+        
+        // 4.3 读取TTL和RDLENGTH
+        ptr += 4; // 跳过TTL
+        uint16_t rdlength = (ptr[0] << 8) | ptr[1];
+        ptr += 2;
+        
+        // 4.4 处理A记录（IPv4地址）
+        if (type == 0x0001 && class == 0x0001 && rdlength == 4) {
+            char ip[INET_ADDRSTRLEN];
+            inet_ntop(AF_INET, ptr, ip, sizeof(ip));
+            
+            // 获取域名（从问题部分提取）
+            char domain[256];
+            const uint8_t *qname = packet + 12;
+            dns_parse_qname2(qname, packet, domain, sizeof(domain));
+            add_domain_ip(domain,ip);
+            //printf("DNS Response: %s -> %s\n", domain, ip);
+
+
+        }
+        ptr += rdlength;
+    }
+}
+
+
+// 解析DNS压缩格式域名
+void dns_parse_qname2(const uint8_t *qname, const uint8_t *packet, char *out, size_t out_len) {
+    size_t pos = 0;
+    while (*qname != 0 && pos < out_len - 1) {
+        if ((*qname & 0xC0) == 0xC0) { // 压缩指针
+            uint16_t offset = ((qname[0] & 0x3F) << 8) | qname[1];
+            dns_parse_qname2(packet + offset, packet, out + pos, out_len - pos);
+            return;
+        }
+        
+        uint8_t label_len = *qname++;
+        if (pos > 0) out[pos++] = '.';
+        for (int i = 0; i < label_len && pos < out_len - 1; i++) {
+            out[pos++] = *qname++;
+        }
+    }
+    out[pos] = '\0';
+}
+
 /* 从上游DNS服务器读取响应的回调
  * @param from 触发事件的bufferevent
  * @param _arg 用户参数(这里是dns_request指针)
@@ -272,11 +347,12 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
         {
             dns_header *dh = (dns_header *)&buff.raw[2];
 
-            print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
+            //print_hex_dump("响应DNS UDP数据包", &buff.raw[2], read_size);
 
             // 打印IP和域名映射关系
 
-            // parse_dns_response(&buff.raw[2], read_size);
+             
+            parse_dns_response2(&buff.raw[2], read_size);
             // 解析DNS域名：
 
             switch (dh->ra_z_rcode & DNS_RC_MASK)
@@ -528,9 +604,9 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
     {
         
 
-
+        
         // 打印接收到的原始数据包(十六进制)
-        print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
+        //print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
         char buf[255];
         printf("新建请求 %p, 客户端: %s\n", req,
                red_inet_ntop(&req->client_addr, buf, sizeof(buf)));

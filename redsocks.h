@@ -111,7 +111,10 @@ bool redsocks_has_splice_instance();
 
 //add.............通过地址得到域名信息
 const char *get_domain_by_ip(const struct sockaddr_in *addr);
-
+//新增 IP-域名 信息
+void add_domain_ip(const char*domain,const char * addr);
+//删除 IP-域名 信息
+void del_domain_ip(const char *ipv4_str);
 
 typedef int (*size_comparator)(size_t a, size_t b);
 int sizes_equal(size_t a, size_t b);

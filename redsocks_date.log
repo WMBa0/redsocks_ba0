@@ -1,61 +1,48 @@
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:560:is_splice_good(): 支持 splice模式 
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:2
-35:load_domain_table(): [*]从文件加载域名映射: http.com -> 5.22.145.16
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:235:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:240:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 20 条域名映射
-2025-07-18 18:47:37.701 [34m[DEBUG  ][0m redsocks.c:185:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
-====== 请求DNS UDP数据包 (长度: 42) ======
-0x0000: 1e 35 01 20 00 01 00 00 00 00 00 01 03 77 77 77  |.5. .........www| 
-0x0010: 05 62 61 69 64 75 03 63 6f 6d 00 00 01 00 01 00  |.baidu.com......| 
-0x0020: 00 29 04 b0 00 00 00 00 00 00                    |.)........| 
-
-新建请求 0x564fee2ffc00, 客户端: 127.0.0.1:56430
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:624:is_splice_good(): 支持 splice模式 
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: http.com -> 5.22.145.16
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:304:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 20 条域名映射
+2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:249:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
+新建请求 0x562b6f393c00, 客户端: 127.0.0.1:57550
 响应大小: 103 
-====== 响应DNS UDP数据包 (长度: 103) ======
-0x0000: 1e 35 81 80 00 01 00 03 00 00 00 01 03 77 77 77  |.5...........www| 
-0x0010: 05 62 61 69 64 75 03 63 6f 6d 00 00 01 00 01 c0  |.baidu.com......| 
-0x0020: 0c 00 05 00 01 00 00 03 ee 00 0f 03 77 77 77 01  |............www.| 
-0x0030: 61 06 73 68 69 66 65 6e c0 16 c0 2b 00 01 00 01  |a.shifen...+....| 
-0x0040: 00 00 00 25 00 04 9d 94 45 ba c0 2b 00 01 00 01  |...%....E..+....| 
-0x0050: 00 00 00 25 00 04 9d 94 45 97 00 00 29 02 00 00  |...%....E...)...| 
-0x0060: 00 00 00 00 00 00 00                             |.......| 
-
-[*] DNS服务器 114.114.114.114 延迟: 112ms (历史: 112/112/112) | 请求ID: 1e35 | 客户端: 127.0.0.1:56430 
-2025-07-18 18:47:43.014 [34m[DEBUG  ][0m tcpdns.c:157:tcpdns_drop_request(): 释放请求 0x564fee2ffc00 (状态=2, resolver=0x564fee2ffee0) 
-====== 请求DNS UDP数据包 (长度: 42) ======
-0x0000: 1e 35 01 20 00 01 00 00 00 00 00 01 03 77 77 77  |.5. .........www| 
-0x0010: 05 62 61 69 64 75 03 63 6f 6d 00 00 01 00 01 00  |.baidu.com......| 
-0x0020: 00 29 04 b0 00 00 00 00 00 00                    |.)........| 
-
-新建请求 0x564fee3005a0, 客户端: 127.0.0.1:56430
+2025-07-21 15:37:03.657 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.186
+2025-07-21 15:37:03.657 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.151
+[*] DNS服务器 114.114.114.114 延迟: 126ms (历史: 126/126/126) | 请求ID: 061e | 客户端: 127.0.0.1:57550 
+2025-07-21 15:37:03.657 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f393c00 (状态=2, resolver=0x562b6f393ee0) 
+新建请求 0x562b6f3945a0, 客户端: 127.0.0.1:57550
 响应大小: 103 
-====== 响应DNS UDP数据包 (长度: 103) ======
-0x0000: 1e 35 81 80 00 01 00 03 00 00 00 01 03 77 77 77  |.5...........www| 
-0x0010: 05 62 61 69 64 75 03 63 6f 6d 00 00 01 00 01 c0  |.baidu.com......| 
-0x0020: 0c 00 05 00 01 00 00 03 e9 00 0f 03 77 77 77 01  |............www.| 
-0x0030: 61 06 73 68 69 66 65 6e c0 16 c0 2b 00 01 00 01  |a.shifen...+....| 
-0x0040: 00 00 00 25 00 04 9d 94 45 ba c0 2b 00 01 00 01  |...%....E..+....| 
-0x0050: 00 00 00 25 00 04 9d 94 45 97 00 00 29 02 00 00  |...%....E...)...| 
-0x0060: 00 00 00 00 00 00 00                             |.......| 
-
-[*] DNS服务器 114.114.114.114 延迟: 257ms (历史: 257/257/257) | 请求ID: 1e35 | 客户端: 127.0.0.1:56430 
-2025-07-18 18:47:47.736 [34m[DEBUG  ][0m tcpdns.c:157:tcpdns_drop_request(): 释放请求 0x564fee3005a0 (状态=2, resolver=0x564fee306040) 
-2025-07-18 18:47:47.736 [34m[DEBUG  ][0m redsocks.c:205:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
+2025-07-21 15:37:08.836 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.151
+2025-07-21 15:37:08.836 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.186
+[*] DNS服务器 114.114.114.114 延迟: 300ms (历史: 300/300/300) | 请求ID: 061e | 客户端: 127.0.0.1:57550 
+2025-07-21 15:37:08.836 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f3945a0 (状态=2, resolver=0x562b6f39a040) 
+新建请求 0x562b6f39a5d0, 客户端: 127.0.0.1:36101
+响应大小: 103 
+2025-07-21 15:37:13.636 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.151
+2025-07-21 15:37:13.636 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.186
+[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 98/112/126) | 请求ID: 061e | 客户端: 127.0.0.1:36101 
+2025-07-21 15:37:13.636 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f39a5d0 (状态=2, resolver=0x562b6f39a8b0) 
+2025-07-21 15:37:24.958 [34m[DEBUG  ][0m redsocks.c:269:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt

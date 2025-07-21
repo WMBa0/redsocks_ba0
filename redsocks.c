@@ -47,7 +47,7 @@
 #include "libevent-compat.h"
 #include "debugcor.h"
 
-LogLevel current_log_level = LOG_LEVEL_DEBUG;  // 实际定义
+LogLevel current_log_level = LOG_LEVEL_DEBUG; // 实际定义
 
 // 定义中继缓冲区大小
 #define REDSOCKS_RELAY_HALFBUFF 4096
@@ -127,22 +127,86 @@ typedef struct
 static whitelist_domain *whitelist = NULL; // 全局白域名哈希变量
 #define WHITELIST_FILE "whitelist_domain.txt"
 
-//根据IP返回域名
+// 根据IP返回域名
 const char *get_domain_by_ip(const struct sockaddr_in *addr)
 {
     char ip_str[INET_ADDRSTRLEN];
     inet_ntop(addr->sin_family, &addr->sin_addr, ip_str, sizeof(ip_str));
-    
+
     ip_domain_map *entry = NULL;
     const char *domain = NULL;
-    
-   
+
     HASH_FIND_STR(domain_table, ip_str, entry);
-    if (entry) {
+    if (entry)
+    {
         domain = entry->domain;
     }
-   
+
     return domain;
+}
+
+// 新增 IP-域名 信息
+void add_domain_ip(const char *domain, const char *addr)
+{
+    if (!domain || !addr)
+    {
+        return;
+    }
+
+    ip_domain_map *entry = NULL;
+    HASH_FIND_STR(domain_table, addr, entry);
+    if (!entry)
+    {
+        // 没有数据 进行添加
+        entry = malloc(sizeof(ip_domain_map));
+        strncpy(entry->ip, addr, sizeof(entry->ip) - 1);
+        entry->ip[sizeof(entry->ip) - 1] = '\0';
+
+        strncpy(entry->domain, domain, sizeof(entry->domain) - 1);
+        entry->domain[sizeof(entry->domain) - 1] = '\0';
+
+        HASH_ADD_STR(domain_table, ip, entry);
+        LOG_DEBUG_C("[*] IP-域名添加成功 %s -> %s \n", entry->ip, entry->domain);
+    }
+    else
+    {
+        // 有数据 进行 更新
+
+        const char *old_domain = entry->domain;
+        if (!strcmp(old_domain, domain))
+        {
+            // 相同
+             LOG_DEBUG_C("[*] IP-域名已存在 %s -> %s \n", entry->ip, entry->domain);
+        }
+        else
+        {
+            // 不同
+            strncpy(entry->domain, domain, sizeof(entry->domain) - 1);
+            entry->domain[sizeof(entry->domain) - 1] = '\0';
+            LOG_DEBUG_C("[*] IP-域名更新成功 %s -> %s \n", entry->ip, entry->domain);
+        }
+    }
+}
+
+// 删除 IP-域名 信息
+void del_domain_ip(const const char *ipv4_str)
+{
+    if (!ipv4_str)
+    {
+        return false;
+    }
+    ip_domain_map *entry = NULL;
+    HASH_FIND_STR(domain_table, ipv4_str, entry);
+    if (entry)
+    {
+        HASH_DEL(domain_table, entry);
+        free(entry);
+        LOG_DEBUG_C("[*] DEL Sucessful! \n");
+    }
+    else
+    {
+        LOG_DEBUG_C("[*] Not found! \n");
+    }
 }
 
 /* 加载白名单域名 */
@@ -182,7 +246,7 @@ static void load_whitelist()
     }
 
     fclose(fp);
-    LOG_DEBUG_C("[*] %s 加载了 %d 个白名单域名\n",WHITELIST_FILE,count);
+    LOG_DEBUG_C("[*] %s 加载了 %d 个白名单域名\n", WHITELIST_FILE, count);
 }
 
 /* 新增：保存IP域名表到文件 */
@@ -524,11 +588,11 @@ void route_by_domain(redsocks_client *client)
             // client->instance->config.relayaddr.sin_port=htons("80");
             char ip_str_cn[INET_ADDRSTRLEN];
             struct sockaddr_in *addr = &client->instance->config.cn_relayaddr;
-            inet_ntop(AF_INET,&addr->sin_addr,ip_str_cn,sizeof(ip_str_cn));
+            inet_ntop(AF_INET, &addr->sin_addr, ip_str_cn, sizeof(ip_str_cn));
             uint16_t port = ntohs(addr->sin_port);
 
             LOG_DEBUG_C("[*] %s -> 国内代理 %s:%d \n", entry->domain,
-                            ip_str_cn,port);
+                        ip_str_cn, port);
         }
         else
         {
@@ -540,11 +604,11 @@ void route_by_domain(redsocks_client *client)
             // client->instance->config.relayaddr.sin_port=htons("9000");
             char ip_str_foreign[INET_ADDRSTRLEN];
             struct sockaddr_in *addr = &client->instance->config.foreign_relayaddr;
-            inet_ntop(AF_INET,&addr->sin_addr,ip_str_foreign,sizeof(ip_str_foreign));
+            inet_ntop(AF_INET, &addr->sin_addr, ip_str_foreign, sizeof(ip_str_foreign));
             uint16_t port = ntohs(addr->sin_port);
 
             LOG_DEBUG_C("[*] %s -> 国内代理 %s:%d \n", entry->domain,
-                            ip_str_foreign,port);
+                        ip_str_foreign, port);
         }
     }
     else
@@ -866,7 +930,7 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
     if (client->destaddr.sin_port == htons(443))
     {
 
-        //LOG_DEBUG_C("[*] HTTPS 443 请求：%s\n", destIP);
+        // LOG_DEBUG_C("[*] HTTPS 443 请求：%s\n", destIP);
 
         // HTTPS流量：解析SNI
         struct evbuffer *input = bufferevent_get_input(to);
@@ -1243,7 +1307,7 @@ static void redsplice_client_read(int fd, short what, void *_pump)
         .evdst = &pump->relay_write,        // 事件目标：代理写入事件（用于反压控制）
         .shut_src = &pump->c.client_evshut, // 客户端关闭状态标记
     };
-    
+
     /* 1. 检查是否是HTTP/HTTPS流量 */
     if (pump->c.destaddr.sin_port == htons(80) || pump->c.destaddr.sin_port == htons(443))
     {
@@ -1428,7 +1492,6 @@ static int redsocks_start_splicepump(redsocks_client *client)
     struct event_base *base = NULL;                          // 使用默认事件基
     const int relay_fd = bufferevent_getfd(client->relay);   // 获取代理Socket真实fd
     const int client_fd = bufferevent_getfd(client->client); // 获取客户端Socket真实fd
-
 
     // 注册四个核心事件：
     // 1. 客户端数据可读事件

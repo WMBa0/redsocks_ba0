@@ -2994,3 +2994,71 @@
 1752835623.069617 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
 1752835657.701729 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
 1752835667.736282 notice main.c:197 main(...) redsocks goes down 结束
+1753080231.687672 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080234.196399 notice redsocks.c:2115 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1753080234.196511 notice redsocks.c:2219 redsocks_accept_client(...) [*] 请求连接： 192.168.204.128:39876 -> 183.2.172.17:80
+1753080234.196518 notice redsocks.c:1853 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1753080234.319966 notice redsocks.c:912 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1753080234.320046 notice redsocks.c:938 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1753080234.320056 notice redsocks.c:942 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1753080234.320061 notice redsocks.c:929 redsocks_start_relay(...) [*] 中继通道已建立
+1753080234.320093 notice redsocks.c:437 parse_host_header(...) HTTP : Host header: www.baidu.com -> 183.2.172.17
+1753080234.320098 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080234.320102 notice redsocks.c:836 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1753080234.320104 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080234.320157 notice redsocks.c:836 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1753080234.320164 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080234.395807 notice redsocks.c:824 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1753080234.395867 notice redsocks.c:778 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1753080234.395992 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080234.396319 notice redsocks.c:1654 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1753080234.396368 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080234.396381 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080234.396972 notice redsocks.c:1654 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1753080234.396993 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080234.396999 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080234.397042 notice redsocks.c:1494 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1753080235.802343 notice main.c:197 main(...) redsocks goes down 结束
+1753080311.378723 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080314.867368 notice redsocks.c:2115 redsocks_accept_client(...) [*] redsocks_accept_client 接受客户端连接
+1753080314.867438 notice redsocks.c:2219 redsocks_accept_client(...) [*] 请求连接： 192.168.204.128:38102 -> 183.2.172.177:80
+1753080314.867445 notice redsocks.c:1853 redsocks_connect_relay(...) [*] redsocks_connect_relay 连接代理服务器
+1753080314.936976 notice redsocks.c:912 redsocks_start_relay(...) [*] redsocks_start_relay  启动中继
+1753080314.937022 notice redsocks.c:938 redsocks_start_bufferpump(...) [*] redsocks_start_bufferpump  启动缓冲区泵
+1753080314.937029 notice redsocks.c:942 redsocks_start_bufferpump(...) into redsocks_start_bufferpump
+1753080314.937034 notice redsocks.c:929 redsocks_start_relay(...) [*] 中继通道已建立
+1753080314.937061 notice redsocks.c:437 parse_host_header(...) HTTP : Host header: www.baidu.com -> 183.2.172.177
+1753080314.937066 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080314.937070 notice redsocks.c:836 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1753080314.937072 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080314.937129 notice redsocks.c:836 redsocks_relay_relaywritecb(...) [*] redsocks_relay_relaywritecb 中继写入回调包装
+1753080314.937146 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080314.998395 notice redsocks.c:824 redsocks_relay_relayreadcb(...) [*] redsocks_relay_relayreadcb 中继读取回调包装
+1753080314.998443 notice redsocks.c:778 redsocks_relay_readcb(...) [*] redsocks_relay_readcb 中继读取回调
+1753080314.998562 notice redsocks.c:799 redsocks_relay_writecb(...) [*] redsocks_relay_writecb 中继写入回调
+1753080314.998855 notice redsocks.c:1654 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1753080314.998897 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080314.998906 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080314.999409 notice redsocks.c:1654 redsocks_event_error(...) [*] redsocks_event_error 错误事件回调
+1753080314.999439 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080314.999447 notice redsocks.c:1580 redsocks_shutdown(...) [*] redsocks_shutdown  关闭连接的一端或两端
+1753080314.999482 notice redsocks.c:1494 redsocks_drop_client(...) [*] redsocks_drop_client 关闭客户端连接
+1753080316.440088 notice main.c:197 main(...) redsocks goes down 结束
+1753080337.065688 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080355.894101 notice main.c:197 main(...) redsocks goes down 结束
+1753080378.904376 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080409.425889 notice main.c:197 main(...) redsocks goes down 结束
+1753080490.942775 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080499.909002 notice main.c:197 main(...) redsocks goes down 结束
+1753080725.812367 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753080744.453489 notice main.c:197 main(...) redsocks goes down 结束
+1753080988.402757 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753081001.661297 notice main.c:197 main(...) redsocks goes down 结束
+1753081139.403862 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753081158.733660 notice main.c:197 main(...) redsocks goes down 结束
+1753081175.135434 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753081242.921816 notice main.c:197 main(...) redsocks goes down 结束
+1753083364.680089 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753083378.620889 notice main.c:197 main(...) redsocks goes down 结束
+1753083411.524766 notice main.c:193 main(...) 启动 & 最大连接数：redsocks started, conn_max=3072
+1753083444.958207 notice main.c:197 main(...) redsocks goes down 结束
