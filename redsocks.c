@@ -193,7 +193,7 @@ void del_domain_ip(const const char *ipv4_str)
 {
     if (!ipv4_str)
     {
-        return false;
+        return;
     }
     ip_domain_map *entry = NULL;
     HASH_FIND_STR(domain_table, ipv4_str, entry);

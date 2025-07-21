@@ -69,4 +69,9 @@ typedef struct dns_request_t {
     } data;
 } dns_request;
 
+void dns_parse_qname2(const uint8_t *qname, const uint8_t *packet, char *out, size_t out_len);
+void parse_dns_response2(const uint8_t *packet, size_t len);
+
+
+
 #endif /* TCPDNS_H */

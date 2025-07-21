@@ -245,8 +245,6 @@ static inline void tcpdns_update_delay(dns_request *req, int delay)
 }
 
 
-
-
 void parse_dns_response2(const uint8_t *packet, size_t len) {
     // 1. 检查基本有效性
     if (len < 12) return; // DNS头部固定12字节
