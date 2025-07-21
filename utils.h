@@ -72,6 +72,7 @@ int fcntl_nonblock(int fd);
 #else
 #define RED_INET_ADDRSTRLEN (INET6_ADDRSTRLEN + 1 + 5 + 1) // addr + : + port + \0
 #endif
+
 char *red_inet_ntop(const struct sockaddr_in *sa, char *buffer, size_t buffer_size);
 
 /* vim:set tabstop=4 softtabstop=4 shiftwidth=4: */

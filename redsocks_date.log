@@ -1,48 +1,65 @@
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:624:is_splice_good(): 支持 splice模式 
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: http.com -> 5.22.145.16
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:304:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 20 条域名映射
-2025-07-21 15:36:51.524 [34m[DEBUG  ][0m redsocks.c:249:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
-新建请求 0x562b6f393c00, 客户端: 127.0.0.1:57550
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:624:is_splice_good(): 支持 splice模式 
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.1
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.177
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 183.2.172.17
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.26
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: github.com -> 20.205.243.166
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.213
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 104.208.16.92
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.186
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.baidu.com -> 157.148.69.151
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.214
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.189.173.28
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.52.40.83
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 20.44.10.122
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.18
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: www.bing.com -> 23.55.39.8
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.182.143.211
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: mobile.events.data.microsoft.com -> 52.168.117.169
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhihu.com -> 103.41.167.234
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:299:load_domain_table(): [*]从文件加载域名映射: zhuanlan.zhihu.com -> 113.59.44.69
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:304:load_domain_table(): [*]从 ./ip_domain_table.txt 加载了 19 条域名映射
+2025-07-21 15:49:40.348 [34m[DEBUG  ][0m redsocks.c:249:load_whitelist(): [*] whitelist_domain.txt 加载了 6 个白名单域名
+新建请求 0x557e69c89c00, 客户端: 127.0.0.1:49039
 响应大小: 103 
-2025-07-21 15:37:03.657 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.186
-2025-07-21 15:37:03.657 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+2025-07-21 15:49:45.374 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
 DNS Response: www.baidu.com -> 157.148.69.151
-[*] DNS服务器 114.114.114.114 延迟: 126ms (历史: 126/126/126) | 请求ID: 061e | 客户端: 127.0.0.1:57550 
-2025-07-21 15:37:03.657 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f393c00 (状态=2, resolver=0x562b6f393ee0) 
-新建请求 0x562b6f3945a0, 客户端: 127.0.0.1:57550
+2025-07-21 15:49:45.374 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.186
+[*] DNS服务器 114.114.114.114 延迟: 102ms (历史: 102/102/102) | 请求ID: d4ce | 客户端: 127.0.0.1:49039 
+2025-07-21 15:49:45.374 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c89c00 (状态=2, resolver=0x557e69c89ee0) 
+新建请求 0x557e69c8a5a0, 客户端: 127.0.0.1:49039
 响应大小: 103 
-2025-07-21 15:37:08.836 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+2025-07-21 15:49:50.394 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
 DNS Response: www.baidu.com -> 157.148.69.151
-2025-07-21 15:37:08.836 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+2025-07-21 15:49:50.394 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
 DNS Response: www.baidu.com -> 157.148.69.186
-[*] DNS服务器 114.114.114.114 延迟: 300ms (历史: 300/300/300) | 请求ID: 061e | 客户端: 127.0.0.1:57550 
-2025-07-21 15:37:08.836 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f3945a0 (状态=2, resolver=0x562b6f39a040) 
-新建请求 0x562b6f39a5d0, 客户端: 127.0.0.1:36101
+[*] DNS服务器 114.114.114.114 延迟: 118ms (历史: 118/118/118) | 请求ID: d4ce | 客户端: 127.0.0.1:49039 
+2025-07-21 15:49:50.394 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c8a5a0 (状态=2, resolver=0x557e69c8fef0) 
+新建请求 0x557e69c90480, 客户端: 127.0.0.1:59012
+响应大小: 57 
+2025-07-21 15:49:53.026 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+DNS Response: github.com -> 20.205.243.166
+[*] DNS服务器 114.114.114.114 延迟: 122ms (历史: 102/112/122) | 请求ID: f4be | 客户端: 127.0.0.1:59012 
+2025-07-21 15:49:53.026 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c90480 (状态=2, resolver=0x557e69c90760) 
+新建请求 0x557e69c90dd0, 客户端: 127.0.0.1:41056
 响应大小: 103 
-2025-07-21 15:37:13.636 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
-DNS Response: www.baidu.com -> 157.148.69.151
-2025-07-21 15:37:13.636 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
+2025-07-21 15:49:55.387 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.186 -> www.baidu.com 
 DNS Response: www.baidu.com -> 157.148.69.186
-[*] DNS服务器 114.114.114.114 延迟: 98ms (历史: 98/112/126) | 请求ID: 061e | 客户端: 127.0.0.1:36101 
-2025-07-21 15:37:13.636 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x562b6f39a5d0 (状态=2, resolver=0x562b6f39a8b0) 
-2025-07-21 15:37:24.958 [34m[DEBUG  ][0m redsocks.c:269:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt
+2025-07-21 15:49:55.387 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 157.148.69.151 -> www.baidu.com 
+DNS Response: www.baidu.com -> 157.148.69.151
+[*] DNS服务器 114.114.114.114 延迟: 109ms (历史: 109/113/118) | 请求ID: d4ce | 客户端: 127.0.0.1:41056 
+2025-07-21 15:49:55.387 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c90dd0 (状态=2, resolver=0x557e69c910b0) 
+新建请求 0x557e69c91440, 客户端: 127.0.0.1:59012
+响应大小: 57 
+2025-07-21 15:49:58.029 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+DNS Response: github.com -> 20.205.243.166
+[*] DNS服务器 114.114.114.114 延迟: 124ms (历史: 102/116/124) | 请求ID: f4be | 客户端: 127.0.0.1:59012 
+2025-07-21 15:49:58.029 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c91440 (状态=2, resolver=0x557e69c91720) 
+新建请求 0x557e69c91440, 客户端: 127.0.0.1:46195
+响应大小: 57 
+2025-07-21 15:50:03.082 [34m[DEBUG  ][0m redsocks.c:179:add_domain_ip(): [*] IP-域名已存在 20.205.243.166 -> github.com 
+DNS Response: github.com -> 20.205.243.166
+[*] DNS服务器 114.114.114.114 延迟: 176ms (历史: 109/134/176) | 请求ID: f4be | 客户端: 127.0.0.1:46195 
+2025-07-21 15:50:03.082 [34m[DEBUG  ][0m tcpdns.c:158:tcpdns_drop_request(): 释放请求 0x557e69c91440 (状态=2, resolver=0x557e69c91990) 
+2025-07-21 15:50:09.769 [34m[DEBUG  ][0m redsocks.c:269:save_domain_table(): [*] 域名表已保存到 ./ip_domain_table.txt

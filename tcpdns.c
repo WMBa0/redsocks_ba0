@@ -72,7 +72,7 @@ static int tcpdns_fini();
 #define DNS_RC_NOTAUTH 8  // 未授权
 #define DNS_RC_NOTZONE 9  // 不在区域
 
-#define DEFAULT_TIMEOUT_SECONDS 4 // 默认超时时间(秒)
+#define DEFAULT_TIMEOUT_SECONDS 10 // 默认超时时间(秒)
 
 // 测试标志
 #define FLAG_TCP_TEST 0x01
@@ -333,7 +333,7 @@ static void tcpdns_readcb(struct bufferevent *from, void *_arg)
     assert(from == req->resolver);
     size_t input_size = evbuffer_get_length(bufferevent_get_input(from));
 
-    printf("响应大小: %zu \n", input_size);
+    //printf("响应大小: %zu \n", input_size);
 
     if (input_size == 0 || input_size > sizeof(buff))
         // EOF或响应过大，丢弃
@@ -608,7 +608,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
         // 打印接收到的原始数据包(十六进制)
         //print_hex_dump("请求DNS UDP数据包", req->data.raw, req->data_len);
         char buf[255];
-        printf("新建请求 %p, 客户端: %s\n", req,
+        LOG_DEBUG_C("新建请求 %p, 客户端: %s\n", req,
                red_inet_ntop(&req->client_addr, buf, sizeof(buf)));
 
         tv.tv_sec = self->config.timeout;
@@ -635,7 +635,7 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
             list_add(&req->list, &self->requests); // 添加到请求列表
         else
         {
-            tcpdns_log_error(LOG_INFO, "连接到DNS解析器失败");
+            LOG_DEBUG_C("连接到DNS解析器失败\n");
             free(req);
         }
     }
@@ -804,7 +804,7 @@ static int tcpdns_init_instance(tcpdns_instance *instance)
     }
 
     // 创建监听事件
-    instance->listener = event_new(get_event_base(), fd, EV_READ | EV_PERSIST,
+    instance->listener = event_new((struct event_base *)get_event_base(), fd, EV_READ | EV_PERSIST,
                                    tcpdns_pkt_from_client, instance);
     if (!instance->listener)
     {
