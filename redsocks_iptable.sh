@@ -14,15 +14,12 @@ iptables -t nat -A REDSOCKS_DNS -d 198.18.0.0/15 -j RETURN
 iptables -t nat -A REDSOCKS_DNS -d 224.0.0.0/4 -j RETURN
 iptables -t nat -A REDSOCKS_DNS -d 240.0.0.0/4 -j RETURN
 
-
 # 4. 应用到OUTPUT链
 iptables -t nat -A OUTPUT -p tcp -j REDSOCKS_DNS
 # #sudo iptables -t nat -L -v --line-numbers
 
-
 # DNS重定向（强制走TCP）
 iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports 9992
-
 
 # HTTP\HTTPS 重定向
 iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 9999
