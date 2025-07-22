@@ -105,7 +105,7 @@ static parser_entry redsocks_entries[] = {
     {.key = "cn_port", .type = pt_uint16},
     {.key = "foreign_ip", .type = pt_in_addr},
     {.key = "foreign_port", .type = pt_pchar},
-
+    {.key = "debug_color", .type = pt_bool},
     {}};
 
 /* 新增：用于存储IP和域名的映射关系 */
@@ -176,7 +176,7 @@ void add_domain_ip(const char *domain, const char *addr)
         if (!strcmp(old_domain, domain))
         {
             // 相同
-             LOG_DEBUG_C("[*] IP-域名已存在 %s -> %s \n", entry->ip, entry->domain);
+            LOG_DEBUG_C("[*] IP-域名已存在 %s -> %s \n", entry->ip, entry->domain);
         }
         else
         {
@@ -671,7 +671,7 @@ static int redsocks_onenter(parser_section *section)
     instance->config.relayaddr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     instance->config.listenq = SOMAXCONN;           // 默认监听队列长度
     instance->config.use_splice = is_splice_good(); // 是否使用splice
-
+    instance->config.use_debug_color=true;          //默认打开
     instance->config.disclose_src = DISCLOSE_NONE; // 默认不披露源地址
     instance->config.on_proxy_fail = ONFAIL_CLOSE; // 代理失败时关闭连接
 
@@ -694,12 +694,14 @@ static int redsocks_onenter(parser_section *section)
                       : (strcmp(entry->key, "cn_port") == 0)      ? (void *)&instance->config.cn_relayaddr.sin_port
                       : (strcmp(entry->key, "foreign_ip") == 0)   ? (void *)&instance->config.foreign_relayaddr.sin_addr
                       : (strcmp(entry->key, "foreign_port") == 0) ? (void *)&instance->config.foreign_relayaddr.sin_port
+                      : (strcmp(entry->key, "debug_color") == 0)  ? (void *)&instance->config.use_debug_color
 
-                                                                  : NULL;
+                                                                 : NULL;
     }
     instance->config.cn_relayaddr.sin_family = AF_INET;
     instance->config.foreign_relayaddr.sin_family = AF_INET;
-
+    //LOG_DEBUG_C("[*] %d \n",instance->config.use_debug_color);
+   
     section->data = instance;
     return 0;
 }
@@ -722,6 +724,13 @@ static int redsocks_onexit(parser_section *section)
     instance->config.cn_relayaddr.sin_port = htons(instance->config.cn_relayaddr.sin_port);
     instance->config.foreign_relayaddr.sin_port = htons(instance->config.foreign_relayaddr.sin_port);
 
+     if(instance->config.use_debug_color){
+        LOG_DEBUG_C("[*] 默认开启调试日志 \n");
+    }else{
+        LOG_DEBUG_C("[*] 关闭调试日志 \n");
+        current_log_level=LOG_LEVEL_QUIET;
+    }
+    
     // 验证类型配置
     if (instance->config.type)
     {
@@ -839,7 +848,7 @@ static const char *bufname(redsocks_client *client, struct bufferevent *buf)
 static void redsocks_relay_readcb(redsocks_client *client, struct bufferevent *from, struct bufferevent *to)
 {
 
-    //log_error(LOG_NOTICE, "[*] redsocks_relay_readcb 中继读取回调");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_readcb 中继读取回调");
 
     if (evbuffer_get_length(to->output) < to->wm_write.high)
     {
@@ -860,7 +869,7 @@ static void redsocks_relay_readcb(redsocks_client *client, struct bufferevent *f
 // 中继写入回调
 static void redsocks_relay_writecb(redsocks_client *client, struct bufferevent *from, struct bufferevent *to)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_relay_writecb 中继写入回调");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_writecb 中继写入回调");
 
     assert(from == client->client || from == client->relay);
     char from_eof = (from == client->client ? client->client_evshut : client->relay_evshut) & EV_READ;
@@ -885,7 +894,7 @@ static void redsocks_relay_writecb(redsocks_client *client, struct bufferevent *
 // 中继读取回调包装
 static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_relay_relayreadcb 中继读取回调包装");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_relayreadcb 中继读取回调包装");
 
     redsocks_client *client = _client;
 
@@ -897,8 +906,8 @@ static void redsocks_relay_relayreadcb(struct bufferevent *from, void *_client)
 // 中继写入回调包装
 static void redsocks_relay_relaywritecb(struct bufferevent *to, void *_client)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
-    // LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
+    // log_error(LOG_NOTICE, "[*] redsocks_relay_relaywritecb 中继写入回调包装");
+    //  LOG_DEBUG_C("[*] relay 中继写入回调包装 \n");
     redsocks_client *client = _client;
     // 根据端口选择
     redsocks_touch_client(client);
@@ -960,8 +969,8 @@ static void redsocks_relay_clientwritecb(struct bufferevent *to, void *_client)
             parse_host_header((const char *)data, len, client);
         }
         else
-        {   // 关掉日志，会重复多次
-            //LOG_DEBUG_C("[*] HTTP 数据为空\n");
+        { // 关掉日志，会重复多次
+          // LOG_DEBUG_C("[*] HTTP 数据为空\n");
         }
     }
 
@@ -1554,7 +1563,7 @@ static bool has_loopback_destination(redsocks_client *client)
 // 关闭并释放客户端连接
 void redsocks_drop_client(redsocks_client *client)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_drop_client 关闭客户端连接");
+    // log_error(LOG_NOTICE, "[*] redsocks_drop_client 关闭客户端连接");
     if (shut_both(client))
     {
         redsocks_log_error(client, LOG_INFO, "connection closed");
@@ -1640,7 +1649,7 @@ void redsocks_drop_client(redsocks_client *client)
 // 关闭连接的一端或两端
 void redsocks_shutdown(redsocks_client *client, struct bufferevent *buffev, int how)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_shutdown  关闭连接的一端或两端");
+    // log_error(LOG_NOTICE, "[*] redsocks_shutdown  关闭连接的一端或两端");
 
     short evhow = 0;
     const char *strev, *strhow = NULL, *strevhow = NULL;
@@ -1714,7 +1723,7 @@ static int redsocks_socket_geterrno(redsocks_client *client, struct bufferevent 
 // 错误事件回调
 static void redsocks_event_error(struct bufferevent *buffev, short what, void *_arg)
 {
-    //log_error(LOG_NOTICE, "[*] redsocks_event_error 错误事件回调");
+    // log_error(LOG_NOTICE, "[*] redsocks_event_error 错误事件回调");
     redsocks_client *client = _arg;
     assert(buffev == client->relay || buffev == client->client);
     const int bakerrno = errno;

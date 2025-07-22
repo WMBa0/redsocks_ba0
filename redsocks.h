@@ -39,6 +39,7 @@ typedef struct redsocks_config_t {
 	//add......
 	struct sockaddr_in cn_relayaddr;
 	struct sockaddr_in foreign_relayaddr;
+	bool use_debug_color;
 
 } redsocks_config;
 
